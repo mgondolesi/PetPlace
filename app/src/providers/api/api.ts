@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  url: string = 'http://pet-place.herokuapp.com/api';
+  url: string = 'http://localhost:5000/api';
 
   constructor(public http: HttpClient) {
   }

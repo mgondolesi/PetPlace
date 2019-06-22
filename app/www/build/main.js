@@ -105,7 +105,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var Api = /** @class */ (function () {
     function Api(http) {
         this.http = http;
-        this.url = 'http://pet-place.herokuapp.com/api';
+        this.url = 'http://localhost:5000/api';
     }
     Api.prototype.get = function (endpoint, params, reqOpts) {
         if (!reqOpts) {
