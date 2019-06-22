@@ -41,10 +41,10 @@ page-welcome {
   }
   button.login {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-    background:  #1ABC9C !important;
+    background:  rgb(227, 120, 50) !important;
     padding: 22px !important;
     &.activated {
-      background-color: #1ABC9C;
+      background-color: rgb(227, 120, 50);
     }
   }
   button.signup {
