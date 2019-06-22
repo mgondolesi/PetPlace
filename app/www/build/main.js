@@ -26,42 +26,42 @@ var map = {
 		9
 	],
 	"../pages/following/following.module": [
-		341,
+		333,
 		8
 	],
 	"../pages/item-create/item-create.module": [
-		340,
+		334,
 		7
 	],
 	"../pages/item-detail/item-detail.module": [
-		333,
+		335,
 		6
 	],
 	"../pages/list-master/list-master.module": [
-		334,
+		336,
 		5
 	],
 	"../pages/newsfeed-create/newsfeed-create.module": [
-		335,
+		337,
 		4
 	],
 	"../pages/newsfeed/newsfeed.module": [
-		336,
+		338,
 		3
 	],
 	"../pages/profile/profile.module": [
-		337,
+		339,
 		2
 	],
 	"../pages/signup/signup.module": [
-		338,
+		340,
 		1
 	],
 	"../pages/users_lists/users_lists.module": [
 		184
 	],
 	"../pages/welcome/welcome.module": [
-		339,
+		341,
 		0
 	]
 };
@@ -433,7 +433,7 @@ var UsersPage = /** @class */ (function () {
     };
     UsersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'users_lists',template:/*ion-inline-start:"E:\Facultad\Ing. de Software\login\Ionic3-Multi-Purpose-Theme\src\pages\users_lists\users_lists.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-buttons left>\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>{{ \'Users Lists\' | translate }}</ion-title>\n    <ion-buttons right>\n      <button ion-button icon-only (click)="addItem()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ \'Search Users\' | translate }}"></ion-searchbar>\n  <ion-list>\n    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let item of currentItems" #slidingItem>\n      <ion-item (click)="openItem(item)" (press)="pressEvent($event)">\n        <ion-avatar item-start>\n          <img [src]="item.profilePic">\n        </ion-avatar>\n        <h2>{{item.name}}</h2>\n        <p>{{item.about}}</p>\n        <ion-icon item-end ios="ios-checkmark" md="md-checkmark" class="nextDiff"></ion-icon>\n      </ion-item>\n      <ion-item-options side="right">\n        <button ion-button color="dark" icon-start>\n          <ion-icon name="ios-more"></ion-icon>\n\n        </button>\n        <button ion-button color="dark" icon-start>\n          <ion-icon name="text"></ion-icon>\n\n        </button>\n        <button ion-button color="dark" icon-start>\n          <ion-icon name="call"></ion-icon>\n        </button>\n      </ion-item-options>\n\n      <ion-item-options side="left">\n        <button ion-button color="dark" (click)="deleteItem(item,slidingItem)" icon-start>\n          <ion-icon name="trash"></ion-icon>\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>\n\n\n'/*ion-inline-end:"E:\Facultad\Ing. de Software\login\Ionic3-Multi-Purpose-Theme\src\pages\users_lists\users_lists.html"*/
+            selector: 'users_lists',template:/*ion-inline-start:"E:\Facultad\Ing. de Software\GitHub\PetPlace\app\src\pages\users_lists\users_lists.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-buttons left>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{ \'Users Lists\' | translate }}</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (click)="addItem()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ \'Search Users\' | translate }}"></ion-searchbar>\n\n  <ion-list>\n\n    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let item of currentItems" #slidingItem>\n\n      <ion-item (click)="openItem(item)" (press)="pressEvent($event)">\n\n        <ion-avatar item-start>\n\n          <img [src]="item.profilePic">\n\n        </ion-avatar>\n\n        <h2>{{item.name}}</h2>\n\n        <p>{{item.about}}</p>\n\n        <ion-icon item-end ios="ios-checkmark" md="md-checkmark" class="nextDiff"></ion-icon>\n\n      </ion-item>\n\n      <ion-item-options side="right">\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="ios-more"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="text"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="call"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n      <ion-item-options side="left">\n\n        <button ion-button color="dark" (click)="deleteItem(item,slidingItem)" icon-start>\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"E:\Facultad\Ing. de Software\GitHub\PetPlace\app\src\pages\users_lists\users_lists.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_vibration__["a" /* Vibration */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers__["b" /* Items */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
@@ -545,6 +545,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/followers/followers.module#FollowersModule', name: 'Followers', segment: 'followers', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/following/following.module#FollowerModule', name: 'Following', segment: 'following', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/newsfeed-create/newsfeed-create.module#NewsfeedCreateModule', name: 'NewsfeedCreate', segment: 'newsfeed-create', priority: 'low', defaultHistory: [] },
@@ -552,9 +554,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/users_lists/users_lists.module#UsersPageModule', name: 'UsersPage', segment: 'users_lists', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/following/following.module#FollowerModule', name: 'Following', segment: 'following', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot()

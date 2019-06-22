@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 336:
+/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__newsfeed__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__newsfeed__ = __webpack_require__(348);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var NewsfeedModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 346:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -122,7 +122,7 @@ var NewsFeed = /** @class */ (function () {
     };
     NewsFeed = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'news-feed',template:/*ion-inline-start:"E:\Facultad\Ing. de Software\login\Ionic3-Multi-Purpose-Theme\src\pages\newsfeed\newsfeed.html"*/'\n<ion-header>\n  <ion-navbar color="primary">\n    <ion-buttons left>\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>{{ \'News Feed\' | translate }}</ion-title>\n    <ion-buttons right>\n      <button ion-button icon-only (click)="addNewsFeed()" ><ion-icon name="add"></ion-icon></button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content>\n\n  <ion-card *ngFor="let item of cardItems">\n\n    <ion-item>\n      <ion-avatar item-start>\n        <img [src]="item.user_avtar">\n      </ion-avatar>\n      <h2>{{item.user_name}}</h2>\n      <p>{{item.date}}</p>\n    </ion-item>\n\n    <img (tap)="dblClickEvent($event,item.user_name)"  [src]="item.image">\n\n    <ion-card-content>\n      <p>{{item.content}}</p>\n    </ion-card-content>\n\n    <ion-row>\n      <ion-col>\n        <button ion-button color="primary" clear small icon-start>\n          <ion-icon name=\'thumbs-up\'></ion-icon>\n          {{likes}} Likes\n        </button>\n      </ion-col>\n      <ion-col>\n        <button ion-button color="primary" clear small icon-start>\n          <ion-icon name=\'text\'></ion-icon>\n          4 Comments\n        </button>\n      </ion-col>\n      <ion-col center text-center>\n        <ion-note>\n          11h ago\n        </ion-note>\n      </ion-col>\n    </ion-row>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"E:\Facultad\Ing. de Software\login\Ionic3-Multi-Purpose-Theme\src\pages\newsfeed\newsfeed.html"*/
+            selector: 'news-feed',template:/*ion-inline-start:"E:\Facultad\Ing. de Software\GitHub\PetPlace\app\src\pages\newsfeed\newsfeed.html"*/'\n\n<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-buttons left>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{ \'News Feed\' | translate }}</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (click)="addNewsFeed()" ><ion-icon name="add"></ion-icon></button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <ion-card *ngFor="let item of cardItems">\n\n\n\n    <ion-item>\n\n      <ion-avatar item-start>\n\n        <img [src]="item.user_avtar">\n\n      </ion-avatar>\n\n      <h2>{{item.user_name}}</h2>\n\n      <p>{{item.date}}</p>\n\n    </ion-item>\n\n\n\n    <img (tap)="dblClickEvent($event,item.user_name)"  [src]="item.image">\n\n\n\n    <ion-card-content>\n\n      <p>{{item.content}}</p>\n\n    </ion-card-content>\n\n\n\n    <ion-row>\n\n      <ion-col>\n\n        <button ion-button color="primary" clear small icon-start>\n\n          <ion-icon name=\'thumbs-up\'></ion-icon>\n\n          {{likes}} Likes\n\n        </button>\n\n      </ion-col>\n\n      <ion-col>\n\n        <button ion-button color="primary" clear small icon-start>\n\n          <ion-icon name=\'text\'></ion-icon>\n\n          4 Comments\n\n        </button>\n\n      </ion-col>\n\n      <ion-col center text-center>\n\n        <ion-note>\n\n          11h ago\n\n        </ion-note>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"E:\Facultad\Ing. de Software\GitHub\PetPlace\app\src\pages\newsfeed\newsfeed.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */], __WEBPACK_IMPORTED_MODULE_2__providers__["b" /* Items */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]])
     ], NewsFeed);
