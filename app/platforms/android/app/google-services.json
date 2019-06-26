@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "383053869902",
+    "firebase_url": "https://petplace-71df0.firebaseio.com",
+    "project_id": "petplace-71df0",
+    "storage_bucket": "petplace-71df0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383053869902:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383053869902-efbnjf6n6httk3s7t2o5p804ptcjbcn6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2CApFqgmaGDFxtyDWvfwgiTTG-RHS_L4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383053869902-efbnjf6n6httk3s7t2o5p804ptcjbcn6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
