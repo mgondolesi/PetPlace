@@ -82,7 +82,7 @@ page-welcome {
     border: 3px solid map_get($colors, theme_color) !important;
   }
   .content-md {
-    background-color: black !important;
+    background-color: white !important;
   }
   .welcomeHeader {
     text-align: center;
@@ -90,7 +90,7 @@ page-welcome {
     font-family: "sans-serif";
   }
   .content-ios {
-    background: black !important;
+    background: white !important;
   }
   a{
     color: map_get($colors, theme_color);
