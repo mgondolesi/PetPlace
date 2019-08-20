@@ -10,13 +10,12 @@ import { FirstRunPage } from '../';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-  account: { name: string, email: string, password: string,number:string,myDate:string, gender:string} = {
+  account: { name: string, email: string, password: string,lastname:string,username:string} = {
     name: '',
     email: '',
     password: '',
-    number:'',
-    myDate:'MM/DD/YYYY',
-    gender:'m'
+    lastname: '',
+    username: '',
   };
 
   // Our translated text strings
