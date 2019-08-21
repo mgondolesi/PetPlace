@@ -3,7 +3,7 @@
     <div class="logoHeader">
       <img alt="logo" height="200" style="position: relative" src="../assets/img/logo-negro.png">
     </div>
-    <h1 class="welcomeHeader">PetPlace</h1>
+    <h1 class="welcomeHeader"><font face="verdana">PetPlace</font></h1>
     <form *ngIf="form" [formGroup]="form" (ngSubmit)="signIn()">
       <div padding>
         <ion-input type="email"  [(ngModel)]="account.email" class="input-access-code" placeholder="Email" formControlName="user_name"></ion-input>
