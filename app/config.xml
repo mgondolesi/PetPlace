@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ionic3-Multi-Purpose-Theme</name>
+    <name>PetPlace</name>
     <description>Elegant designed another ionic theme to start with.</description>
     <author email="ionic@nettantra.net" href="https://nettantra.com">NetTantra</author>
     <content src="index.html" />
