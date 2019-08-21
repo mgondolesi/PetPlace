@@ -26,42 +26,42 @@ var map = {
 		9
 	],
 	"../pages/following/following.module": [
-		341,
+		333,
 		8
 	],
 	"../pages/item-create/item-create.module": [
-		333,
+		334,
 		7
 	],
 	"../pages/item-detail/item-detail.module": [
-		334,
+		335,
 		6
 	],
 	"../pages/list-master/list-master.module": [
-		335,
+		336,
 		5
 	],
 	"../pages/newsfeed-create/newsfeed-create.module": [
-		336,
+		337,
 		4
 	],
 	"../pages/newsfeed/newsfeed.module": [
-		337,
+		338,
 		3
 	],
 	"../pages/profile/profile.module": [
-		338,
+		339,
 		2
 	],
 	"../pages/signup/signup.module": [
-		339,
+		340,
 		1
 	],
 	"../pages/users_lists/users_lists.module": [
 		184
 	],
 	"../pages/welcome/welcome.module": [
-		340,
+		341,
 		0
 	]
 };
@@ -105,7 +105,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var Api = /** @class */ (function () {
     function Api(http) {
         this.http = http;
-        this.url = 'http://localhost:5000/api';
+        this.url = 'https://pet-place.herokuapp.com/api';
     }
     Api.prototype.get = function (endpoint, params, reqOpts) {
         if (!reqOpts) {
@@ -261,7 +261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__users_lists__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__users_lists__ = __webpack_require__(227);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -297,6 +297,28 @@ var UsersPageModule = /** @class */ (function () {
 /***/ }),
 
 /***/ 226:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirstRunPage; });
+/* unused harmony export MainPage */
+/* unused harmony export Tab1Root */
+/* unused harmony export Tab2Root */
+/* unused harmony export Tab3Root */
+// The page the user lands on after opening the app and without a session
+var FirstRunPage = 'WelcomePage';
+// The main page the user will see as they use the app over a long period of time.
+// Change this if not using tabs
+var MainPage = 'TabsPage';
+// The initial root pages for our tabs (remove if not using tabs)
+var Tab1Root = 'ListMasterPage';
+var Tab2Root = 'SearchPage';
+var Tab3Root = 'SettingsPage';
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -411,7 +433,7 @@ var UsersPage = /** @class */ (function () {
     };
     UsersPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'users_lists',template:/*ion-inline-start:"C:\Users\Dalmiro\Desktop\IdS\PetPlace\app\src\pages\users_lists\users_lists.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-buttons left>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{ \'Users Lists\' | translate }}</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (click)="addItem()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ \'Search Users\' | translate }}"></ion-searchbar>\n\n  <ion-list>\n\n    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let item of currentItems" #slidingItem>\n\n      <ion-item (click)="openItem(item)" (press)="pressEvent($event)">\n\n        <ion-avatar item-start>\n\n          <img [src]="item.profilePic">\n\n        </ion-avatar>\n\n        <h2>{{item.name}}</h2>\n\n        <p>{{item.about}}</p>\n\n        <ion-icon item-end ios="ios-checkmark" md="md-checkmark" class="nextDiff"></ion-icon>\n\n      </ion-item>\n\n      <ion-item-options side="right">\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="ios-more"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="text"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="call"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n      <ion-item-options side="left">\n\n        <button ion-button color="dark" (click)="deleteItem(item,slidingItem)" icon-start>\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"C:\Users\Dalmiro\Desktop\IdS\PetPlace\app\src\pages\users_lists\users_lists.html"*/
+            selector: 'users_lists',template:/*ion-inline-start:"C:\Users\Julian\Documents\GitHub\PetPlace\app\src\pages\users_lists\users_lists.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-buttons left>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{ \'Users Lists\' | translate }}</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (click)="addItem()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ \'Search Users\' | translate }}"></ion-searchbar>\n\n  <ion-list>\n\n    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let item of currentItems" #slidingItem>\n\n      <ion-item (click)="openItem(item)" (press)="pressEvent($event)">\n\n        <ion-avatar item-start>\n\n          <img [src]="item.profilePic">\n\n        </ion-avatar>\n\n        <h2>{{item.name}}</h2>\n\n        <p>{{item.about}}</p>\n\n        <ion-icon item-end ios="ios-checkmark" md="md-checkmark" class="nextDiff"></ion-icon>\n\n      </ion-item>\n\n      <ion-item-options side="right">\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="ios-more"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="text"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="call"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n      <ion-item-options side="left">\n\n        <button ion-button color="dark" (click)="deleteItem(item,slidingItem)" icon-start>\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"C:\Users\Julian\Documents\GitHub\PetPlace\app\src\pages\users_lists\users_lists.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_vibration__["a" /* Vibration */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_3__providers__["b" /* Items */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
@@ -422,28 +444,6 @@ var UsersPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=users_lists.js.map
-
-/***/ }),
-
-/***/ 227:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirstRunPage; });
-/* unused harmony export MainPage */
-/* unused harmony export Tab1Root */
-/* unused harmony export Tab2Root */
-/* unused harmony export Tab3Root */
-// The page the user lands on after opening the app and without a session
-var FirstRunPage = 'WelcomePage';
-// The main page the user will see as they use the app over a long period of time.
-// Change this if not using tabs
-var MainPage = 'TabsPage';
-// The initial root pages for our tabs (remove if not using tabs)
-var Tab1Root = 'ListMasterPage';
-var Tab2Root = 'SearchPage';
-var Tab3Root = 'SettingsPage';
-//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -545,16 +545,16 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/followers/followers.module#FollowersModule', name: 'Followers', segment: 'followers', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/following/following.module#FollowerModule', name: 'Following', segment: 'following', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/newsfeed-create/newsfeed-create.module#NewsfeedCreateModule', name: 'NewsfeedCreate', segment: 'newsfeed-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/newsfeed/newsfeed.module#NewsfeedModule', name: 'NewsFeed', segment: 'newsfeed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/users_lists/users_lists.module#UsersPageModule', name: 'UsersPage', segment: 'users_lists', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/following/following.module#FollowerModule', name: 'Following', segment: 'following', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/users_lists/users_lists.module#UsersPageModule', name: 'UsersPage', segment: 'users_lists', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["a" /* IonicStorageModule */].forRoot()
@@ -831,7 +831,7 @@ var User = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(134);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
