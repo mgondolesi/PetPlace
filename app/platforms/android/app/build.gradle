@@ -93,8 +93,6 @@ ext {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "../cordova-android-support-gradle-release/starter-cordova-android-support-gradle-release.gradle"
-apply from: "../cordova-support-google-services/starter-build.gradle"
-apply from: "../phonegap-plugin-multidex/starter-multidex.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -274,8 +272,9 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     implementation "androidx.legacy:legacy-support-v13:1.0.0"
-    implementation "me.leolin:ShortcutBadger:1.1.17@aar"
-    implementation "com.google.firebase:firebase-messaging:11.6.2"
+    implementation "com.google.firebase:firebase-messaging:20.0.0"
+    implementation "com.google.android.gms:play-services-auth:11.8.0"
+    implementation "com.google.android.gms:play-services-identity:11.8.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 
