@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 340:
+/***/ 341:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__welcome__ = __webpack_require__(351);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -44,7 +44,7 @@ var WelcomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 350:
+/***/ 351:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54,7 +54,8 @@ var WelcomePageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(57);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__users_lists_users_lists__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__users_lists_users_lists__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__ = __webpack_require__(352);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -70,8 +71,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var WelcomePage = /** @class */ (function () {
-    function WelcomePage(navCtrl, toastCtrl, translateService, loadingCtrl, formBuilder, viewCtrl, app, user) {
+    function WelcomePage(navCtrl, toastCtrl, translateService, loadingCtrl, formBuilder, viewCtrl, app, user, googlePlus) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.toastCtrl = toastCtrl;
@@ -81,6 +83,7 @@ var WelcomePage = /** @class */ (function () {
         this.viewCtrl = viewCtrl;
         this.app = app;
         this.user = user;
+        this.googlePlus = googlePlus;
         // @ViewChild(Nav) nav: Nav;
         this.pages = [
             { title: 'Users Lists', component: 'UsersPage' }
@@ -102,6 +105,11 @@ var WelcomePage = /** @class */ (function () {
         });
         this.falsemsg = "Usuario Incorrecto";
     }
+    WelcomePage.prototype.login_google = function () {
+        this.googlePlus.login({})
+            .then(function (res) { return console.log(res); })
+            .catch(function (err) { return console.error(err); });
+    };
     WelcomePage.prototype.signIn = function () {
         var _this = this;
         if (!this.form.valid) {
@@ -139,16 +147,212 @@ var WelcomePage = /** @class */ (function () {
     };
     WelcomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-welcome',template:/*ion-inline-start:"C:\Users\Dalmiro\Desktop\IdS\PetPlace\app\src\pages\welcome\welcome.html"*/'<ion-content scroll="false">\n\n  <div class="fixed-content">\n\n    <div class="logoHeader">\n\n      <img alt="logo" height="200" style="position: relative" src="../assets/img/logo-negro.png">\n\n    </div>\n\n    <h1 class="welcomeHeader">PetPlace</h1>\n\n    <form *ngIf="form" [formGroup]="form" (ngSubmit)="signIn()">\n\n      <div padding>\n\n        <ion-input type="email"  [(ngModel)]="account.email" class="input-access-code" placeholder="Email" formControlName="user_name"></ion-input>\n\n        <br>\n\n        <ion-input type="password" [(ngModel)]="account.password" class="input-access-code" placeholder="Password" formControlName="user_pass"></ion-input>\n\n        <br>\n\n        <a href="/#/users_lists">\n\n          <button ion-button block class="login">{{ \'LOGIN\' | translate }}</button>\n\n        </a>\n\n        <p style="text-align:center;color:  rgb(227, 120, 50);">-or-</p>\n\n        <a href="/#/users_lists">\n\n          <button ion-button block class="signup" style="padding: 1px !important; background: white!important;">{{\n\n            \'FACEBOOK\' |\n\n            translate }}\n\n          </button>\n\n        </a>\n\n        <div class="create_account">\n\n          <a href="/#/signup">Create Account</a>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​\n\n        </div>\n\n      </div>\n\n    </form>\n\n  </div>\n\n\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Dalmiro\Desktop\IdS\PetPlace\app\src\pages\welcome\welcome.html"*/
+            selector: 'page-welcome',template:/*ion-inline-start:"C:\Users\Julian\Documents\GitHub\PetPlace\app\src\pages\welcome\welcome.html"*/'<ion-content scroll="false">\n\n  <div class="fixed-content">\n\n    <div class="logoHeader">\n\n      <img alt="logo" height="200" style="position: relative" src="../assets/img/logo-negro.png">\n\n    </div>\n\n    <h1 class="welcomeHeader">PetPlace</h1>\n\n    <form *ngIf="form" [formGroup]="form" (ngSubmit)="signIn()">\n\n      <div padding>\n\n        <ion-input type="email"  [(ngModel)]="account.email" class="input-access-code" placeholder="Email" formControlName="user_name"></ion-input>\n\n        <br>\n\n        <ion-input type="password" [(ngModel)]="account.password" class="input-access-code" placeholder="Password" formControlName="user_pass"></ion-input>\n\n        <br>\n\n        <a href="/#/users_lists">\n\n          <button ion-button block class="login">{{ \'LOGIN\' | translate }}</button>\n\n        </a>\n\n        <p style="text-align:center;color:  rgb(227, 120, 50);">-or-</p>\n\n        <a href="/#/users_lists">\n\n          <button ion-button block color="danger" (click)="login_google()">{{\n\n            \'Google\' |\n\n            translate }}\n\n          </button>\n\n        </a>\n\n        <div class="create_account">\n\n          <a href="/#/signup">Create Account</a>​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​\n\n        </div>\n\n      </div>\n\n    </form>\n\n  </div>\n\n\n\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Julian\Documents\GitHub\PetPlace\app\src\pages\welcome\welcome.html"*/,
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__["a" /* GooglePlus */]
+            ]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_4__providers__["d" /* User */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_4__providers__["d" /* User */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__["a" /* GooglePlus */]])
     ], WelcomePage);
     return WelcomePage;
 }());
 
 //# sourceMappingURL=welcome.js.map
+
+/***/ }),
+
+/***/ 352:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GooglePlus; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__ = __webpack_require__(43);
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * @name Google Plus
+ * @description
+ * @usage
+ * ```typescript
+ * import { GooglePlus } from '@ionic-native/google-plus';
+ *
+ * constructor(private googlePlus: GooglePlus) { }
+ *
+ * ...
+ *
+ * this.googlePlus.login({})
+ *   .then(res => console.log(res))
+ *   .catch(err => console.error(err));
+ *
+ * ```
+ */
+var GooglePlus = (function (_super) {
+    __extends(GooglePlus, _super);
+    function GooglePlus() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /**
+     * The login function walks the user through the Google Auth process.
+     * @param options
+     * @returns {Promise<any>}
+     */
+    /**
+       * The login function walks the user through the Google Auth process.
+       * @param options
+       * @returns {Promise<any>}
+       */
+    GooglePlus.prototype.login = /**
+       * The login function walks the user through the Google Auth process.
+       * @param options
+       * @returns {Promise<any>}
+       */
+    function (options) { return; };
+    /**
+     * You can call trySilentLogin to check if they're already signed in to the app and sign them in silently if they are.
+     * @param options
+     * @returns {Promise<any>}
+     */
+    /**
+       * You can call trySilentLogin to check if they're already signed in to the app and sign them in silently if they are.
+       * @param options
+       * @returns {Promise<any>}
+       */
+    GooglePlus.prototype.trySilentLogin = /**
+       * You can call trySilentLogin to check if they're already signed in to the app and sign them in silently if they are.
+       * @param options
+       * @returns {Promise<any>}
+       */
+    function (options) { return; };
+    /**
+     * This will clear the OAuth2 token.
+     * @returns {Promise<any>}
+     */
+    /**
+       * This will clear the OAuth2 token.
+       * @returns {Promise<any>}
+       */
+    GooglePlus.prototype.logout = /**
+       * This will clear the OAuth2 token.
+       * @returns {Promise<any>}
+       */
+    function () { return; };
+    /**
+     * This will clear the OAuth2 token, forget which account was used to login, and disconnect that account from the app. This will require the user to allow the app access again next time they sign in. Be aware that this effect is not always instantaneous. It can take time to completely disconnect.
+     * @returns {Promise<any>}
+     */
+    /**
+       * This will clear the OAuth2 token, forget which account was used to login, and disconnect that account from the app. This will require the user to allow the app access again next time they sign in. Be aware that this effect is not always instantaneous. It can take time to completely disconnect.
+       * @returns {Promise<any>}
+       */
+    GooglePlus.prototype.disconnect = /**
+       * This will clear the OAuth2 token, forget which account was used to login, and disconnect that account from the app. This will require the user to allow the app access again next time they sign in. Be aware that this effect is not always instantaneous. It can take time to completely disconnect.
+       * @returns {Promise<any>}
+       */
+    function () { return; };
+    /**
+     * This will retrieve the Android signing certificate fingerprint which is required in the Google Developer Console.
+     * @returns {Promise<any>}
+     */
+    /**
+       * This will retrieve the Android signing certificate fingerprint which is required in the Google Developer Console.
+       * @returns {Promise<any>}
+       */
+    GooglePlus.prototype.getSigningCertificateFingerprint = /**
+       * This will retrieve the Android signing certificate fingerprint which is required in the Google Developer Console.
+       * @returns {Promise<any>}
+       */
+    function () { return; };
+    GooglePlus.decorators = [
+        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */] },
+    ];
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])({
+            successIndex: 1,
+            errorIndex: 2
+        }),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", Promise)
+    ], GooglePlus.prototype, "login", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])(),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", Promise)
+    ], GooglePlus.prototype, "trySilentLogin", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])(),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", Promise)
+    ], GooglePlus.prototype, "logout", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])(),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", Promise)
+    ], GooglePlus.prototype, "disconnect", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["a" /* Cordova */])(),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", Promise)
+    ], GooglePlus.prototype, "getSigningCertificateFingerprint", null);
+    /**
+     * @name Google Plus
+     * @description
+     * @usage
+     * ```typescript
+     * import { GooglePlus } from '@ionic-native/google-plus';
+     *
+     * constructor(private googlePlus: GooglePlus) { }
+     *
+     * ...
+     *
+     * this.googlePlus.login({})
+     *   .then(res => console.log(res))
+     *   .catch(err => console.error(err));
+     *
+     * ```
+     */
+    GooglePlus = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["d" /* Plugin */])({
+            pluginName: 'GooglePlus',
+            plugin: 'cordova-plugin-googleplus',
+            pluginRef: 'window.plugins.googleplus',
+            repo: 'https://github.com/EddyVerbruggen/cordova-plugin-googleplus',
+            install: 'ionic cordova plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=myreversedclientid',
+            installVariables: ['REVERSED_CLIENT_ID'],
+            platforms: ['Android', 'iOS']
+        })
+    ], GooglePlus);
+    return GooglePlus;
+}(__WEBPACK_IMPORTED_MODULE_1__ionic_native_core__["c" /* IonicNativePlugin */]));
+
+//# sourceMappingURL=index.js.map
 
 /***/ })
 

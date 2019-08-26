@@ -1,4 +1,4 @@
-#Mon Aug 19 15:43:14 ART 2019
+#Sun Aug 25 23:04:12 ART 2019
 base.0=C\:\\Users\\Julian\\Documents\\GitHub\\PetPlace\\app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.1=classes2.dex
 renamed.1=classes2.dex
