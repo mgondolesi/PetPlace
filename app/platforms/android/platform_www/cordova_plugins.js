@@ -9,6 +9,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-googleplus.GooglePlus",
+      "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
+      "pluginId": "cordova-plugin-googleplus",
+      "clobbers": [
+        "window.plugins.googleplus"
+      ]
+    },
+    {
       "id": "cordova-plugin-ionic-keyboard.keyboard",
       "file": "plugins/cordova-plugin-ionic-keyboard/www/android/keyboard.js",
       "pluginId": "cordova-plugin-ionic-keyboard",
@@ -42,8 +50,8 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     }
   ];
   module.exports.metadata = {
-    "cordova-android-support-gradle-release": "3.0.0",
     "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-googleplus": "8.0.0",
     "cordova-plugin-ionic-keyboard": "2.1.2",
     "cordova-plugin-ionic-webview": "2.0.2",
     "cordova-plugin-splashscreen": "5.0.2",
@@ -51,7 +59,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-support-google-services": "1.1.0",
     "phonegap-plugin-multidex": "1.0.0",
-    "phonegap-plugin-push": "2.2.3",
-    "cordova-plugin-androidx-adapter": "1.1.0"
+    "phonegap-plugin-push": "2.2.3"
   };
 });

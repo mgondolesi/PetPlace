@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Julian\\Documents\\GitHub\\PetPlace\\app\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\media-1.0.0.aar\\ce5753dd38850b8df15ac377d4b5b5b2\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\23b7770eec57c45362c81a9b33e40e31\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

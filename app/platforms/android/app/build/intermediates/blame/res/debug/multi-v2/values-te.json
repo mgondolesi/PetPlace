@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\Julian\\Documents\\GitHub\\PetPlace\\app\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-te\\values-te.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\d3c670982bb3c19da7bd3a98b0c2f524\\res\\values-te\\values-te.xml",
+                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\05f34fd25602f95a598a99151ed411c9\\res\\values-te\\values-te.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -13,45 +13,62 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "4",
+                        "startLines": "21",
                         "startColumns": "4",
-                        "startOffsets": "409",
+                        "startOffsets": "2885",
                         "endColumns": "100",
-                        "endOffsets": "505"
+                        "endOffsets": "2981"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-firebase-messaging-11.6.2.aar\\35a5cb61fc98958c83270b3b49066f72\\res\\values-te\\values.xml",
+                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-12.0.0.aar\\0cc4f77281bd3a76242f675df01206b1\\res\\values-te\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
-                        "startOffsets": "243",
+                        "startOffsets": "205",
                         "endColumns": "100",
-                        "endOffsets": "343"
+                        "endOffsets": "305"
                     },
                     "to": {
-                        "startLines": "3",
+                        "startLines": "20",
                         "startColumns": "4",
-                        "startOffsets": "304",
+                        "startOffsets": "2780",
                         "endColumns": "104",
-                        "endOffsets": "404"
+                        "endOffsets": "2880"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-play-services-basement-11.6.2.aar\\bf06378e069c240469ffb56d1c06f929\\res\\values-te\\values.xml",
+                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.0.aar\\6f6d955117ed77d94612cdd93b8372e3\\res\\values-te\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,353,539,667,780,976,1099,1230,1355,1563,1673,1857,1983,2193,2382,2472,2566",
+                        "endColumns": "107,185,127,112,195,122,130,124,207,109,183,125,209,188,89,93,106",
+                        "endOffsets": "352,538,666,779,975,1098,1229,1354,1562,1672,1856,1982,2192,2381,2471,2565,2672"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,217,403,535,652,848,975,1110,1438,1646,1760,1944,2074,2284,2477,2571,2669",
+                        "endColumns": "111,185,131,116,195,126,134,128,207,113,183,129,209,192,93,97,110",
+                        "endOffsets": "212,398,530,647,843,970,1105,1234,1641,1755,1939,2069,2279,2472,2566,2664,2775"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Julian\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-12.0.0.aar\\ffe695b13cc70f1a01530b331d5a75cf\\res\\values-te\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
-                        "startOffsets": "285",
+                        "startOffsets": "247",
                         "endColumns": "198",
-                        "endOffsets": "483"
+                        "endOffsets": "445"
                     },
                     "to": {
-                        "startLines": "2",
+                        "startLines": "10",
                         "startColumns": "4",
-                        "startOffsets": "105",
+                        "startOffsets": "1239",
                         "endColumns": "198",
-                        "endOffsets": "299"
+                        "endOffsets": "1433"
                     }
                 }
             ]

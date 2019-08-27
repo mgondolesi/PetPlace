@@ -28,7 +28,6 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.0'
-        classpath 'com.google.gms:google-services:4.2.0'
     }
 }
 
@@ -37,7 +36,6 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
-        google()
     }
 }
 
@@ -92,7 +90,6 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-android-support-gradle-release/starter-cordova-android-support-gradle-release.gradle"
 apply from: "../cordova-support-google-services/starter-build.gradle"
 apply from: "../phonegap-plugin-multidex/starter-multidex.gradle"
 // PLUGIN GRADLE EXTENSIONS END
@@ -171,12 +168,10 @@ android {
     defaultConfig {
         versionCode cdvVersionCode ?: new BigInteger("" + privateHelpers.extractIntFromManifest("versionCode"))
         applicationId privateHelpers.extractStringFromManifest("package")
-         
 
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
         }
-       multiDexEnabled true
     }
 
     lintOptions {
@@ -273,9 +268,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    implementation "androidx.legacy:legacy-support-v13:1.0.0"
+    implementation "com.google.android.gms:play-services-auth:12.0.0"
+    implementation "com.google.android.gms:play-services-identity:12.0.0"
+    implementation "com.android.support:support-v13:27.+"
     implementation "me.leolin:ShortcutBadger:1.1.17@aar"
-    implementation "com.google.firebase:firebase-messaging:11.6.2"
+    implementation "com.google.firebase:firebase-messaging:12.0.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

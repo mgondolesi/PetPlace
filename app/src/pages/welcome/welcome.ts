@@ -4,11 +4,15 @@ import {TranslateService} from "@ngx-translate/core";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../providers";
 import {UsersPage} from "../users_lists/users_lists";
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @IonicPage()
 @Component({
   selector: 'page-welcome',
-  templateUrl: 'welcome.html'
+  templateUrl: 'welcome.html',
+  providers:[
+    GooglePlus
+  ]
 
 })
 export class WelcomePage {
@@ -26,7 +30,8 @@ export class WelcomePage {
   private signinErrorString: string;
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public translateService: TranslateService,
               public loadingCtrl: LoadingController,public formBuilder: FormBuilder,
-              public viewCtrl: ViewController,public app: App,public user: User) {
+              public viewCtrl: ViewController,public app: App,public user: User,
+              private googlePlus: GooglePlus) {
 
     this.form = formBuilder.group({
       user_name: ['',Validators.required],
@@ -42,6 +47,13 @@ export class WelcomePage {
     })
 
     this.falsemsg = "Usuario Incorrecto";
+  }
+
+
+  login_google(){
+  this.googlePlus.login({})
+  .then(res => console.log(res))
+  .catch(err => console.error(err));
   }
 
   signIn(){
@@ -76,6 +88,7 @@ export class WelcomePage {
       }, 2000);
     }
   }
+
   signup() {
     this.navCtrl.push('UsersPage');
   }
