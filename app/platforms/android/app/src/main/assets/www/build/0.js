@@ -73,7 +73,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var WelcomePage = /** @class */ (function () {
-    function WelcomePage(navCtrl, toastCtrl, translateService, loadingCtrl, formBuilder, viewCtrl, app, user, googlePlus) {
+    function WelcomePage(navCtrl, toastCtrl, translateService, loadingCtrl, formBuilder, viewCtrl, app, user, googlePlus, puser) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.toastCtrl = toastCtrl;
@@ -84,6 +84,7 @@ var WelcomePage = /** @class */ (function () {
         this.app = app;
         this.user = user;
         this.googlePlus = googlePlus;
+        this.puser = puser;
         // @ViewChild(Nav) nav: Nav;
         this.pages = [
             { title: 'Users Lists', component: 'UsersPage' }
@@ -106,8 +107,11 @@ var WelcomePage = /** @class */ (function () {
         this.falsemsg = "Usuario Incorrecto";
     }
     WelcomePage.prototype.login_google = function () {
+        var _this = this;
         this.googlePlus.login({})
-            .then(function (res) { return console.log(res); })
+            .then(function (res) {
+            _this.puser.logingoogle(res).subscribe(res);
+        })
             .catch(function (err) { return console.error(err); });
     };
     WelcomePage.prototype.signIn = function () {
@@ -155,7 +159,8 @@ var WelcomePage = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */], __WEBPACK_IMPORTED_MODULE_4__providers__["d" /* User */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__["a" /* GooglePlus */]])
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_google_plus__["a" /* GooglePlus */],
+            __WEBPACK_IMPORTED_MODULE_4__providers__["d" /* User */]])
     ], WelcomePage);
     return WelcomePage;
 }());
