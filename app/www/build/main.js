@@ -50,11 +50,11 @@ var map = {
 		3
 	],
 	"../pages/profile/profile.module": [
-		339,
+		340,
 		2
 	],
 	"../pages/signup/signup.module": [
-		340,
+		339,
 		1
 	],
 	"../pages/users_lists/users_lists.module": [
@@ -435,10 +435,12 @@ var UsersPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'users_lists',template:/*ion-inline-start:"C:\Users\Julian\Documents\GitHub\PetPlace\app\src\pages\users_lists\users_lists.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-buttons left>\n\n      <button ion-button icon-only menuToggle>\n\n        <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n    <ion-title>{{ \'Users Lists\' | translate }}</ion-title>\n\n    <ion-buttons right>\n\n      <button ion-button icon-only (click)="addItem()">\n\n        <ion-icon name="add"></ion-icon>\n\n      </button>\n\n    </ion-buttons>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ \'Search Users\' | translate }}"></ion-searchbar>\n\n  <ion-list>\n\n    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let item of currentItems" #slidingItem>\n\n      <ion-item (click)="openItem(item)" (press)="pressEvent($event)">\n\n        <ion-avatar item-start>\n\n          <img [src]="item.profilePic">\n\n        </ion-avatar>\n\n        <h2>{{item.name}}</h2>\n\n        <p>{{item.about}}</p>\n\n        <ion-icon item-end ios="ios-checkmark" md="md-checkmark" class="nextDiff"></ion-icon>\n\n      </ion-item>\n\n      <ion-item-options side="right">\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="ios-more"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="text"></ion-icon>\n\n\n\n        </button>\n\n        <button ion-button color="dark" icon-start>\n\n          <ion-icon name="call"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n\n\n      <ion-item-options side="left">\n\n        <button ion-button color="dark" (click)="deleteItem(item,slidingItem)" icon-start>\n\n          <ion-icon name="trash"></ion-icon>\n\n        </button>\n\n      </ion-item-options>\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"C:\Users\Julian\Documents\GitHub\PetPlace\app\src\pages\users_lists\users_lists.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_vibration__["a" /* Vibration */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_vibration__["a" /* Vibration */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers__["b" /* Items */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers__["b" /* Items */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_vibration__["a" /* Vibration */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers__["b" /* Items */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
     ], UsersPage);
     return UsersPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=users_lists.js.map
@@ -549,8 +551,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/newsfeed-create/newsfeed-create.module#NewsfeedCreateModule', name: 'NewsfeedCreate', segment: 'newsfeed-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/newsfeed/newsfeed.module#NewsfeedModule', name: 'NewsFeed', segment: 'newsfeed', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/users_lists/users_lists.module#UsersPageModule', name: 'UsersPage', segment: 'users_lists', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
@@ -691,10 +693,9 @@ var Settings = /** @class */ (function () {
     });
     Settings = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" && _a || Object, Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */], Object])
     ], Settings);
     return Settings;
-    var _a;
 }());
 
 //# sourceMappingURL=settings.js.map
@@ -764,21 +765,6 @@ var User = /** @class */ (function () {
         });
         return seq;
     };
-    User.prototype.logingoogle = function (data) {
-        var _this = this;
-        var seq = this.api.post('loginG', data).share();
-        seq.subscribe(function (res) {
-            // If the API returned a successful response, mark the user as logged in
-            if (res.status == 'success') {
-                _this._loggedIn(res);
-            }
-            else {
-            }
-        }, function (err) {
-            console.error('ERROR', err);
-        });
-        return seq;
-    };
     /**
      * Send a POST request to our signup endpoint with the data
      * the user entered on the form.
@@ -826,10 +812,9 @@ var User = /** @class */ (function () {
     };
     User = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */]])
     ], User);
     return User;
-    var _a;
 }());
 
 //# sourceMappingURL=user.js.map
@@ -950,17 +935,18 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'side-main-menu',
             template: "<ion-menu [content]=\"content\">\n      <ion-header class=\"headerMAin\">\n        <ion-toolbar color=\"primary\">\n          <ion-buttons left>\n            <button class=\"createUser\" ion-button icon-only menuClose (click)=\"openPage(pages[4])\">\n              <ion-icon name=\"ios-create-outline\" md=\"ios-create-outline\" style=\"color:  #1ABC9C !important;\"></ion-icon>\n            </button>\n          </ion-buttons>\n        </ion-toolbar>\n      </ion-header>\n\n      <ion-content class=\"sideMenuIoncContent\">\n        \n        <ion-list class=\"headerMAin\">\n          <ion-item style=\"background: black !important;border-bottom: 0.55px solid #000000!important;\">\n            <ion-list class=\"logoImage\" menuClose (click)=\"openPage(pages[4])\">\n              <div class=\"circle-pic\" text-center #profilePic [style.background-image]=\"'url(../../assets/img/advance-card-tmntr.jpg)'\"></div>\n              <!--<img class=\"circle-pic\" src=\"../../assets/img/advance-card-tmntr.jpg\"/>-->\n            </ion-list>\n            <h3 class=\"userName\">Arnold Schwarzenegger</h3>\n            <h3 class=\"userDetails\">Former Governor of California</h3>\n          </ion-item>\n        </ion-list>\n        \n        <ion-list>\n          \n          <button menuClose ion-item no-lines style=\"border-top: 0.55px solid #383838; !important;\"\n                  [class.activeHIghlight]=\"checkActive(pages[5])\" (click)=\"openPage(pages[5])\" class=\"buttonSIdeBAr\">\n            <ion-icon ios=\"ios-list-box-outline\" class=\"sidebarCss\" md=\"ios-list-box-outline\"></ion-icon>\n            List Users\n          </button>\n          <button menuClose ion-item no-lines [class.activeHIghlight]=\"checkActive(pages[3])\"\n                  (click)=\"openPage(pages[3])\" class=\"buttonSIdeBAr\">\n            <ion-icon ios=\"ios-notifications-outline\" class=\"sidebarCss\" md=\"ios-notifications-outline\"></ion-icon>\n            News Feed\n          </button>\n          \n          <button menuClose ion-item no-lines [class.activeHIghlight]=\"checkActive(pages[4])\"\n                  (click)=\"openPage(pages[4])\" class=\"buttonSIdeBAr\">\n            <ion-icon ios=\"ios-person-outline\" class=\"sidebarCss\" md=\"ios-person-outline\"></ion-icon>\n            Profile\n          </button>\n          \n          <button menuClose no-lines style=\"border-bottom: 0.55px solid #383838; !important;\" ion-item\n                  [class.activeHIghlight]=\"checkActive(pages[0])\" (click)=\"openPage(pages[0])\" class=\"buttonSIdeBAr\">\n            <ion-icon class=\"sidebarCss\" ios=\"ios-log-out-outline\" md=\"ios-log-out-outline\"></ion-icon>\n            Logout\n          </button>\n         \n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-nav #content [root]=\"rootPage\"></ion-nav>"
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__providers__["c" /* Settings */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers__["c" /* Settings */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Config */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Config */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["n" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["n" /* ToastController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* LoadingController */]) === "function" && _j || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["m" /* Platform */], __WEBPACK_IMPORTED_MODULE_6__providers__["c" /* Settings */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* Config */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["h" /* LoadingController */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=app.component.js.map

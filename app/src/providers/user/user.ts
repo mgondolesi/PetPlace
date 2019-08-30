@@ -48,21 +48,6 @@ export class User {
 
     return seq;
   }
-  logingoogle(data: any) {
-    let seq = this.api.post('loginG', data).share();
-
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      } else {
-      }
-    }, err => {
-      console.error('ERROR', err);
-    });
-
-    return seq;
-  }
 
   /**
    * Send a POST request to our signup endpoint with the data

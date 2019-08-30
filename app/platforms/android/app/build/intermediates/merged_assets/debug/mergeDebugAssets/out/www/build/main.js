@@ -42,19 +42,19 @@ var map = {
 		5
 	],
 	"../pages/newsfeed-create/newsfeed-create.module": [
-		338,
+		337,
 		4
 	],
 	"../pages/newsfeed/newsfeed.module": [
-		337,
+		338,
 		3
 	],
 	"../pages/profile/profile.module": [
-		339,
+		340,
 		2
 	],
 	"../pages/signup/signup.module": [
-		340,
+		339,
 		1
 	],
 	"../pages/users_lists/users_lists.module": [
@@ -105,7 +105,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var Api = /** @class */ (function () {
     function Api(http) {
         this.http = http;
-        this.url = 'http://localhost:5000/api';
+        this.url = 'https://pet-place.herokuapp.com/api';
     }
     Api.prototype.get = function (endpoint, params, reqOpts) {
         if (!reqOpts) {
@@ -549,10 +549,10 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/item-create/item-create.module#ItemCreatePageModule', name: 'ItemCreatePage', segment: 'item-create', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/item-detail/item-detail.module#ItemDetailPageModule', name: 'ItemDetailPage', segment: 'item-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/list-master/list-master.module#ListMasterPageModule', name: 'ListMasterPage', segment: 'list-master', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/newsfeed/newsfeed.module#NewsfeedModule', name: 'NewsFeed', segment: 'newsfeed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/newsfeed-create/newsfeed-create.module#NewsfeedCreateModule', name: 'NewsfeedCreate', segment: 'newsfeed-create', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/newsfeed/newsfeed.module#NewsfeedModule', name: 'NewsFeed', segment: 'newsfeed', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/signup/signup.module#SignupPageModule', name: 'SignupPage', segment: 'signup', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/users_lists/users_lists.module#UsersPageModule', name: 'UsersPage', segment: 'users_lists', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/welcome/welcome.module#WelcomePageModule', name: 'WelcomePage', segment: 'welcome', priority: 'low', defaultHistory: [] }
                     ]
@@ -753,21 +753,6 @@ var User = /** @class */ (function () {
     User.prototype.login = function (accountInfo) {
         var _this = this;
         var seq = this.api.post('login', accountInfo).share();
-        seq.subscribe(function (res) {
-            // If the API returned a successful response, mark the user as logged in
-            if (res.status == 'success') {
-                _this._loggedIn(res);
-            }
-            else {
-            }
-        }, function (err) {
-            console.error('ERROR', err);
-        });
-        return seq;
-    };
-    User.prototype.logingoogle = function (data) {
-        var _this = this;
-        var seq = this.api.post('loginG', data).share();
         seq.subscribe(function (res) {
             // If the API returned a successful response, mark the user as logged in
             if (res.status == 'success') {
