@@ -31,7 +31,8 @@ export class WelcomePage {
   constructor(public navCtrl: NavController, public toastCtrl: ToastController, public translateService: TranslateService,
               public loadingCtrl: LoadingController,public formBuilder: FormBuilder,
               public viewCtrl: ViewController,public app: App,public user: User,
-              private googlePlus: GooglePlus) {
+              private googlePlus: GooglePlus,
+              private puser: User) {
 
     this.form = formBuilder.group({
       user_name: ['',Validators.required],
@@ -52,7 +53,9 @@ export class WelcomePage {
 
   login_google(){
   this.googlePlus.login({})
-  .then(res => console.log(res))
+  .then(res => {
+    this.puser.logingoogle(res).subscribe(res)
+  })
   .catch(err => console.error(err));
   }
 
