@@ -778,13 +778,11 @@ var User = /** @class */ (function () {
             // If the API returned a successful response, mark the user as logged in
             if (res.status == 'success') {
                 _this._loggedIn(res);
-                console.log(data);
             }
             else {
             }
         }, function (err) {
             console.error('ERROR', err);
-            console.log(err);
         });
         return seq;
     };
