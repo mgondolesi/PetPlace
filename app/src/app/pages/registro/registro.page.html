@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="formularioRegistro">
+    <ion-item>
+      <ion-label for="" floating>Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="" floating>Apellido</ion-label>
+      <ion-input formControlName="apellido" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="" floating>Telefono</ion-label>
+      <ion-input formControlName="telefono" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="" floating>Correo</ion-label>
+      <ion-input formControlName="correo" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="" floating>Usuario</ion-label>
+      <ion-input formControlName="usuario" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="" floating>Clave</ion-label>
+      <ion-input formControlName="clave" type="password"></ion-input>
+    </ion-item>
+    <button ion-button secondary block (click)="guardar()">Guardar</button>
+
+  </form>
+</ion-content> 

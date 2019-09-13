@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form  #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>PetPlace</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input  name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="username" type="email" placeholder="username" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="lastname" type="email" placeholder="lastname" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="password" type="password" placeholder="clave" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="name" type="name" placeholder="nombre" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="number" type="text" placeholder="number" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="myDate" type="text" placeholder="myDate" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

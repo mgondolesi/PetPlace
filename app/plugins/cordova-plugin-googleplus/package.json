@@ -1,31 +1,33 @@
 {
-  "_from": "cordova-plugin-googleplus",
+  "_args": [
+    [
+      "cordova-plugin-googleplus@8.0.0",
+      "D:\\ionic\\final"
+    ]
+  ],
+  "_from": "cordova-plugin-googleplus@8.0.0",
   "_id": "cordova-plugin-googleplus@8.0.0",
   "_inBundle": false,
   "_integrity": "sha512-fQHQ4abY9NCCJxvlkBrBkpfoqkoFLfY+XN/S9YlbfMVqJcsCD2wsroXt3mRbHvOi4DEAETc61jstdzeD210IHQ==",
   "_location": "/cordova-plugin-googleplus",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "version",
     "registry": true,
-    "raw": "cordova-plugin-googleplus",
+    "raw": "cordova-plugin-googleplus@8.0.0",
     "name": "cordova-plugin-googleplus",
     "escapedName": "cordova-plugin-googleplus",
-    "rawSpec": "",
+    "rawSpec": "8.0.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "8.0.0"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-googleplus/-/cordova-plugin-googleplus-8.0.0.tgz",
-  "_shasum": "92fbd44e6271dff69419514985690905cd279d70",
-  "_spec": "cordova-plugin-googleplus",
-  "_where": "C:\\Users\\Julian\\Documents\\GitHub\\PetPlace\\app",
-  "bundleDependencies": false,
+  "_spec": "8.0.0",
+  "_where": "D:\\ionic\\final",
   "cordova_name": "Google SignIn",
-  "deprecated": false,
   "description": "Use your Google account to authenticate with the app.",
   "engines": [
     {

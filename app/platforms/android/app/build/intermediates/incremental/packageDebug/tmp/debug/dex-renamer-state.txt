@@ -1,7 +1,4 @@
-#Thu Aug 29 23:25:31 ART 2019
-base.0=C\:\\Users\\Julian\\Documents\\GitHub\\PetPlace\\app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-path.1=classes2.dex
-renamed.1=classes2.dex
+#Fri Sep 13 11:58:33 ART 2019
+base.0=D\:\\ionic\\final\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\Julian\\Documents\\GitHub\\PetPlace\\app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0

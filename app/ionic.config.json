@@ -1,9 +1,7 @@
 {
-  "name": "Ionic3-Multi-Purpose-Theme",
+  "name": "final",
   "integrations": {
     "cordova": {}
   },
-  "type": "ionic-angular",
-  "pro_id": "5587e433",
-  "id": "5587e433"
+  "type": "angular"
 }

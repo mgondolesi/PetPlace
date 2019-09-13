@@ -1,0 +1,17 @@
+<ion-content>
+
+  <form  #form="ngForm" (ngSubmit)="signin(form)">
+    <ion-item>
+      <ion-input  name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input  name="password" type="password" ngModel required></ion-input>
+      </ion-item>
+      <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">signin</ion-button>
+    </form>
+  <ion-grid>  
+ 
+    <ion-button expand="block" (click)="regis()">SignUp</ion-button>
+    <ion-button expand="block" color="danger" (click)="login_google()">Google</ion-button>      
+  </ion-grid>
+</ion-content>

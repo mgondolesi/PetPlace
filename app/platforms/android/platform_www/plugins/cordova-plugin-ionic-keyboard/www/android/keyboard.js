@@ -55,6 +55,10 @@ Keyboard.disableScroll = function (disable) {
     console.warn("Keyboard.disableScroll() was removed");
 };
 
+Keyboard.setResizeMode = function (mode) {
+    console.warn("Keyboard.setResizeMode() not supported in Android");
+}
+
 channel.onCordovaReady.subscribe(function () {
     exec(success, null, 'Keyboard', 'init', []);
 
