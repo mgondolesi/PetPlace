@@ -1,2 +1,0 @@
-# Referenced at C:\Users\Julian\Documents\GitHub\PetPlace\app\platforms\android\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:59
--keep class android.support.multidex.MultiDexApplication { <init>(); }
