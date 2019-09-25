@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/usuario.service';
+import { ToastController } from '@ionic/angular'
 
 
 
@@ -23,14 +24,14 @@ export class HomePage {
 
   form: NgForm;
 
-
   constructor(
     private googlePlus: GooglePlus,
     public navCtrl: NavController, 
     private router: Router,  
     private authService: UsuarioService,
     private storage: Storage,
-    private formBuilder: FormBuilder )
+    private formBuilder: FormBuilder,
+    public toastController: ToastController, )
     { }
 
 
@@ -50,6 +51,16 @@ export class HomePage {
       },
       error => {
         console.log(error);
+
+        this.toastController.create({
+          message: error.error.msg,
+          duration: 3000
+        })
+        .then((toastData)=>{
+          console.log(toastData);
+          toastData.present();
+        });
+        
       },
       () => {
         
@@ -72,6 +83,13 @@ export class HomePage {
       error => {
         console.log(error);
         console.log(res);
+        this.toastController.create({
+          message: error.error.msg,
+          duration: 3000
+        }).then((toastData)=>{
+          console.log(toastData);
+          toastData.present();
+        }); 
       },
       () => {
         
