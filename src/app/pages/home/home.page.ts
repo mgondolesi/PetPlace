@@ -41,15 +41,16 @@ export class HomePage {
 
   signin(form){
     this.authService.login(form.value).subscribe(
+      
       data => {
       
-
         this.router.navigate(['/welcome'])
+
         console.log(form.value);
-        //
-        
       },
+
       error => {
+
         console.log(error);
 
         this.toastController.create({
@@ -60,11 +61,7 @@ export class HomePage {
           console.log(toastData);
           toastData.present();
         });
-        
       },
-      () => {
-        
-      }
     );
   }
 

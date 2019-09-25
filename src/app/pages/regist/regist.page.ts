@@ -34,11 +34,16 @@ export class RegistPage implements OnInit {
   register(form) {
     this.authService.registrar(form.value).subscribe(
       data => {
-      
+          //almacena los datos en SQLite
           this.storage.set("token", data.token);
-          this.storage.set("usuario", data.usuarioNew);
+          this.storage.set("usuario", data.usuario);
           this.router.navigate(['/home']);
-          console.log(form.value);
+
+          //console.log(form.value);
+          //Obtengo los datos de SQLite
+          this.storage.get('usuario').then((val) => {
+            console.log('los datos del usuario son:', val);
+          });
          
       
       },
