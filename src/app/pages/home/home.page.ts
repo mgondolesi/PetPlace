@@ -43,7 +43,8 @@ export class HomePage {
     this.authService.login(form.value).subscribe(
       
       data => {
-      
+        this.storage.set("token", data.token);
+        this.storage.set("usuario", data.usuario);
         this.router.navigate(['/welcome'])
 
         console.log(form.value);

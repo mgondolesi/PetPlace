@@ -6,10 +6,13 @@ import { Storage } from '@ionic/storage';
   templateUrl: './welcome.page.html',
   styleUrls: ['./welcome.page.scss'],
 })
+
 export class WelcomePage implements OnInit {
 
-  //data: any;
-  data: 'usuario';
+  //creo la variable para obtener la info del usuario
+  
+  data: any;
+ 
 
   constructor(private storage: Storage) {
   
@@ -18,9 +21,9 @@ export class WelcomePage implements OnInit {
 
   ngOnInit() {
 
-   
+
       this.storage.get('usuario').then((val) => {
-        this.data = val;
+        this.data = val.name;
       }).catch((error) => {
         console.log('get error for ' , error);
       });
