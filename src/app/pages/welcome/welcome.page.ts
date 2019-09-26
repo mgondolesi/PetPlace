@@ -21,6 +21,21 @@ export class WelcomePage implements OnInit {
 
   ngOnInit() {
 
+    const menuCtrl = document.querySelector('ion-menu-controller');
+
+    function openFirst() {
+      menuCtrl.enable(true, 'first');
+     menuCtrl.open('first');
+    }
+
+    function openEnd() {
+      menuCtrl.open('end');
+    }
+
+    function openCustom() {
+      menuCtrl.enable(true, 'custom');
+      menuCtrl.open('custom');
+    }
 
       this.storage.get('usuario').then((val) => {
         this.data = val.name;
