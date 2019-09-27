@@ -65,7 +65,7 @@ export class HomePage {
       },
     );
   }
-
+ 
   login_google(){
     this.googlePlus.login({})
       .then(res =>  this.authService.logingoogle(res).subscribe( data => {

@@ -1,61 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>welcome</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+    <ion-title>PetPlace</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
   <p><strong>usuario registrado</strong>: {{data}}</p>
-  <ion-menu side="start" menuId="first">
+  <ion-menu side="start" menuId="first" contentId="content1">
     <ion-header>
-      <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  
-  <ion-menu side="start" menuId="custom" class="my-custom-menu">
-    <ion-header>
-      <ion-toolbar color="tertiary">
+      <ion-toolbar>
         <ion-title>{{data}}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
+      <ion-list *ngFor="let pages of navigate">
+      <ion-menu-toggle auto-hide="true">
+        <ion-item [routerLink]="pages.url" routerDirection="forward">
+            
+            <ion-icon [name]="pages.icon" slot="start"></ion-icon>
+               {{pages.title}} 
+        </ion-item>
+       
+
+      </ion-menu-toggle>
       </ion-list>
     </ion-content>
+    
+        
   </ion-menu>
-  
-  <ion-menu side="end" type="push">
-    <ion-header>
-      <ion-toolbar color="danger">
-        <ion-title>End Menu</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-        <ion-item>Menu Item</ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-  
-  <ion-router-outlet main></ion-router-outlet>
+<ion-router-outlet id="content1"></ion-router-outlet>
+<ion-button expand="block" (click)=" signout()">Logout</ion-button>
 </ion-content>

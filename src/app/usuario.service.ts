@@ -23,4 +23,7 @@ export class UsuarioService {
    logingoogle(accountInfo):  Observable<any>{
     return this.http.post(URL+"login/google", accountInfo);
    }
+   logout(): Observable<any>{
+      return this.http.get(URL+"logout");
+   }
 }
