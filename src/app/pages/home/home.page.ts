@@ -71,8 +71,8 @@ export class HomePage {
       .then(res =>  this.authService.logingoogle(res).subscribe( data => {
         if(data.ok){
 
-       //   this.storage.set("token", data.token);
-         // this.storage.set("usuario", data.usuarioNew);
+          this.storage.set("token", data.token);
+          this.storage.set("usuario", data.usuario);
           this.router.navigate(['/welcome'])
           console.log(res);
           console.log(data);
