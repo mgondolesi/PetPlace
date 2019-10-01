@@ -34,23 +34,24 @@ export class HomePage {
     public toastController: ToastController, )
     { }
 
-
+//click en "registrar", te envía a la pantalla de registro (regist.page)
   regis(){
     this.router.navigate(['/regist'])
   }
 
-  signin(form){
-    this.authService.login(form.value).subscribe(
+  //Metodo que recibe el formulario con el email y la pass. 
+  signin(form){  
+    this.authService.login(form.value).subscribe(              //Ejecuta el metodo login de usuario.service y la manda los datos del form (que serian "form.value")
       
-      data => {
-        this.storage.set("token", data.token);
+      data => {                                                //Si la api devuelve data. Recibe la data desde la api y guarda el token y los datos de usaurio
+        this.storage.set("token", data.token);                 //Despues te manda a la pantalla welcome.page
         this.storage.set("usuario", data.usuario);
         this.router.navigate(['/welcome'])
 
         console.log(form.value);
       },
 
-      error => {
+      error => {                                            //Si la api devuelve error. Se muestra en un toast el msj con el error 
 
         console.log(error);
 
@@ -66,19 +67,19 @@ export class HomePage {
     );
   }
  
-  login_google(){
-    this.googlePlus.login({})
-      .then(res =>  this.authService.logingoogle(res).subscribe( data => {
-        if(data.ok){
+  login_google(){                                                               //Click en login google
+    this.googlePlus.login({})                                                   //Ejecuta el metodo de la api de google 
+      .then(res =>  this.authService.logingoogle(res).subscribe( data => {      //Ejecuta el metodo logingoogle de usuario.service y la manda los datos del usuario de google (que serian "res")
+        if(data.ok){                                                            //Si la api devuelve data: ok, guarda el token y usaurio
 
           this.storage.set("token", data.token);
           this.storage.set("usuario", data.usuario);
-          this.router.navigate(['/welcome'])
+          this.router.navigate(['/welcome'])                                    //despues de manda a la pantalla welcome.page
           console.log(res);
           console.log(data);
         }
       },
-      error => {
+      error => {                                                        //si devuevle error, muestra un toast con el error
         console.log(error);
         console.log(res);
         this.toastController.create({

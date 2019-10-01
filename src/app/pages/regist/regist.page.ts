@@ -32,9 +32,9 @@ export class RegistPage implements OnInit {
   
   
   register(form) {
-    this.authService.registrar(form.value).subscribe(
-      data => {
-          //almacena los datos en SQLite
+    this.authService.registrar(form.value).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
+      data => {                                         //Si la api devuelve data almacena los datos en SQLite
+
           this.storage.set("token", data.token);
           this.storage.set("usuario", data.usuario);
           this.router.navigate(['/home']);
@@ -47,7 +47,7 @@ export class RegistPage implements OnInit {
          
       
       },
-      error => {
+      error => {                               //Si la api devuelve error almacena los datos en SQLite
         console.log(error);
           
           this.toastController.create({

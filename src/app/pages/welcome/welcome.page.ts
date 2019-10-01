@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 
 export class WelcomePage implements OnInit {
 
-  //creo la variable para obtener la info del usuario
+ 
   
   data: any;
   tkn: any;
@@ -29,7 +29,7 @@ export class WelcomePage implements OnInit {
     private authService: UsuarioService,
     public toastController: ToastController,)  {
   
-      this.sideMenu();
+      this.sideMenu();        //metodos para el menu del costado.
       this.initializeApp();
     }
 
@@ -41,14 +41,14 @@ export class WelcomePage implements OnInit {
       
       });
     }
-    sideMenu()
+    sideMenu()                            
     {
-      this.navigate =
+      this.navigate =                   //defino los items del menu del constado
       [
         {
-          title : "Home",
-          url   : "/home",
-          icon  : "home"
+          title : "Home",           //nombre visible en el menu
+          url   : "/home",          //a donde te manda
+          icon  : "home"            //el icono que se muestra
         },
         {
           title : "Chat",
@@ -73,10 +73,10 @@ export class WelcomePage implements OnInit {
   
     
   
-  ngOnInit() {
+  ngOnInit() {                  //ngOnInit es una instancia de la app (un estado)
 
   
-    this.storage.get('usuario').then((val) => {
+    this.storage.get('usuario').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
       this.data = val.username;
       }).catch((error) => {
         console.log('get error for ' , error);
@@ -84,17 +84,17 @@ export class WelcomePage implements OnInit {
     }
     
     
-    signout(){
-      this.authService.logout().subscribe(
+    signout(){                                      //Click en logout
+      this.authService.logout().subscribe(          //Ejecuta el metodo logout de usuario.service
         
-        data => {
+        data => {                                   //Si la api devuelve data, manda token=null para sacarle el token al usuario y lo almacena     
           this.storage.set("token", data)
-          this.router.navigate(['/home'])
+          this.router.navigate(['/home'])            //Luego te manda al home.page
   
           console.log(data);
         },
   
-        error => {
+        error => {                                //si devuelve error te manda un toast con el mismo.
   
           console.log(error);
   
