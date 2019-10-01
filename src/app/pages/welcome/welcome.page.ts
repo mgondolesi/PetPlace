@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UsuarioService } from 'src/app/usuario.service';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/loading.service';
 
 @Component({
   selector: 'app-welcome',
@@ -19,6 +20,7 @@ export class WelcomePage implements OnInit {
   data: any;
   tkn: any;
   navigate : any;
+  
 
 
   constructor(private storage: Storage,
@@ -27,7 +29,9 @@ export class WelcomePage implements OnInit {
     private statusBar   : StatusBar,
     private router: Router, 
     private authService: UsuarioService,
-    public toastController: ToastController,)  {
+    public toastController: ToastController,
+    public loading: LoadingService,
+    )  {
   
       this.sideMenu();        //metodos para el menu del costado.
       this.initializeApp();
@@ -85,6 +89,7 @@ export class WelcomePage implements OnInit {
     
     
     signout(){                                      //Click en logout
+      this.loading.present();  
       this.authService.logout().subscribe(          //Ejecuta el metodo logout de usuario.service
         
         data => {                                   //Si la api devuelve data, manda token=null para sacarle el token al usuario y lo almacena     
@@ -92,10 +97,11 @@ export class WelcomePage implements OnInit {
           this.router.navigate(['/home'])            //Luego te manda al home.page
   
           console.log(data);
+          this.loading.dismiss();  
         },
   
         error => {                                //si devuelve error te manda un toast con el mismo.
-  
+          this.loading.dismiss();  
           console.log(error);
   
           this.toastController.create({
