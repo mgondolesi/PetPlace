@@ -15,7 +15,7 @@ export class LoadingService {
     return await this.loadingController.create({
       spinner: "crescent",
       duration: 10000,
-      message:"aguanta los trapo",
+      message:"Cargando...",
       
     }).then(a => {
       a.present().then(() => {
