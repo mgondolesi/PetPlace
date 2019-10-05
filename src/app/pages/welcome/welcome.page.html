@@ -8,8 +8,11 @@
 </ion-header>
 
 <ion-content>
-
-  <p><strong>usuario registrado</strong>: {{data}}</p>
+  <ion-grid>  
+    <ion-grid>  
+      <p><strong>usuario registrado</strong>: {{data}}</p>
+    </ion-grid>  
+    
   <ion-menu side="start" menuId="first" contentId="content1">
     <ion-header>
       <ion-toolbar>
@@ -34,4 +37,5 @@
   </ion-menu>
 <ion-router-outlet id="content1"></ion-router-outlet>
 <ion-button expand="block" (click)=" signout()">Logout</ion-button>
+</ion-grid>  
 </ion-content>
