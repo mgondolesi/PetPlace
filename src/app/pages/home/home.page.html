@@ -1,17 +1,25 @@
-<ion-content>
-
-  <form  #form="ngForm" (ngSubmit)="signin(form)">
-    <ion-item>
-      <ion-input  name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input  name="password" type="password" ngModel required></ion-input>
+<ion-content  scroll="false">
+    <div class="fixed-content">
+    <div class="logoHeader">
+      <img alt="logo"  class="center" src="../assets/icon/logo.png">
+    </div>
+    <h1 class="welcomeHeader">PetPlace</h1>
+    <form  #form="ngForm" (ngSubmit)="signin(form)">
+      <ion-item>
+        <ion-input  name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
       </ion-item>
-      <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">signin</ion-button>
-    </form>
-  <ion-grid>  
- 
-    <ion-button expand="block" (click)="regis()">SignUp</ion-button>
-    <ion-button expand="block" color="danger" (click)="login_google()">Google</ion-button>      
-  </ion-grid>
+      <ion-item>
+          <ion-input  name="password" type="password" placeholder="password" ngModel required></ion-input>
+        </ion-item>
+        <ion-grid>  
+        <ion-button  size="large" [disabled]="form.invalid" expand="block">signin</ion-button>
+        </ion-grid>
+      </form>
+    <ion-grid>  
+  
+      <ion-button expand="block" (click)="regis()">SignUp</ion-button>
+      <ion-button expand="block" color="danger" (click)="login_google()">Google</ion-button>      
+    </ion-grid>
+  </div>
 </ion-content>
+  
