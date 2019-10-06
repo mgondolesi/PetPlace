@@ -69,6 +69,7 @@ export class WelcomePage implements OnInit {
           icon  : "logout",
           
           
+          
         },
       ]
     }

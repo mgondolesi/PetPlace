@@ -52,6 +52,7 @@ export class HomePage {
         this.router.navigate(['/welcome'])
 
         console.log(form.value);
+        console.log(data.token);
         this.loading.dismiss();                               // si paso menos de 5 seg. y termino el proceso, saca la pantalla de carga
       },
 
