@@ -17,11 +17,11 @@
           <div padding>
             <ion-item>
               <ion-label>Nombre: </ion-label>
-              <ion-input id="nombre" name="Nombre" type="text" ngModel required></ion-input>
+              <ion-input id="nombre" name="nombre" type="text" ngModel required></ion-input>
             </ion-item>
             <ion-item>
               <ion-label>Raza</ion-label>
-              <ion-select name="Raza" interface="popover" placeholder="...">
+              <ion-select name="raza" interface="popover" placeholder="...">
                 <ion-select-option value="red">Red</ion-select-option>
                 <ion-select-option value="purple">Purple</ion-select-option>
                 <ion-select-option value="yellow">Yellow</ion-select-option>
@@ -30,14 +30,14 @@
               </ion-select>
             </ion-item>
             <ion-item>
-              <ion-label name="Sexo" color="gris" >Sexo</ion-label>
+              <ion-label name="sexo" color="gris" >Sexo</ion-label>
               <ion-select interface="popover" placeholder="...">
                 <ion-select-option value="Macho">Macho</ion-select-option>
                 <ion-select-option value="Hembra">Hembra</ion-select-option>
               </ion-select>
             </ion-item>
             <ion-item>
-            <ion-label name="Nro de pariciones" color=rgb(128,128,128)>Nro de pariciones</ion-label>
+            <ion-label name="nroPariciones" color=rgb(128,128,128)>Nro de pariciones</ion-label>
               <ion-select interface="popover" placeholder="...">
                <ion-select-option value="0">Ninguna</ion-select-option>
                 <ion-select-option value="1">1</ion-select-option>
@@ -50,21 +50,21 @@
             </ion-item>
             <ion-item>
             <ion-label>Fecha de nacimiento</ion-label>
-                <ion-datetime name="Fecha de nacimiento" displayFormat="MMMM YYYY" placeholder="..."></ion-datetime>
+                <ion-datetime name="fNacimiento" displayFormat="MMMM YYYY" placeholder="..."></ion-datetime>
               </ion-item>
             <ion-item>
-              <ion-input name="Foto" type="file" placeholder="Foto" ngModel required></ion-input>
+              <ion-input name="foto" type="file" placeholder="Foto" ngModel required></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Ubicacion: </ion-label>
-              <ion-input name="Ubicacion" type="address" ngModel required></ion-input>
+              <ion-input name="ubicacion" type="address" ngModel required></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Descripcion: </ion-label>
-                <ion-textarea name="Descripcion"></ion-textarea>
+                <ion-textarea name="descripcion"></ion-textarea>
               </ion-item>
               <ion-item>
-                  <ion-label name="Pedigree" color=rgb(128,128,128) >Pedigree</ion-label>
+                  <ion-label name="pedigree" color=rgb(128,128,128) >Pedigree</ion-label>
                   <ion-select interface="action-sheet" placeholder="...">
                     <ion-select-option value="Si">Si</ion-select-option>
                     <ion-select-option value="No">No</ion-select-option>
