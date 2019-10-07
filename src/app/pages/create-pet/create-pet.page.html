@@ -29,13 +29,29 @@
                 <ion-select-option value="green">Green</ion-select-option>
               </ion-select>
             </ion-item>
-            <ion-item>
-              <ion-label name="sexo" color="gris" >Sexo</ion-label>
-              <ion-select interface="popover" placeholder="...">
-                <ion-select-option value="Macho">Macho</ion-select-option>
-                <ion-select-option value="Hembra">Hembra</ion-select-option>
-              </ion-select>
-            </ion-item>
+
+            <ion-radio-group>
+            <ion-row> 
+              <ion-col>
+                <ion-item>
+                <ion-label>Sexo</ion-label>
+              </ion-item>
+              </ion-col>  
+              <ion-col>
+                <ion-item>
+                  <ion-label>Macho</ion-label>
+                  <ion-radio  color="success" value="Macho"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label>Hembra</ion-label>
+                  <ion-radio color="success" value="Hembra"></ion-radio>
+                </ion-item>
+              </ion-col>    
+            </ion-row>
+          </ion-radio-group>
+
             <ion-item>
             <ion-label name="nroPariciones" color=rgb(128,128,128)>Nro de pariciones</ion-label>
               <ion-select interface="popover" placeholder="...">
