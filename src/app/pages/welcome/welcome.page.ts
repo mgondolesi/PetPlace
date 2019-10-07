@@ -65,6 +65,11 @@ export class WelcomePage implements OnInit {
           icon  : "contacts"
         },
         {
+          title : "Add new pet",
+          url   : "/create-pet",
+          icon  : "add"
+        },
+        {
           title : "Logout",
           icon  : "logout",
           
