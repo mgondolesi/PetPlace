@@ -32,12 +32,16 @@ export class CreatePetPage implements OnInit {
   ngOnInit() {
   }
   // Dismiss Register Modal
-  
+
   
   register(form) {
     this.loading.present();
-    this.authService.registrarMascota(form.value).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
+    const token= this.storage.get('token');
+    this.authService.registrarMascota(form.value, token).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
       data => {                                         //Si la api devuelve data almacena los datos en SQLite
+
+
+          console.log(form.value);
 
           this.router.navigate(['/welcome']);
           
@@ -57,7 +61,7 @@ export class CreatePetPage implements OnInit {
       error => {  
                                
         console.log(error);                                //Si la api devuelve error almacena los datos en SQLite
-          
+        console.log(form.value);
           this.toastController.create({
             message: error.error.msg,
             duration: 3000
@@ -72,7 +76,6 @@ export class CreatePetPage implements OnInit {
       }
     );
   }
-
 }
 
 

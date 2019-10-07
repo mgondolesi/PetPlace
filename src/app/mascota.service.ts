@@ -11,8 +11,8 @@ export class MascotaService {
   constructor(public http: HttpClient) { }
 
 
-  registrarMascota(datos) : Observable<any>{                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
-    return this.http.post(URL+"registerM", datos);               // el return devuelve lo que me mando la api (usuario y token)
+  registrarMascota(datos, token) : Observable<any>{                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
+    return this.http.post(URL+"registerM", datos, token);               // el return devuelve lo que me mando la api (usuario y token)
   }
 
 

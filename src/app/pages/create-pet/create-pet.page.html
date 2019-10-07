@@ -21,7 +21,7 @@
             </ion-item>
             <ion-item>
               <ion-label>Raza</ion-label>
-              <ion-select name="raza" interface="popover" placeholder="...">
+              <ion-select name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
                 <ion-select-option value="red">Red</ion-select-option>
                 <ion-select-option value="purple">Purple</ion-select-option>
                 <ion-select-option value="yellow">Yellow</ion-select-option>
