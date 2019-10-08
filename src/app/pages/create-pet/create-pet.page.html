@@ -21,7 +21,7 @@
             </ion-item>
             <ion-item>
               <ion-label>Raza</ion-label>
-              <ion-select  id="customActionSheetSelect" name="raza" interface="action-sheet" placeholder="..." (ionChange)="onChange($event)">
+              <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
                 <ion-select-option value="Labrador">Labrador</ion-select-option>
                 <ion-select-option value="Dalmata">Dalmata</ion-select-option>
                 <ion-select-option value="Caniche">Caniche</ion-select-option>
@@ -79,13 +79,33 @@
               <ion-label>Descripcion: </ion-label>
               <ion-input id="descripcion" name="descripcion" type="text" ngModel required="false"></ion-input>
             </ion-item>
-              <ion-item>
-                  <ion-label name="pedigree" color=rgb(128,128,128) >Pedigree</ion-label>
-                  <ion-select interface="action-sheet" placeholder="..." (ionChange)="onChangep($event)">
-                    <ion-select-option value="true">Si</ion-select-option>
-                    <ion-select-option value="false">No</ion-select-option>
-                  </ion-select>
+
+
+            <ion-radio-group>
+              <ion-row> 
+                <ion-col>
+                  <ion-item>
+                  <ion-label>Pedigree</ion-label>
                 </ion-item>
+                </ion-col>  
+                <ion-col>
+                  <ion-item>
+                    <ion-label>Si</ion-label>
+                    <ion-radio  color="success" value="true" (ionSelect)="radioSelectP($event)"></ion-radio>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label>No</ion-label>
+                    <ion-radio color="success" value="false" (ionSelect)="radioSelectP($event)"></ion-radio>
+                  </ion-item>
+                </ion-col>    
+              </ion-row>
+            </ion-radio-group>
+
+
+             
+
           </div>
           <div padding>
             <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>

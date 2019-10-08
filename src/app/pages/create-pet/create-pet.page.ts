@@ -63,7 +63,8 @@ export class CreatePetPage implements OnInit {
     this.fna = valor.detail.value;
   }
 
-  onChangep(valor){
+
+  radioSelectP(valor){
     console.log(valor.detail.value);
     this.ped = valor.detail.value;
   }
