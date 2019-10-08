@@ -76,9 +76,9 @@
               <ion-input name="ubicacion" type="address" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-                <ion-label>Descripcion: </ion-label>
-                <ion-textarea name="descripcion"></ion-textarea>
-              </ion-item>
+              <ion-label>Descripcion: </ion-label>
+              <ion-input id="descripcion" name="descripcion" type="text" ngModel required="false"></ion-input>
+            </ion-item>
               <ion-item>
                   <ion-label name="pedigree" color=rgb(128,128,128) >Pedigree</ion-label>
                   <ion-select interface="action-sheet" placeholder="..." (ionChange)="onChangep($event)">
