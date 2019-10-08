@@ -20,6 +20,13 @@ export class CreatePetPage implements OnInit {
 
   form: NgForm;
   formularioRegistro: FormGroup;
+  data: any;
+  razap: any;
+  nrop:any;
+  sex:any;
+  fna: any;
+  ped:any;
+
   constructor(
     private authService: MascotaService,
     public router: Router, 
@@ -30,18 +37,61 @@ export class CreatePetPage implements OnInit {
     public loading: LoadingService,
   ) {  }
   ngOnInit() {
+    this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
+    this.data = val;
+    })
   }
   // Dismiss Register Modal
-
   
+
+  onChange(valor){
+    console.log(valor.detail.value);
+    this.razap = valor.detail.value;
+   }
+
+   onChangeS(valor){
+    console.log(valor.detail.value);
+    this.nrop = valor.detail.value;
+   }
+
+  radioSelect(valor){
+    console.log(valor.detail.value);
+    this.sex = valor.detail.value;
+  }
+  onChangef(valor){
+    console.log(valor.detail.value);
+    this.fna = valor.detail.value;
+  }
+
+  onChangep(valor){
+    console.log(valor.detail.value);
+    this.ped = valor.detail.value;
+  }
+
   register(form) {
+   
+    
+    const formulario = {
+      nombre: form.value.nombre,
+      raza: this.razap,
+      sexo: this.sex,
+      nroPariciones: this.nrop,
+      fNacimiento: this.fna,
+      foto: "una foto",
+      ubicacion: form.value.ubicacion,
+      descripcion: form.value.descripcion,
+      pedigree: this.ped,
+      token: this.data
+  
+       // ww w .j a  v a  2s.  c  o  m 
+  }; 
     this.loading.present();
-    const token= this.storage.get('token');
-    this.authService.registrarMascota(form.value, token).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
+    
+    this.authService.registrarMascota(formulario).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
       data => {                                         //Si la api devuelve data almacena los datos en SQLite
 
 
-          console.log(form.value);
+          console.log(formulario);
 
           this.router.navigate(['/welcome']);
           
@@ -61,7 +111,7 @@ export class CreatePetPage implements OnInit {
       error => {  
                                
         console.log(error);                                //Si la api devuelve error almacena los datos en SQLite
-        console.log(form.value);
+        console.log(formulario);
           this.toastController.create({
             message: error.error.msg,
             duration: 3000

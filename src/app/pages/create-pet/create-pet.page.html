@@ -21,12 +21,12 @@
             </ion-item>
             <ion-item>
               <ion-label>Raza</ion-label>
-              <ion-select name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
-                <ion-select-option value="red">Red</ion-select-option>
-                <ion-select-option value="purple">Purple</ion-select-option>
-                <ion-select-option value="yellow">Yellow</ion-select-option>
-                <ion-select-option value="orange">Orange</ion-select-option>
-                <ion-select-option value="green">Green</ion-select-option>
+              <ion-select  id="customActionSheetSelect" name="raza" interface="action-sheet" placeholder="..." (ionChange)="onChange($event)">
+                <ion-select-option value="Labrador">Labrador</ion-select-option>
+                <ion-select-option value="Dalmata">Dalmata</ion-select-option>
+                <ion-select-option value="Caniche">Caniche</ion-select-option>
+                <ion-select-option value="Gran Danes">Gran Danes</ion-select-option>
+                <ion-select-option value="Rock Guailer">Rock Guailer :b</ion-select-option>
               </ion-select>
             </ion-item>
 
@@ -40,21 +40,21 @@
               <ion-col>
                 <ion-item>
                   <ion-label>Macho</ion-label>
-                  <ion-radio  color="success" value="Macho"></ion-radio>
+                  <ion-radio  color="success" value="Macho" (ionSelect)="radioSelect($event)"></ion-radio>
                 </ion-item>
               </ion-col>
               <ion-col>
                 <ion-item>
                   <ion-label>Hembra</ion-label>
-                  <ion-radio color="success" value="Hembra"></ion-radio>
+                  <ion-radio color="success" value="Hembra" (ionSelect)="radioSelect($event)"></ion-radio>
                 </ion-item>
               </ion-col>    
             </ion-row>
           </ion-radio-group>
 
             <ion-item>
-            <ion-label name="nroPariciones" color=rgb(128,128,128)>Nro de pariciones</ion-label>
-              <ion-select interface="popover" placeholder="...">
+            <ion-label name="nroPariciones" color=rgb(128,128,128) interface="action-sheet" >Nro de pariciones</ion-label>
+              <ion-select interface="popover" placeholder="..." (ionChange)="onChangeS($event)">
                <ion-select-option value="0">Ninguna</ion-select-option>
                 <ion-select-option value="1">1</ion-select-option>
                 <ion-select-option value="2">2</ion-select-option>
@@ -66,7 +66,7 @@
             </ion-item>
             <ion-item>
             <ion-label>Fecha de nacimiento</ion-label>
-                <ion-datetime name="fNacimiento" displayFormat="MMMM YYYY" placeholder="..."></ion-datetime>
+                <ion-datetime name="fNacimiento" displayFormat="MMMM YYYY" placeholder="..." (ionChange)="onChangef($event)"></ion-datetime>
               </ion-item>
             <ion-item>
               <ion-input name="foto" type="file" placeholder="Foto" ngModel required></ion-input>
@@ -81,9 +81,9 @@
               </ion-item>
               <ion-item>
                   <ion-label name="pedigree" color=rgb(128,128,128) >Pedigree</ion-label>
-                  <ion-select interface="action-sheet" placeholder="...">
-                    <ion-select-option value="Si">Si</ion-select-option>
-                    <ion-select-option value="No">No</ion-select-option>
+                  <ion-select interface="action-sheet" placeholder="..." (ionChange)="onChangep($event)">
+                    <ion-select-option value="true">Si</ion-select-option>
+                    <ion-select-option value="false">No</ion-select-option>
                   </ion-select>
                 </ion-item>
           </div>
