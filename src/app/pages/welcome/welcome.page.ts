@@ -4,6 +4,7 @@ import { Platform, ToastController} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UsuarioService } from 'src/app/usuario.service';
+import { MascotaService } from 'src/app/mascota.service';
 import { Router } from '@angular/router';
 import { LoadingService } from 'src/app/loading.service';
 
@@ -20,8 +21,8 @@ export class WelcomePage implements OnInit {
   data: any;
   tkn: any;
   navigate : any;
-  
-
+  mascotas: any[] = [];  
+  data2: any;
 
   constructor(private storage: Storage,
     private platform    : Platform,
@@ -31,6 +32,7 @@ export class WelcomePage implements OnInit {
     private authService: UsuarioService,
     public toastController: ToastController,
     public loading: LoadingService,
+    public mascotaService: MascotaService,
     )  {
   
       this.sideMenu();        //metodos para el menu del costado.
@@ -78,8 +80,35 @@ export class WelcomePage implements OnInit {
       }).catch((error) => {
         console.log('get error for ' , error);
       });
+
+
+
+    this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
+    this.data2 = val;
+    console.log(this.data2);
+
+    const formulario = {
+      token: this.data2
+    };
+    this.mascotaService.getAllMascotas(formulario)
+    .subscribe(
+      (data2) => { // Success
+        this.mascotas = data2['mascota'];
+        console.log(data2);
+      },
+      (error) =>{
+        console.error(error);
+      }
+    )
+
+    }) 
+
+
+      
+      
     }
     
+
     
     signout(){                                      //Click en logout
       this.loading.present();  

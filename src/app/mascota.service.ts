@@ -20,4 +20,7 @@ export class MascotaService {
   return this.http.post(URL+"misMascotas", token);               // el return devuelve lo que me mando la api (usuario y token)
   }
 
+  getAllMascotas(token) {                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
+  return this.http.post(URL+"getAllMascotas",token);               // el return devuelve lo que me mando la api (usuario y token)
+  }
 }
