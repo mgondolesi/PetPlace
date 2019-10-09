@@ -55,26 +55,13 @@ export class WelcomePage implements OnInit {
           icon  : "home"            //el icono que se muestra
         },
         {
-          title : "Chat",
-          url   : "/chat",
-          icon  : "chatboxes"
-        },
-        {
-          title : "Contacts",
-          url   : "/contacts",
-          icon  : "contacts"
-        },
-        {
-          title : "Add new pet",
-          url   : "/create-pet",
-          icon  : "add"
+          title : "My Pets",
+          url   : "/my-pets",
+          icon  : "paw"
         },
         {
           title : "Logout",
           icon  : "logout",
-          
-          
-          
         },
       ]
     }
