@@ -51,7 +51,7 @@ export class WelcomePage implements OnInit {
       [
         {
           title : "Home",           //nombre visible en el menu
-          url   : "/home",          //a donde te manda
+          url   : "/welcome",          //a donde te manda
           icon  : "home"            //el icono que se muestra
         },
         {
