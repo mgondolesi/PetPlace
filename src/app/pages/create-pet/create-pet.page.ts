@@ -3,6 +3,7 @@ import { ModalController, NavController, ToastController,  AlertController } fro
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 import { Router } from '@angular/router';
 
 import { NgForm } from '@angular/forms';
@@ -35,10 +36,12 @@ export class CreatePetPage implements OnInit {
     public toastController: ToastController,
     public alertController: AlertController,
     public loading: LoadingService,
+
   ) {  }
   ngOnInit() {
     this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
     this.data = val;
+   
     })
   }
   // Dismiss Register Modal

@@ -18,7 +18,7 @@ import { LoadingService } from './loading.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule,  IonicStorageModule.forRoot(), FormsModule, IonicModule.forRoot(),],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , HttpClientModule,  IonicStorageModule.forRoot(), FormsModule, IonicModule.forRoot(),],
   providers: [
     StatusBar,
     FormBuilder,
@@ -26,6 +26,7 @@ import { LoadingService } from './loading.service';
     Storage,
     LoadingService,
     SplashScreen,
+  
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
