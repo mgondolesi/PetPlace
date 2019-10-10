@@ -3,31 +3,20 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders,  } from '@angular/common/h
 import { URL } from '../app/config';
 import { Observable } from 'rxjs';
 import { Storage } from '@ionic/storage';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MascotaService {
-
+ 
   constructor(public http: HttpClient,
-              public storage: Storage,
-              public httpOptions: HttpHeaders
               ) { }
-token : any;
-public details(){
-  const headers = new Headers();
-  this.storage.get('token').then((val) => {
-    this.token = val
-})        
-}
- headers = new HttpHeaders({
-  'Authorization': `Bearer ${this.token}`
-});
- options = {
-  headers: this.headers
-};
-  registrarMascota(datos) : Observable<any>{                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
-    return this.http.post(URL+"registerM",datos, this.options);               // el return devuelve lo que me mando la api (usuario y token)
+       
+              
+  registrarMascota(datos) : Observable<any>{  
+    const httpOptions = {headers: new HttpHeaders({})};                         //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
+    return this.http.post(URL+"registerM",datos,{headers: httpOptions.headers});               // el return devuelve lo que me mando la api (usuario y token)
   }
 
 

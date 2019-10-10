@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormBuilder } from '@angular/forms';
 import { IonicStorageModule } from "@ionic/storage";
 import { LoadingService } from './loading.service';
+import { HttpConfigInterceptor } from './interceptors/http-config.interceptor';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +29,12 @@ import { LoadingService } from './loading.service';
     LoadingService,
     SplashScreen,
   
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })
