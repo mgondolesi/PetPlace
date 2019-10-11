@@ -105,4 +105,5 @@ export class HomePage {
       .catch(err => console.error(err));
      
     }
+
 }
