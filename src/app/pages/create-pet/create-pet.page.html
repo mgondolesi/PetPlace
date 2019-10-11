@@ -22,7 +22,7 @@
             <ion-item>
               <ion-label>Raza</ion-label>
               <ion-select  [(ngModel)]="razas" id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
-                <ion-select-option *ngFor="let raza of razas">{{raza.raza}}</ion-select-option>
+                <ion-select-option *ngFor="let raza of razas">{{raza}}</ion-select-option>
               </ion-select>
             </ion-item>
 

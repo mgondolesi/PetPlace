@@ -27,6 +27,7 @@ export class CreatePetPage implements OnInit {
   sex:any;
   fna: any;
   ped:any;
+  mascotaService: MascotaService;
   razas: any[] = [];
   
 
@@ -38,7 +39,6 @@ export class CreatePetPage implements OnInit {
     public toastController: ToastController,
     public alertController: AlertController,
     public loading: LoadingService,
-    public mascotaService: MascotaService,
 
   ) {  }
   ngOnInit() {
@@ -53,12 +53,12 @@ export class CreatePetPage implements OnInit {
     .subscribe(
       (data) => { // Success
         this.razas = data['raza'];
+        console.log(data);
       },
       (error) =>{
         console.error(error);
       }
     )
-    
   }
   // Dismiss Register Modal
   
