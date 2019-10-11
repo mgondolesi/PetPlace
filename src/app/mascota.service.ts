@@ -30,7 +30,6 @@ export class MascotaService {
   }
   
   getAllRazas() {
-    console.log()
     return this.http.get(URL+"getAllRazas");
   }
 }
