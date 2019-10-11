@@ -21,12 +21,8 @@
             </ion-item>
             <ion-item>
               <ion-label>Raza</ion-label>
-              <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
-                <ion-select-option value="Labrador">Labrador</ion-select-option>
-                <ion-select-option value="Dalmata">Dalmata</ion-select-option>
-                <ion-select-option value="Caniche">Caniche</ion-select-option>
-                <ion-select-option value="Gran Danes">Gran Danes</ion-select-option>
-                <ion-select-option value="Rock Guailer">Rock Guailer :b</ion-select-option>
+              <ion-select  [(ngModel)]="razas" id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
+                <ion-select-option *ngFor="let raza of razas">{{raza}}</ion-select-option>
               </ion-select>
             </ion-item>
 
