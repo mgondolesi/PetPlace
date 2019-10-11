@@ -27,9 +27,6 @@ export class CreatePetPage implements OnInit {
   sex:any;
   fna: any;
   ped:any;
-  mascotaService: MascotaService;
-  razas: any[] = [];
-  
 
   constructor(
     private authService: MascotaService,
@@ -46,19 +43,6 @@ export class CreatePetPage implements OnInit {
     this.data = val;
    
     })
-    const formulario = {
-      token: this.data
-    }; 
-    this.mascotaService.getAllRazas()
-    .subscribe(
-      (data) => { // Success
-        this.razas = data['raza'];
-        console.log(data);
-      },
-      (error) =>{
-        console.error(error);
-      }
-    )
   }
   // Dismiss Register Modal
   

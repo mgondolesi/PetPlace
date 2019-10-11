@@ -37,7 +37,6 @@ export class MyPetsPage implements OnInit {
       (data) => { // Success
         this.mascotas = data['mascota'];
         console.log(data);
-        console.log(this.mascotas)
       },
       (error) =>{
         console.error(error);
