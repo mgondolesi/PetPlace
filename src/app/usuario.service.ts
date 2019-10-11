@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders,  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { URL } from '../app/config';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class UsuarioService {
 
   constructor(public http: HttpClient) { }
-  httpOptions = {headers: new HttpHeaders({})};     
+
 
   registrar(datos) : Observable<any>{                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
     return this.http.post(URL+"register", datos);               // el return devuelve lo que me mando la api (usuario y token)
@@ -26,6 +26,4 @@ export class UsuarioService {
    logout(): Observable<any>{                                 //no manda nada solo recibe token=null
       return this.http.get(URL+"logout");
    }
-
-   
 }
