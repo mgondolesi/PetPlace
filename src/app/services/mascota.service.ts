@@ -10,13 +10,15 @@ import { map } from 'rxjs/operators';
 })
 export class MascotaService {
  
-  constructor(public http: HttpClient,
-              ) { }
-       
+  constructor(
+    public http: HttpClient,
+    ) { }
+ 
+  httpOptions = {headers: new HttpHeaders({})}; 
               
   registrarMascota(datos) : Observable<any>{  
-    const httpOptions = {headers: new HttpHeaders({})};                         //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
-    return this.http.post(URL+"registerM",datos,{headers: httpOptions.headers});               // el return devuelve lo que me mando la api (usuario y token)
+                         //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
+    return this.http.post(URL+"registerM",datos,{headers: this.httpOptions.headers});               // el return devuelve lo que me mando la api (usuario y token)
   }
 
 
