@@ -22,11 +22,11 @@ export class MascotaService {
   }
 
 
-  getMascotas(token) {                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
-  return this.http.post(URL+"misMascotas", token);               // el return devuelve lo que me mando la api (usuario y token)
+  getMascotas() {                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
+  return this.http.get(URL+"misMascotas", {headers: this.httpOptions.headers});               // el return devuelve lo que me mando la api (usuario y token)
   }
 
-  getAllMascotas(token) {                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
-  return this.http.post(URL+"getAllMascotas",token);               // el return devuelve lo que me mando la api (usuario y token)
+  getAllMascotas() {                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
+  return this.http.get(URL+"getAllMascotas",{headers: this.httpOptions.headers});               // el return devuelve lo que me mando la api (usuario y token)
   }
 }

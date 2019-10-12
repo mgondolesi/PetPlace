@@ -24,15 +24,7 @@ export class MyPetsPage implements OnInit {
    }
 
   ngOnInit() {
-    this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
-    this.data = val;
-    console.log(this.data);
-
-    const formulario = {
-      token: this.data
-    }; 
-
-    this.mascotaService.getMascotas(formulario)
+    this.mascotaService.getMascotas()
     .subscribe(
       (data) => { // Success
         this.mascotas = data['mascota'];
@@ -43,18 +35,14 @@ export class MyPetsPage implements OnInit {
       }
     )
 
-    })
+    
   }
   goToCreate() {
     this.router.navigate(['/create-pet']);  }
 
   ionViewDidLoad(){
 
-    const formulario = {
-      token: this.data
-    }; 
-
-    this.mascotaService.getMascotas(formulario)
+    this.mascotaService.getMascotas()
     .subscribe(
       (data) => { // Success
         this.mascotas = data['mascota'];
