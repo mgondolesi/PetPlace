@@ -5,7 +5,7 @@ import { LoadingController } from '@ionic/angular';
   providedIn: 'root'
 })
 export class LoadingService {
-
+  loader: any;
   isLoading = false;
 
   constructor(public loadingController: LoadingController) { }
