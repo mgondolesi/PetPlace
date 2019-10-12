@@ -11,6 +11,7 @@ import { MascotaService } from 'src/app/mascota.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { LoadingService } from 'src/app/loading.service';
+import { RazasService } from 'src/app/razas.service';
 
 @Component({
   selector: 'app-create-pet',
@@ -27,6 +28,8 @@ export class CreatePetPage implements OnInit {
   sex:any;
   fna: any;
   ped:any;
+  razas: any[] = [];
+  
 
   constructor(
     private authService: MascotaService,
@@ -36,6 +39,7 @@ export class CreatePetPage implements OnInit {
     public toastController: ToastController,
     public alertController: AlertController,
     public loading: LoadingService,
+    public razasService: RazasService,
 
   ) {  }
   ngOnInit() {
@@ -43,6 +47,16 @@ export class CreatePetPage implements OnInit {
     this.data = val;
    
     })
+    this.razasService.getAllRazas()
+    .subscribe(
+      (data) => { // Success
+        this.razas = data['raza'];
+        console.log(this.razas)
+      },
+      (error) =>{
+        console.error(error);
+      }
+    )
   }
   // Dismiss Register Modal
   

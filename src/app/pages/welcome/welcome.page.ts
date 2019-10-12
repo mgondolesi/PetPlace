@@ -63,7 +63,8 @@ export class WelcomePage implements OnInit {
         },
         {
           title : "Logout",
-          icon  : "logout",
+          url   : "/logout",
+          icon  : "log-out",
         },
       ]
     }
