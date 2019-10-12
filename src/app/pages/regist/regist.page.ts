@@ -45,7 +45,7 @@ export class RegistPage implements OnInit {
           //console.log(form.value);
           //Obtengo los datos de SQLite
           this.storage.get('usuario').then((val) => {
-            console.log('los datos del usuario son:', val);
+            console.log('los datos del usuario son:', form.value);
             this.loading.dismiss();
           });
          

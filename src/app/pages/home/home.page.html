@@ -9,7 +9,7 @@
         <ion-input  name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
       </ion-item>
       <ion-item>
-          <ion-input  name="password" type="password" placeholder="password" ngModel required></ion-input>
+          <ion-input  name="password" type="password" minlength="6" maxlength="20"  placeholder="password" ngModel required></ion-input>
         </ion-item>
         <ion-grid>  
         <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">signin</ion-button>
