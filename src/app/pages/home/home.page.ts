@@ -6,9 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
-import { UsuarioService } from 'src/app/usuario.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { ToastController } from '@ionic/angular'
-import { LoadingService } from 'src/app/loading.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 
 

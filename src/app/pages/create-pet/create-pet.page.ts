@@ -7,11 +7,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { NgForm } from '@angular/forms';
-import { MascotaService } from 'src/app/mascota.service';
+import { MascotaService } from 'src/app/services/mascota.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
-import { LoadingService } from 'src/app/loading.service';
-import { RazasService } from 'src/app/razas.service';
+import { LoadingService } from 'src/app/services/loading.service';
+import { RazasService } from 'src/app/services/razas.service';
 
 @Component({
   selector: 'app-create-pet',
@@ -111,7 +111,7 @@ export class CreatePetPage implements OnInit {
 
           console.log(formulario);
 
-          this.router.navigate(['/welcome']);
+          //this.router.navigate(['/welcome']);
           
           this.toastController.create({
             message: data.msj,
@@ -120,7 +120,8 @@ export class CreatePetPage implements OnInit {
             console.log(toastData);
             toastData.present();
           }); 
-
+          
+          this.router.navigate(['/my-pets']);
           this.loading.dismiss();
 
          

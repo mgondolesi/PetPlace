@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormBuilder } from '@angular/forms';
 import { IonicStorageModule } from "@ionic/storage";
-import { LoadingService } from './loading.service';
+import { LoadingService } from './services/loading.service';
 import { HttpConfigInterceptor } from './interceptors/http-config.interceptor';
 
 

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Platform, ToastController} from '@ionic/angular';
-import { UsuarioService } from 'src/app/usuario.service';
-import { MascotaService } from 'src/app/mascota.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { MascotaService } from 'src/app/services/mascota.service';
 import { Router } from '@angular/router';
-import { LoadingService } from 'src/app/loading.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-logout',

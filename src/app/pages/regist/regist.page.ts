@@ -6,10 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { NgForm } from '@angular/forms';
-import { UsuarioService } from 'src/app/usuario.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
-import { LoadingService } from 'src/app/loading.service';
+import { LoadingService } from 'src/app/services/loading.service';
 @Component({
   selector: 'app-regist',
   templateUrl: './regist.page.html',

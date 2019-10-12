@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaderResponse, HttpHeaders,  } from '@angular/common/http';
-import { URL } from '../app/config';
+import { URL } from '../../app/config';
 import { Observable } from 'rxjs';
 import { Storage } from '@ionic/storage';
 import { map } from 'rxjs/operators';
