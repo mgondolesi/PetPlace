@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form  #form="ngForm" (ngSubmit)="register(Form)" [formGroup]="Form">
+  <form  #form="ngForm" (ngSubmit)="register(form)">
     <ion-grid>
       <ion-row color="primary" justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
@@ -22,9 +22,6 @@
               <ion-input  name="password" type="password" minlength="6" maxlength="20" placeholder="clave" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input  name="password_repeat" equals-to="Form.password" type="password" minlength="6" maxlength="20" placeholder="clave" ngModel required></ion-input>
-            </ion-item>
-            <ion-item>
               <ion-input name="name" type="text" placeholder="nombre" ngModel required></ion-input>
             </ion-item>
             <ion-item>
@@ -32,7 +29,7 @@
             </ion-item>
           </div>
           <div padding>
-            <ion-button  size="large" type="submit" [disabled]="Form.invalid" expand="block">Registrar</ion-button>
+            <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>
           </div>
         </ion-col>
       </ion-row>
