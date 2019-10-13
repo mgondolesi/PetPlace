@@ -76,7 +76,7 @@ export class RegistPage implements OnInit {
   } else {
     //this.loading.dismiss();  
     this.toastController2.create({
-      message: "Las Contrasenas no Coinciden",
+      message: "Contrasenas Distintas",
       duration: 3000
     }).then((toastData)=>{
       console.log(toastData);
