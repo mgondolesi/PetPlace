@@ -17,6 +17,8 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class RegistPage implements OnInit {
 
+  pass:any;
+  pass2:any;
   form: NgForm;
   formularioRegistro: FormGroup;
   constructor(
@@ -25,6 +27,7 @@ export class RegistPage implements OnInit {
     public formBuilder: FormBuilder,
     private storage: Storage,
     public toastController: ToastController,
+    public toastController2: ToastController,
     public alertController: AlertController,
     public loading: LoadingService,
   ) {  }
@@ -35,9 +38,11 @@ export class RegistPage implements OnInit {
   
   register(form) {
     this.loading.present();
+    if (this.pass == this.pass2) {
+     
     this.authService.registrar(form.value).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
       data => {                                         //Si la api devuelve data almacena los datos en SQLite
-
+   
           this.storage.set("token", data.token);
           this.storage.set("usuario", data.usuario);
           this.router.navigate(['/home']);
@@ -45,14 +50,14 @@ export class RegistPage implements OnInit {
           //console.log(form.value);
           //Obtengo los datos de SQLite
           this.storage.get('usuario').then((val) => {
-            console.log('los datos del usuario son:', val);
-            this.loading.dismiss();
+            console.log('los datos del usuario son:', form.value);
+            //this.loading.dismiss();
           });
          
       
       },
       error => {  
-                               
+        //this.loading.present();
         console.log(error);                                //Si la api devuelve error almacena los datos en SQLite
           
           this.toastController.create({
@@ -62,12 +67,24 @@ export class RegistPage implements OnInit {
             console.log(toastData);
             toastData.present();
           }); 
-          this.loading.dismiss();  
+          //this.loading.dismiss();  
       },
       () => {
         
       }
     );
+  } else {
+    //this.loading.dismiss();  
+    this.toastController2.create({
+      message: "Las Contrasenas no Coinciden",
+      duration: 3000
+    }).then((toastData)=>{
+      console.log(toastData);
+      toastData.present();
+    });
+    
+  }
+  this.loading.dismiss();  
   }
 
 }

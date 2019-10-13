@@ -84,14 +84,7 @@ export class WelcomePage implements OnInit {
 
 
 
-    this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
-    this.data2 = val;
-    console.log(this.data2);
-
-    const formulario = {
-      token: this.data2
-    };
-    this.mascotaService.getAllMascotas(formulario)
+    this.mascotaService.getAllMascotas()
     .subscribe(
       (data2) => { // Success
         this.mascotas = data2['mascota'];
@@ -102,7 +95,7 @@ export class WelcomePage implements OnInit {
       }
     )
 
-    }) 
+
 
 
       

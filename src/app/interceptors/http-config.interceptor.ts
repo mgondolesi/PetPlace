@@ -53,7 +53,6 @@ import { LoadingService } from '../services/loading.service';
               
               catchError((error: HttpErrorResponse) => {
                 if (error.status === 401) {
-                  this.loading.dismiss()
                   this.router.navigate(['/home']);
                   this.toastController.create({
                     message: "Por favor, inicie sesion",
@@ -64,6 +63,7 @@ import { LoadingService } from '../services/loading.service';
                   });
                 }
                 console.error(error);
+                
                 return throwError(error);
               })
             );
