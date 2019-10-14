@@ -16,7 +16,8 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./regist.page.scss'],
 })
 export class RegistPage implements OnInit {
-
+  pass:any;
+  pass2:any;
   form: NgForm;
   formularioRegistro: FormGroup;
   constructor(
@@ -25,6 +26,7 @@ export class RegistPage implements OnInit {
     public formBuilder: FormBuilder,
     private storage: Storage,
     public toastController: ToastController,
+    public toastController2: ToastController,
     public alertController: AlertController,
     public loading: LoadingService,
   ) {  }
@@ -35,6 +37,8 @@ export class RegistPage implements OnInit {
   
   register(form) {
     this.loading.present();
+    if (this.pass == this.pass2) {
+
     this.authService.registrar(form.value).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
       data => {                                         //Si la api devuelve data almacena los datos en SQLite
 
@@ -46,7 +50,7 @@ export class RegistPage implements OnInit {
           //Obtengo los datos de SQLite
           this.storage.get('usuario').then((val) => {
             console.log('los datos del usuario son:', form.value);
-            this.loading.dismiss();
+           // this.loading.dismiss();
           });
          
       
@@ -62,14 +66,12 @@ export class RegistPage implements OnInit {
             console.log(toastData);
             toastData.present();
           }); 
-          this.loading.dismiss();  
+         // this.loading.dismiss();  
       },
       () => {
         
       }
     );
-<<<<<<< HEAD
-=======
   } else {
     //this.loading.dismiss();  
     this.toastController2.create({
@@ -82,8 +84,6 @@ export class RegistPage implements OnInit {
     
   }
   this.loading.dismiss();  
->>>>>>> parent of 701e19d... .
   }
 
 }
-

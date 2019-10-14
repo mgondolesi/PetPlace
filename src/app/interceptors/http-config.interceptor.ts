@@ -12,7 +12,7 @@ import {
   import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { LoadingService } from '../services/loading.service';
+
   const TOKEN_KEY = 'token';
   @Injectable()
   export class HttpConfigInterceptor implements HttpInterceptor {
@@ -21,7 +21,7 @@ import { LoadingService } from '../services/loading.service';
       public storage: Storage,
       private router: Router, 
       public toastController: ToastController,
-      public loading: LoadingService,
+    
     ) { }
     intercept(request: HttpRequest<any>, 
                  next: HttpHandler): 
@@ -36,7 +36,7 @@ import { LoadingService } from '../services/loading.service';
               });
             }
             
-            this.loading.present();
+    
             return next.handle(request).pipe(
               map((event: HttpEvent<any>) => {
                
@@ -44,7 +44,7 @@ import { LoadingService } from '../services/loading.service';
                   //this.loading.dismiss()
                 }
                 else{
-                  this.loading.dismiss()
+         
                 }
               
                 return event;
