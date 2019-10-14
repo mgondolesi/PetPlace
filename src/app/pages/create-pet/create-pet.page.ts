@@ -94,7 +94,7 @@ export class CreatePetPage implements OnInit {
       sexo: this.sex,
       nroPariciones: this.nrop,
       fNacimiento: this.fna,
-      foto: "una foto",
+      foto: "ada",
       ubicacion: form.value.ubicacion,
       descripcion: form.value.descripcion,
       pedigree: this.ped,
