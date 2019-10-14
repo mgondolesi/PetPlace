@@ -68,6 +68,21 @@ export class RegistPage implements OnInit {
         
       }
     );
+<<<<<<< HEAD
+=======
+  } else {
+    //this.loading.dismiss();  
+    this.toastController2.create({
+      message: "Contrasenas Distintas",
+      duration: 3000
+    }).then((toastData)=>{
+      console.log(toastData);
+      toastData.present();
+    });
+    
+  }
+  this.loading.dismiss();  
+>>>>>>> parent of 701e19d... .
   }
 
 }
