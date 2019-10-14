@@ -19,7 +19,10 @@
               <ion-input  name="username" type="text" placeholder="username" ngModel required></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input  name="password" type="password" minlength="6" maxlength="20" placeholder="clave" ngModel required></ion-input>
+              <ion-input  name="password" type="password" minlength="6" maxlength="20" placeholder="clave"  [(ngModel)]="pass" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input  name="password_repeat" type="password" minlength="6" maxlength="20" placeholder="clave"  [(ngModel)]="pass2" ngModel required></ion-input>
             </ion-item>
             <ion-item>
               <ion-input name="name" type="text" placeholder="nombre" ngModel required></ion-input>
