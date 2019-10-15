@@ -29,6 +29,7 @@ export class CreatePetPage implements OnInit {
   fna: any;
   ped:any;
   razas: any[] = [];
+  file: any;
   
 
   constructor(
@@ -85,7 +86,10 @@ export class CreatePetPage implements OnInit {
     console.log(valor.detail.value);
     this.ped = valor.detail.value;
   }
-
+  changeListener($event) : void {
+    this.file = $event.target.files[0];
+    console.log(this.file);
+  }
   register(form) {
    
     
@@ -95,7 +99,7 @@ export class CreatePetPage implements OnInit {
       sexo: this.sex,
       nroPariciones: this.nrop,
       fNacimiento: this.fna,
-      foto: "ada",
+      foto: form.value.foto,
       ubicacion: form.value.ubicacion,
       descripcion: form.value.descripcion,
       pedigree: this.ped,

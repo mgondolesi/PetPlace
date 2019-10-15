@@ -12,7 +12,7 @@
     <ion-list>
         <ion-item *ngFor="let mascota of mascotas">
           <ion-avatar slot="start">
-              <img src="http://pm1.narvii.com/6284/e4cbd71f7a5ec65aed7ce705f152035b1adeed42_00.jpg">
+              <img src={{mascota.foto}}>
             </ion-avatar>
             <ion-label>
               <h2>{{ mascota.nombre | uppercase }}</h2>
