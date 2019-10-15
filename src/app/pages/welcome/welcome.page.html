@@ -16,7 +16,7 @@
 
     <ion-list>
       <ion-card *ngFor="let mascota of mascotas">
-          <img src="https://i.ytimg.com/vi/eLLZd7fW244/maxresdefault.jpg" />
+          <img src= "{{ mascota.foto }}" />
         <ion-card-header>
           <ion-card-subtitle>{{ mascota.raza }}</ion-card-subtitle>
           <ion-card-title>{{ mascota.nombre | uppercase }}</ion-card-title>
