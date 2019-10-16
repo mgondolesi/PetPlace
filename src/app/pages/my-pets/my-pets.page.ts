@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { MascotaService } from 'src/app/services/mascota.service';
 import { Storage } from '@ionic/storage';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-my-pets',
@@ -17,6 +18,7 @@ export class MyPetsPage implements OnInit {
   constructor(
     public router: Router, 
     public navCtrl: NavController,
+    public loading: LoadingService,
     public mascotaService: MascotaService,
     public storage: Storage,
   ) {
@@ -53,4 +55,21 @@ export class MyPetsPage implements OnInit {
       }
     )
   } 
+  borrar(mascota){
+    this.loading.present();
+    this.mascotaService.borrarMascota(mascota)
+    .subscribe(
+      (data) => { 
+        this.mascotas = data['mascota'];
+        console.log(data);
+        this.router.navigate(['/my-pets']);
+        this.loading.dismiss();
+      },
+      (error) =>{
+        console.error(error);
+        this.loading.dismiss();  
+      }
+    )
+  }
 }
+

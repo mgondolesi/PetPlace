@@ -10,9 +10,10 @@
 <ion-content>
 
     <ion-list>
-        <ion-item *ngFor="let mascota of mascotas">
+      <ion-item-sliding *ngFor="let mascota of mascotas">
+        <ion-item >
           <ion-avatar slot="start">
-              <img src={{mascota.foto}}>
+            <img src={{mascota.foto}}>
             </ion-avatar>
             <ion-label>
               <h2>{{ mascota.nombre | uppercase }}</h2>
@@ -20,7 +21,15 @@
               <p>{{ mascota.descripcion }}</p>
             </ion-label>
         </ion-item>
-      </ion-list>
+        <ion-item-options side="end">
+            <ion-item-option color="warning" (click)="actualizar(mascota)">
+                <ion-icon slot="icon-only" name="create"></ion-icon>
+            </ion-item-option> <ion-item-option color="danger" (click)="borrar(mascota)">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
 
 
       <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
