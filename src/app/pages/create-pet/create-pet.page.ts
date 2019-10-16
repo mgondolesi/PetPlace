@@ -29,8 +29,8 @@ export class CreatePetPage implements OnInit {
   fna: any;
   ped:any;
   razas: any[] = [];
-  file: any;
-  
+  //file: any;
+  file2: File;
 
   constructor(
     private authService: MascotaService,
@@ -86,20 +86,23 @@ export class CreatePetPage implements OnInit {
     console.log(valor.detail.value);
     this.ped = valor.detail.value;
   }
+  
   changeListener($event) : void {
-    this.file = $event.target.files[0];
-    console.log(this.file);
+    this.file2 = $event;
+    console.log(this.file2);
   }
+
   register(form) {
    
     
+  
     const formulario = {
       nombre: form.value.nombre,
       raza: this.razap,
       sexo: this.sex,
       nroPariciones: this.nrop,
       fNacimiento: this.fna,
-      foto: form.value.foto,
+      foto: this.file2,
       ubicacion: form.value.ubicacion,
       descripcion: form.value.descripcion,
       pedigree: this.ped,

@@ -71,7 +71,7 @@
                 <ion-datetime name="fNacimiento" displayFormat="MMMM YYYY" placeholder="..." (ionChange)="onChangef($event)"></ion-datetime>
               </ion-item>
             <ion-item>
-              <input name="foto" type="file" placeholder="Foto"></input>
+              <ion-input name="foto" id="foto" type="file" placeholder="Foto" accept="image/*" ngModel required (ionChange)="changeListener($event)"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label>Ubicacion: </ion-label>
