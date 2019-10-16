@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { MascotaService } from 'src/app/services/mascota.service';
 import { Storage } from '@ionic/storage';
 import { LoadingService } from 'src/app/services/loading.service';
@@ -16,58 +16,68 @@ export class MyPetsPage implements OnInit {
   data: any;
 
   constructor(
-    public router: Router, 
+    public router: Router,
     public navCtrl: NavController,
     public loading: LoadingService,
     public mascotaService: MascotaService,
     public storage: Storage,
+    public toastController: ToastController,
+
   ) {
-    
-   }
+
+  }
 
   ngOnInit() {
     this.mascotaService.getMascotas()
-    .subscribe(
-      (data) => { // Success
-        this.mascotas = data['mascota'];
-        console.log(data);
-      },
-      (error) =>{
-        console.error(error);
-      }
-    )
+      .subscribe(
+        (data) => { // Success
+          this.mascotas = data['mascota'];
+          console.log(data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
 
-    
+
   }
   goToCreate() {
-    this.router.navigate(['/create-pet']);  }
+    this.router.navigate(['/create-pet']);
+  }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
 
     this.mascotaService.getMascotas()
-    .subscribe(
-      (data) => { // Success
-        this.mascotas = data['mascota'];
-        console.log(data);
-      },
-      (error) =>{
-        console.error(error);
-      }
-    )
-  } 
-  borrar(mascota){
+      .subscribe(
+        (data) => { // Success
+          this.mascotas = data['mascota'];
+          console.log(data);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+  }
+  borrar(mascota) {
     this.loading.present();
-    this.mascotaService.borrarMascota(mascota)
-    .subscribe(
-      (data) => { 
+    this.mascotaService.borrarMascota(mascota).subscribe(
+      data => {
         this.mascotas = data['mascota'];
         console.log(data);
-        this.router.navigate(['/my-pets']);
-        this.loading.dismiss();
+        this.toastController.create({
+          message: "Se ha eliminado",
+          duration: 3000
+        }).then((toastData) => {
+          console.log(toastData);
+          toastData.present();
+        });
+        this.ngOnInit()
+       this.loading.dismiss();
+
       },
-      (error) =>{
+      (error) => {
         console.error(error);
-        this.loading.dismiss();  
+        this.loading.dismiss();
       }
     )
   }
