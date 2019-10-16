@@ -30,7 +30,7 @@ export class MascotaService {
   return this.http.get(URL+"getAllMascotas",{headers: this.httpOptions.headers});               // el return devuelve lo que me mando la api (usuario y token)
   }
 
-  borrarMascota(mascota){
+  borrarMascota(mascota): Observable<any> {
     return this.http.post(URL+"borrarMascota",mascota,{headers: this.httpOptions.headers});   
     }
 

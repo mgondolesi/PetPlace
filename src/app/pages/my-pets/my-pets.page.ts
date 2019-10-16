@@ -14,6 +14,7 @@ export class MyPetsPage implements OnInit {
 
   mascotas: any[] = [];
   data: any;
+  msj: any;
 
   constructor(
     public router: Router,
@@ -28,6 +29,10 @@ export class MyPetsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
+    this.data = val;
+   
+    })
     this.mascotaService.getMascotas()
       .subscribe(
         (data) => { // Success
@@ -65,7 +70,7 @@ export class MyPetsPage implements OnInit {
         console.log(data);
         
         this.toastController.create({
-          message: "Mascota eliminada",
+          message: (data.msj),
           duration: 3000
         }).then((toastData) => {
           console.log(toastData);
