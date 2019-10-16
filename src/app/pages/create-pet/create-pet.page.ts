@@ -113,42 +113,38 @@ export class CreatePetPage implements OnInit {
     this.loading.present();
     
     this.authService.registrarMascota(formulario).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
-      data => {                                         //Si la api devuelve data almacena los datos en SQLite
+      data => {                                      //Si la api devuelve data almacena los datos en SQLite
+        console.log(formulario);
+        //this.router.navigate(['/welcome']);
+        this.toastController.create({
+          message: data.msj,
+          duration: 3000
+        }).then((toastData) => {
+          console.log(toastData);
+          toastData.present();
+        });
+
+        this.router.navigate(['/my-pets']);
+        this.loading.dismiss();
 
 
-          console.log(formulario);
 
-          //this.router.navigate(['/welcome']);
-          
-          this.toastController.create({
-            message: data.msj,
-            duration: 3000
-          }).then((toastData)=>{
-            console.log(toastData);
-            toastData.present();
-          }); 
-          
-          this.router.navigate(['/my-pets']);
-          this.loading.dismiss();
-
-         
-      
       },
-      error => {  
-                               
+      error => {
+
         console.log(error);                                //Si la api devuelve error almacena los datos en SQLite
         console.log(formulario);
-          this.toastController.create({
-            message: error.error.msg,
-            duration: 3000
-          }).then((toastData)=>{
-            console.log(toastData);
-            toastData.present();
-          }); 
-          this.loading.dismiss();  
+        this.toastController.create({
+          message: error.error.msg,
+          duration: 3000
+        }).then((toastData) => {
+          console.log(toastData);
+          toastData.present();
+        });
+        this.loading.dismiss();
       },
       () => {
-        
+
       }
     );
   }

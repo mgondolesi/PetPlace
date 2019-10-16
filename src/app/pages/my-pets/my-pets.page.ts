@@ -62,10 +62,10 @@ export class MyPetsPage implements OnInit {
     this.loading.present();
     this.mascotaService.borrarMascota(mascota).subscribe(
       data => {
-        this.mascotas = data['mascota'];
         console.log(data);
+        
         this.toastController.create({
-          message: "Se ha eliminado",
+          message: "Mascota eliminada",
           duration: 3000
         }).then((toastData) => {
           console.log(toastData);
