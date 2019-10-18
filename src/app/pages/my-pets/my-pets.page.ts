@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
-import { MascotaService } from 'src/app/services/mascota.service';
 import { Storage } from '@ionic/storage';
 import { LoadingService } from 'src/app/services/loading.service';
+import { MascotaService } from 'src/app/services/mascota.service';
 
 @Component({
   selector: 'app-my-pets',
@@ -24,14 +24,11 @@ export class MyPetsPage implements OnInit {
     public storage: Storage,
     public toastController: ToastController,
 
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
     this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
-    this.data = val;
-   
+      this.data = val;
     })
     this.mascotaService.getMascotas()
       .subscribe(
@@ -43,15 +40,11 @@ export class MyPetsPage implements OnInit {
           console.error(error);
         }
       )
-
-
   }
   goToCreate() {
     this.router.navigate(['/create-pet']);
   }
-
   ionViewDidLoad() {
-
     this.mascotaService.getMascotas()
       .subscribe(
         (data) => { // Success
@@ -69,17 +62,14 @@ export class MyPetsPage implements OnInit {
         mascota: mascota
       }
     };
-    this.router.navigate(['/edit-pet'],parametro)
+    this.router.navigate(['/edit-pet'], parametro)
     console.log(parametro);
-    
   }
-
   borrar(mascota) {
     this.loading.present();
     this.mascotaService.borrarMascota(mascota).subscribe(
       data => {
         console.log(data);
-        
         this.toastController.create({
           message: (data.msj),
           duration: 3000
@@ -88,8 +78,7 @@ export class MyPetsPage implements OnInit {
           toastData.present();
         });
         this.ngOnInit()
-       this.loading.dismiss();
-
+        this.loading.dismiss();
       },
       (error) => {
         console.error(error);
