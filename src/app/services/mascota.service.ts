@@ -34,7 +34,7 @@ export class MascotaService {
     return this.http.post(URL+"borrarMascota",mascota,{headers: this.httpOptions.headers});   
     }
 
-  modificarMascota(mascota){
+  modificarMascota(mascota): Observable<any>{
   return this.http.post(URL+"modificarMascota",mascota,{headers: this.httpOptions.headers});   
   }
     

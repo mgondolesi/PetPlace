@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
 import { MascotaService } from 'src/app/services/mascota.service';
 import { Storage } from '@ionic/storage';
@@ -63,6 +63,17 @@ export class MyPetsPage implements OnInit {
         }
       )
   }
+  goToEdit(mascota) {
+    let parametro: NavigationExtras = {
+      state: {
+        mascota: mascota
+      }
+    };
+    this.router.navigate(['/edit-pet'],parametro)
+    console.log(parametro);
+    
+  }
+
   borrar(mascota) {
     this.loading.present();
     this.mascotaService.borrarMascota(mascota).subscribe(
