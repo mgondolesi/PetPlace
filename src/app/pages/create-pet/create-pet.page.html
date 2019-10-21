@@ -24,11 +24,6 @@
               <!-- <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)"> -->
                 <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
                 <ion-select-option value={{raza.raza}} *ngFor="let raza of razas">{{raza.raza}} </ion-select-option>
-                <!-- <ion-select-option value="Labrador">Labrador</ion-select-option>
-                <ion-select-option value="Dalmata">Dalmata</ion-select-option>
-                <ion-select-option value="Caniche">Caniche</ion-select-option>
-                <ion-select-option value="Gran Danes">Gran Danes</ion-select-option>
-                <ion-select-option value="Rock Guailer">Rock Guailer :b</ion-select-option> -->
               </ion-select>
             </ion-item>
 
@@ -72,6 +67,12 @@
               </ion-item>
             <ion-item>
               <ion-input name="foto" id="foto" type="file" placeholder="Foto" accept="image/*" ngModel required (ionChange)="changeListener($event)"></ion-input>
+            </ion-item>
+            <ion-item>
+            <ion-button expand="block" color="danger" (click)="selectFile()">Buscar img</ion-button>
+            <ion-label> {{uploadText}} </ion-label>  
+            <ion-button expand="block" color="danger" (click)="uploadFile()">Subir img</ion-button>
+            <ion-label> {{uploadText}} </ion-label>          
             </ion-item>
             <ion-item>
                 <ion-label>Ubicacion: </ion-label>
