@@ -1,0 +1,119 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/my-pets"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Modificar mascota</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+<form  #form="ngForm" (ngSubmit)="register(form)">
+  <ion-grid>
+    <ion-row color="primary" justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <div text-center>
+          <h3>PetPlace</h3>
+        </div>
+        <div padding>
+          <ion-item>
+            <ion-label>Nombre: </ion-label>
+            <ion-input id="nombre" name="nombre" type="text" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Raza</ion-label>
+            <!-- <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)"> -->
+              <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
+              <ion-select-option value={{raza.raza}} *ngFor="let raza of razas">{{raza.raza}} </ion-select-option>
+              <!-- <ion-select-option value="Labrador">Labrador</ion-select-option>
+              <ion-select-option value="Dalmata">Dalmata</ion-select-option>
+              <ion-select-option value="Caniche">Caniche</ion-select-option>
+              <ion-select-option value="Gran Danes">Gran Danes</ion-select-option>
+              <ion-select-option value="Rock Guailer">Rock Guailer :b</ion-select-option> -->
+            </ion-select>
+          </ion-item>
+
+          <ion-radio-group>
+          <ion-row> 
+            <ion-col>
+              <ion-item>
+              <ion-label>Sexo</ion-label>
+            </ion-item>
+            </ion-col>  
+            <ion-col>
+              <ion-item>
+                <ion-label>Macho</ion-label>
+                <ion-radio  color="success" value="Macho" (ionSelect)="radioSelect($event)"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label>Hembra</ion-label>
+                <ion-radio color="success" value="Hembra" (ionSelect)="radioSelect($event)"></ion-radio>
+              </ion-item>
+            </ion-col>    
+          </ion-row>
+        </ion-radio-group>
+
+          <ion-item>
+          <ion-label name="nroPariciones" color=rgb(128,128,128) interface="action-sheet" >Nro de pariciones</ion-label>
+            <ion-select interface="popover" placeholder="..." (ionChange)="onChangeS($event)">
+             <ion-select-option value="0">Ninguna</ion-select-option>
+              <ion-select-option value="1">1</ion-select-option>
+              <ion-select-option value="2">2</ion-select-option>
+              <ion-select-option value="3">3</ion-select-option>
+              <ion-select-option value="4">4</ion-select-option>
+              <ion-select-option value="5">5</ion-select-option>
+              <ion-select-option value=">5">Mas de 5</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+          <ion-label>Fecha de nacimiento</ion-label>
+              <ion-datetime name="fNacimiento" displayFormat="MMMM YYYY" placeholder="..." (ionChange)="onChangef($event)"></ion-datetime>
+            </ion-item>
+          <ion-item>
+            <ion-input name="foto" id="foto" type="file" placeholder="Foto" accept="image/*" ngModel required (ionChange)="changeListener($event)"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Ubicacion: </ion-label>
+            <ion-input name="ubicacion" type="address" ngModel required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Descripcion: </ion-label>
+            <ion-input id="descripcion" name="descripcion" type="text" ngModel required="false"></ion-input>
+          </ion-item>
+
+
+          <ion-radio-group>
+            <ion-row> 
+              <ion-col>
+                <ion-item>
+                <ion-label>Pedigree</ion-label>
+              </ion-item>
+              </ion-col>  
+              <ion-col>
+                <ion-item>
+                  <ion-label>Si</ion-label>
+                  <ion-radio  color="success" value="true" (ionSelect)="radioSelectP($event)"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio color="success" value="false" (ionSelect)="radioSelectP($event)"></ion-radio>
+                </ion-item>
+              </ion-col>    
+            </ion-row>
+          </ion-radio-group>
+
+
+           
+
+        </div>
+        <div padding>
+          <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+</ion-content>

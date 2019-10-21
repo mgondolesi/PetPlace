@@ -29,4 +29,13 @@ export class MascotaService {
   getAllMascotas() {                           //metodo que ejecuta POST registerUser de la api con los "datos" desde el metodo register(form) de regist.page
   return this.http.get(URL+"getAllMascotas",{headers: this.httpOptions.headers});               // el return devuelve lo que me mando la api (usuario y token)
   }
+
+  borrarMascota(mascota): Observable<any> {
+    return this.http.post(URL+"borrarMascota",mascota,{headers: this.httpOptions.headers});   
+    }
+
+  modificarMascota(mascota): Observable<any>{
+  return this.http.post(URL+"modificarMascota",mascota,{headers: this.httpOptions.headers});   
+  }
+    
 }
