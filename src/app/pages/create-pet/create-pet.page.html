@@ -65,14 +65,10 @@
             <ion-label>Fecha de nacimiento</ion-label>
                 <ion-datetime name="fNacimiento" displayFormat="MMMM YYYY" placeholder="..." (ionChange)="onChangef($event)"></ion-datetime>
               </ion-item>
-            <ion-item>
-              <ion-input name="foto" id="foto" type="file" placeholder="Foto" accept="image/*" ngModel required (ionChange)="changeListener($event)"></ion-input>
-            </ion-item>
+           
             <ion-item>
             <ion-button expand="block" color="danger" (click)="selectFile()">Buscar img</ion-button>
-            <ion-label> {{uploadText}} </ion-label>  
-            <ion-button expand="block" color="danger" (click)="uploadFile()">Subir img</ion-button>
-            <ion-label> {{uploadText}} </ion-label>          
+            <ion-label> {{uploadText}} </ion-label>         
             </ion-item>
             <ion-item>
                 <ion-label>Ubicacion: </ion-label>

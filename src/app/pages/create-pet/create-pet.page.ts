@@ -30,10 +30,11 @@ export class CreatePetPage implements OnInit {
   file2: File;
   uploadText: any;
   fileTransfer: FileTransferObject;
-  fotoPath: string;
+  fotoPath: any;
   fotoOptions: FileUploadOptions;
   options: any;
   path: string;
+  respuesta: any;
  
   constructor(
     private authService: MascotaService,
@@ -102,7 +103,7 @@ export class CreatePetPage implements OnInit {
           console.log("navigatepath: "+navigatepath);
           this.options={
             fileKey: 'image',
-            fileName: "imgPerfil.jpg",
+            fileName:  'Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)',
             chunkedMode: false,
             mimeType: 'image/jpeg',
             params: { 'desc': 'Foto de perfil' },
@@ -112,19 +113,37 @@ export class CreatePetPage implements OnInit {
       })
     }
 
-    uploadFile(){
+   async uploadFile(){ 
           this.uploadText= 'Subiendo...';
-          this.fileTransfer.upload(this.path,'https://pet-place-d.herokuapp.com/api/addImage', this.options).then((data)=>{
-            alert("transferencia termianada: "+JSON.stringify(data)),
-            console.log(data);
+          console.log("options: "+this.options.fileName);
+          return new Promise<any>((resolve)=>{ this.fileTransfer.upload(this.path,'https://pet-place-d.herokuapp.com/api/addImage', this.options).then((data)=>{
+            console.log("transferencia termianada: "+JSON.stringify(data)),
+           // console.log("data "+data.response);
             this.uploadText="";
+           
+            resolve(data);
+            
           },(err)=>{
             this.uploadText="";
             console.log(err);
                        }) 
+                     });
         };
 
-
+  async obtenerUrn(){
+    
+    return new Promise<any>((resolve)=>{ this.uploadFile().then((data)=>{
+  
+    console.log("la papa"+JSON.stringify(eval(data.response)).replace("\\", ""))
+    
+    var x = {
+      url: (JSON.stringify(eval(data.response)).replace("\\", ""))
+      }
+      console.log("la var: "+x.url);
+     resolve(x.url);
+  });
+}); 
+  }
  
 
  AbortUpload(){
@@ -132,23 +151,29 @@ export class CreatePetPage implements OnInit {
    alert("Subida cancelada.");
  }
 
-  register(form) {
+   async register(form) {
    
    // this.uploadFile(); al ejecutarlo acá, ejecuto la funcion de la api que me guarda el url de cldnry. 
    //deberiamos verificar que este "ok", si es asi fuardamos el "form" y despues el link.(alto bondi).
+    this.obtenerUrn().then((dat)=> {
+    this.fotoPath= dat.substring(1,dat.length-1);
+    console.log("la url de la foto:  "+ this.fotoPath);
+
   
+    
     const formulario = {
       nombre: form.value.nombre,
       raza: this.razap,
       sexo: this.sex,
       nroPariciones: this.nrop,
       fNacimiento: this.fna,
-      foto: this.file2,
+      foto: this.fotoPath,
       ubicacion: form.value.ubicacion,
       descripcion: form.value.descripcion,
       pedigree: this.ped,
       token: this.data
     };
+  
     this.loading.present();
     this.authService.registrarMascota(formulario).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
       data => {                                      //Si la api devuelve data almacena los datos en SQLite
@@ -176,9 +201,8 @@ export class CreatePetPage implements OnInit {
         });
         this.loading.dismiss();
       },
-      () => {
-      }
     );
+  });
   }
 }
 
