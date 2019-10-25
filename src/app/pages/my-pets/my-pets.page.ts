@@ -45,6 +45,7 @@ export class MyPetsPage implements OnInit {
     this.router.navigate(['/create-pet']);
   }
   ionViewDidLoad() {
+    //por que se repite este metodo?
     this.mascotaService.getMascotas()
       .subscribe(
         (data) => { // Success
