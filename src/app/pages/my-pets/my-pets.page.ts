@@ -4,6 +4,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingService } from 'src/app/services/loading.service';
 import { MascotaService } from 'src/app/services/mascota.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-my-pets',
@@ -22,8 +23,8 @@ export class MyPetsPage implements OnInit {
     public loading: LoadingService,
     public mascotaService: MascotaService,
     public storage: Storage,
+    public dataService: DataService,
     public toastController: ToastController,
-
   ) { }
 
   ngOnInit() {
@@ -65,6 +66,11 @@ export class MyPetsPage implements OnInit {
     };
     this.router.navigate(['/edit-pet'], parametro)
     console.log(parametro);
+  }
+  goToView(mascota) {
+    this.dataService.setData(mascota);
+    this.router.navigate(['/profile'], mascota)
+    console.log(mascota);
   }
   borrar(mascota) {
     this.loading.present();

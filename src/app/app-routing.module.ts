@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'my-pets', loadChildren: './pages/my-pets/my-pets.module#MyPetsPageModule' },
   { path: 'logout', loadChildren: './pages/logout/logout.module#LogoutPageModule' },
   { path: 'edit-pet', loadChildren: './pages/edit-pet/edit-pet.module#EditPetPageModule' },
+  { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
 
 
 
