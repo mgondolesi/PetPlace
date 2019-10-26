@@ -31,6 +31,7 @@ export class MyPetsPage implements OnInit {
     this.storage.get('token').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
       this.data = val;
     })
+
     this.mascotaService.getMascotas()
       .subscribe(
         (data) => { // Success
@@ -68,6 +69,7 @@ export class MyPetsPage implements OnInit {
     console.log(parametro);
   }
   goToView(mascota) {
+    this.storage.set("mascota", mascota)
     this.dataService.setData(mascota);
     this.router.navigate(['/profile'], mascota)
     console.log(mascota);

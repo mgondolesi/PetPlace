@@ -4,6 +4,7 @@ import { URL } from '../../app/config';
 import { Observable } from 'rxjs';
 import { Storage } from '@ionic/storage';
 import { map } from 'rxjs/operators';
+import { Mascota } from 'src/model/mascota.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,10 @@ export class MascotaService {
 
   modificarMascota(mascota): Observable<any>{
   return this.http.post(URL+"modificarMascota",mascota,{headers: this.httpOptions.headers});   
+  }
+
+  getMascotaByID(idMascota): Observable<Mascota>{
+    return this.http.post<Mascota>(URL+"getMascotaByID",idMascota,{headers: this.httpOptions.headers});
   }
     
 }

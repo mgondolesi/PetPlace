@@ -1,9 +1,75 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/my-pets"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="user-photo" padding-top>
+    <ion-avatar>
+      <img src={{mascota.foto}}>
+    </ion-avatar>
+  </div>
 
+  <ion-list>
+    <ion-item>
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>
+        <p>Nombre</p>
+        <h2>{{mascota.nombre}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+        <p>Raza</p>
+        <h2>{{mascota.raza}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+        <p>Sexo</p>
+        <h2>{{mascota.sexo}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+        <p>Fecha de nacimiento</p>
+        <h2>{{mascota.fNacimineto}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+        <p>Pariciones</p>
+        <h2>{{mascota.nroPariciones}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+        <p>Pedigree</p>
+        <h2>{{mascota.Pedigree}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+        <p>Ubicacion</p>
+        <h2>{{mascota.ubicacion}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>
+        <p>Sobre Mi</p>
+        <h2>{{mascota.descripcion}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

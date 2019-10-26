@@ -13,7 +13,7 @@
       <ion-item-sliding *ngFor="let mascota of mascotas">
         <ion-item (click)="goToView(mascota)">
           <ion-avatar slot="start">
-            <img src={{mascota.foto}}/>
+            <img src="{{mascota.foto}}"/>
             </ion-avatar>
             <ion-label>
               <h2>{{ mascota.nombre | uppercase }}</h2>
