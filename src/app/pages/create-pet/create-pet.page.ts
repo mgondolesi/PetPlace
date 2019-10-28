@@ -79,7 +79,7 @@ export class CreatePetPage implements OnInit {
   }
   radioSelect(valor) {
     console.log(valor.detail.value);
-    this.sex = valor.detail.value;
+    this.sex = valor.detail.value
   }
   onChangef(valor) {
     console.log(valor.detail.value);

@@ -13,7 +13,10 @@ import { Mascota } from 'src/model/mascota.model';
 })
 export class ProfilePage implements OnInit {
   mascota: any[] = [];
- data:any;
+  data:any;
+  show: boolean;
+  date: Date;
+  sex: boolean;
   constructor( 
                      
                public dataService: DataService,
@@ -30,7 +33,10 @@ export class ProfilePage implements OnInit {
 				let obj=JSON.parse(this.data); 
 				let obj2=obj[Object.keys(obj)[0]];
         this.mascota = unaMascota['mascota'];
-        console.log(obj2.nombre)
+        console.log(obj2.nombre);
+        this.show= obj2.pedigree;
+        this.date = obj2.fNacimiento;
+        this.sex = obj2.sexo=="Hembra";
     });
     });
       }

@@ -49,8 +49,8 @@
             </ion-row>
           </ion-radio-group>
 
-            <ion-item>
-            <ion-label name="nroPariciones" color=rgb(128,128,128) interface="action-sheet" >Nro de pariciones</ion-label>
+            <ion-item *ngIf="sex=='Hembra'">
+            <ion-label  name="nroPariciones" color=rgb(128,128,128) interface="action-sheet" >Nro de pariciones</ion-label>
               <ion-select interface="popover" placeholder="..." (ionChange)="onChangeS($event)">
                <ion-select-option value="0">Ninguna</ion-select-option>
                 <ion-select-option value="1">1</ion-select-option>
