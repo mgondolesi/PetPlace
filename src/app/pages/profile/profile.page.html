@@ -15,61 +15,96 @@
   </div>
 
   <ion-list>
-    <ion-item>
-      <ion-icon name="person" slot="start"></ion-icon>
-      <ion-label>
-        <p>Nombre</p>
-        <h2>{{mascota.nombre}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="mail" slot="start"></ion-icon>
-      <ion-label>
-        <p>Raza</p>
-        <h2>{{mascota.raza}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="mail" slot="start"></ion-icon>
-      <ion-label>
-        <p>Sexo</p>
-        <h2>{{mascota.sexo}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="mail" slot="start"></ion-icon>
-      <ion-label>
-        <p>Fecha de nacimiento</p>
-        <ion-datetime displayFormat="MMMM YYYY" value={{mascota.fNacimiento}}></ion-datetime>
-      </ion-label>
-    </ion-item>
-    <ion-item *ngIf="sex">
-      <ion-icon name="mail" slot="start"></ion-icon>
-      <ion-label>
-        <p>Pariciones</p>
-        <h2>{{mascota.nroPariciones}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item [hidden]=!show>
-      <ion-icon src="../assets/icon/certificate-icon.svg" slot="start"></ion-icon>
-      <ion-label>
-        <p>Pedigree</p>
-        <h2>{{mascota.Pedigree}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="mail" slot="start"></ion-icon>
-      <ion-label>
-        <p>Ubicacion</p>
-        <h2>{{mascota.ubicacion}}</h2>
-      </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="mail" slot="start"></ion-icon>
-      <ion-label>
-        <p>Sobre Mi</p>
-        <h2>{{mascota.descripcion}}</h2>
-      </ion-label>
-    </ion-item>
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+
+                <ion-item text-center>
+                <ion-label>
+                  <h3 text-capitalize>{{mascota.nombre}}</h3>
+                </ion-label>
+              </ion-item>
+
+            </ion-col>
+          </ion-row>
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>
+                  <p>Raza</p>
+                  <h2>{{mascota.raza}}</h2>
+                </ion-label>
+              </ion-item>
+            </ion-col>              
+
+          
+            <ion-col>
+              <ion-item>
+                <ion-label>
+                  <p>Sexo</p>
+                  <h2>{{mascota.sexo}}</h2>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>
+                  <p>Fecha de nacimiento</p>
+                  <h2>{{date}}</h2>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+
+          </ion-row>
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-label>
+                  <p>Ubicacion</p>
+                  <h2>{{mascota.ubicacion}}</h2>
+                 </ion-label>
+               </ion-item>
+            </ion-col>
+
+            <ion-col *ngIf="sex">
+              <ion-item >
+                <ion-label>
+                  <p>Pariciones</p>
+                  <h2>{{mascota.nroPariciones}}</h2>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+
+            <ion-col>
+              <ion-item [hidden]=!show>
+                <ion-label>
+                  <p>Pedigree</p>
+                  <ion-icon src="../assets/icon/certificate-icon.svg" slot="start"></ion-icon>
+                </ion-label>
+              </ion-item>
+            </ion-col>
+
+            
+
+          </ion-row>
+          <ion-row>
+
+            <ion-col>
+              <ion-item>
+                <ion-icon src="../assets/icon/sobre-mi.svg" slot="start"></ion-icon>
+                  <ion-label>
+                    <p>Sobre Mi</p>
+                    <h2>{{mascota.descripcion}}</h2>
+                  </ion-label>
+                </ion-item>
+              </ion-col>
+
+            </ion-row>
+      </ion-grid>
+
+
   </ion-list>
 </ion-content>
