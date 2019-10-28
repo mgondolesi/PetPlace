@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 import { LoadingService } from 'src/app/services/loading.service';
 import { MascotaService } from 'src/app/services/mascota.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-welcome',
@@ -31,6 +32,7 @@ export class WelcomePage implements OnInit {
     public toastController: ToastController,
     public loading: LoadingService,
     public mascotaService: MascotaService,
+    public dataService: DataService,
   ) {
     this.sideMenu();        //metodos para el menu del costado.
     this.initializeApp();
@@ -82,27 +84,10 @@ export class WelcomePage implements OnInit {
       )
   }
 
-  signout() {                                      //Click en logout
-    this.loading.present();
-    this.authService.logout().subscribe(          //Ejecuta el metodo logout de usuario.service
-      data => {                                   //Si la api devuelve data, manda token=null para sacarle el token al usuario y lo almacena     
-        this.storage.set("token", data)
-        this.router.navigate(['/home'])            //Luego te manda al home.page
-        console.log(data);
-        this.loading.dismiss();
-      },
-      error => {                                //si devuelve error te manda un toast con el mismo.
-        this.loading.dismiss();
-        console.log(error);
-        this.toastController.create({
-          message: error.error.msg,
-          duration: 3000
-        })
-          .then((toastData) => {
-            console.log(toastData);
-            toastData.present();
-          });
-      },
-    );
+  goToView(mascota) {
+    this.storage.set("mascota", mascota)
+    this.dataService.setData(mascota);
+    this.router.navigate(['/profile'], mascota._id)
+    console.log(mascota);
   }
 }

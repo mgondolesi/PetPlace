@@ -15,7 +15,7 @@
 
 
     <ion-list>
-      <ion-card *ngFor="let mascota of mascotas">
+      <ion-card *ngFor="let mascota of mascotas" (click)="goToView(mascota)">
           <img src= "{{ mascota.foto }}">
         <ion-card-header>
           <ion-card-subtitle>{{ mascota.raza }}</ion-card-subtitle>
@@ -29,7 +29,6 @@
 
   
 <ion-router-outlet id="content1"></ion-router-outlet>
-<ion-button expand="block" (click)=" signout()">Logout</ion-button>
 </ion-grid>  
 </ion-content>
 <ion-menu side="start" menuId="first" contentId="content1">
