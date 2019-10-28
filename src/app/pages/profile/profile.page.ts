@@ -15,8 +15,9 @@ export class ProfilePage implements OnInit {
   mascota: any[] = [];
   data:any;
   show: boolean;
-  date: Date;
+  date: String;
   sex: boolean;
+  months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
   constructor( 
                      
                public dataService: DataService,
@@ -35,9 +36,13 @@ export class ProfilePage implements OnInit {
         this.mascota = unaMascota['mascota'];
         console.log(obj2.nombre);
         this.show= obj2.pedigree;
-        this.date = obj2.fNacimiento;
+        var d = new Date(obj2.fNacimiento)
+        let anio = d.getFullYear().toString()
+        let mes = d.getMonth().toString()
+        this.date = this.months[mes] + " " + anio
         this.sex = obj2.sexo=="Hembra";
     });
     });
       }
+      
 }
