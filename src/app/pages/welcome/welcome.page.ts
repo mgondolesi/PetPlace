@@ -83,6 +83,15 @@ export class WelcomePage implements OnInit {
         }
       )
   }
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    this.ngOnInit()
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
 
   goToView(mascota) {
     this.storage.set("mascota", mascota)

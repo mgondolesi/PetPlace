@@ -6,11 +6,12 @@
     <ion-title>Mis Mascotas</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
     <ion-list>
-      <ion-item-sliding *ngFor="let mascota of mascotas">
+      <ion-item-sliding side="end" *ngFor="let mascota of mascotas">
         <ion-item (click)="goToView(mascota)">
           <ion-avatar slot="start">
             <img src="{{mascota.foto}}"/>

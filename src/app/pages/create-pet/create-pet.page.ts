@@ -152,7 +152,8 @@ export class CreatePetPage implements OnInit {
  }
 
    async register(form) {
-   
+    this.loading.present();
+    
    // this.uploadFile(); al ejecutarlo acá, ejecuto la funcion de la api que me guarda el url de cldnry. 
    //deberiamos verificar que este "ok", si es asi fuardamos el "form" y despues el link.(alto bondi).
     this.obtenerUrn().then((dat)=> {
@@ -174,7 +175,6 @@ export class CreatePetPage implements OnInit {
       token: this.data
     };
   
-    this.loading.present();
     this.authService.registrarMascota(formulario).subscribe(            //Ejecuta el metodo registrar(datos) de usuario.service y le manda los datos del form (que serian "form.value")
       data => {                                      //Si la api devuelve data almacena los datos en SQLite
         console.log(formulario);
