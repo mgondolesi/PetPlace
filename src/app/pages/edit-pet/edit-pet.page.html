@@ -17,19 +17,16 @@
         <div padding>
           <ion-item>
             <ion-label>Nombre: </ion-label>
-            <ion-input id="nombre" name="nombre" type="text" ngModel required></ion-input>
+            <ion-input id="nombre" name="nombre" type="text" value={{nombre2}} required></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>Raza</ion-label>
-            <!-- <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)"> -->
-              <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)">
-              <ion-select-option value={{raza.raza}} *ngFor="let raza of razas">{{raza.raza}} </ion-select-option>
-              <!-- <ion-select-option value="Labrador">Labrador</ion-select-option>
-              <ion-select-option value="Dalmata">Dalmata</ion-select-option>
-              <ion-select-option value="Caniche">Caniche</ion-select-option>
-              <ion-select-option value="Gran Danes">Gran Danes</ion-select-option>
-              <ion-select-option value="Rock Guailer">Rock Guailer :b</ion-select-option> -->
+              <ion-select  id="customActionSheetSelect" name="raza" interface="popover" placeholder="..." (ionChange)="onChange($event)" selectedText={{razap}}>
+                <ion-select-option value={{raza.raza}} *ngFor="let raza of razas" >{{raza.raza}} </ion-select-option> 
+            
             </ion-select>
+      
+           
           </ion-item>
 
           <ion-radio-group>
@@ -42,13 +39,13 @@
             <ion-col>
               <ion-item>
                 <ion-label>Macho</ion-label>
-                <ion-radio  color="success" value="Macho" (ionSelect)="radioSelect($event)"></ion-radio>
+                <ion-radio  color="success" value="Macho" (ionSelect)="radioSelect($event)" checked={{sexoM}} ></ion-radio>
               </ion-item>
             </ion-col>
             <ion-col>
               <ion-item>
                 <ion-label>Hembra</ion-label>
-                <ion-radio color="success" value="Hembra" (ionSelect)="radioSelect($event)"></ion-radio>
+                <ion-radio color="success" value="Hembra" (ionSelect)="radioSelect($event)" checked={{sexoH}} ></ion-radio>
               </ion-item>
             </ion-col>    
           </ion-row>
