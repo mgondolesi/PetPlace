@@ -49,6 +49,8 @@ export class EditPetPage implements OnInit {
   sexoH = false;
   sexoM = false;
   sexo: String;
+  fnac: String;
+  pariciones: String = "0";
 
   constructor(
     public router: Router,
@@ -90,6 +92,10 @@ export class EditPetPage implements OnInit {
       this.nombre2 = mascota.nombre.toString();
       this.razap = mascota.raza.toString();
       this.sexo = mascota.sexo.toString();
+      // this.pariciones = if (mascota.nroPariciones.toString() != undefined) {
+
+      // };
+      this.fnac = mascota.fNacimiento.toString()
       // this.pedigree = mascota.nombre.toString();
       // this.foto = mascota.nombre.toString();
       // this.fNac = mascota.nombre.toString();
@@ -98,6 +104,9 @@ export class EditPetPage implements OnInit {
 
       console.log(mascota, "asdad");
 
+    }
+    else {
+      this.router.navigate(['/my-pets'])
     }
     this.razasService.getAllRazas()
       .subscribe(
