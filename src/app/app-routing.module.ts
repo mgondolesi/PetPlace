@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'logout', loadChildren: './pages/logout/logout.module#LogoutPageModule' },
   { path: 'edit-pet', loadChildren: './pages/edit-pet/edit-pet.module#EditPetPageModule' },
   { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
+  { path: 'chat', loadChildren: './pages/chat/chat.module#ChatPageModule' },
 
 
 
