@@ -62,6 +62,11 @@ export class WelcomePage implements OnInit {
           url: "/logout",
           icon: "log-out",
         },
+        {
+          title: "Chat",
+          url: "/chat",
+          icon: "chatbubbles",
+        },
       ]
   }
   ngOnInit() {                  //ngOnInit es una instancia de la app (un estado)
