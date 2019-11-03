@@ -20,7 +20,7 @@ export class ChatPage {
         this.myUserId = Date.now().toString();
     }
 
-    this.socket = io('http://localhost:3000');
+    this.socket = io('https://pet-place.herokuapp.com/');
 
     this.Receive();
   }
