@@ -13,7 +13,7 @@
       </ion-refresher>
   <ion-grid>  
     <ion-grid class="c">  
-      <p><strong>usuario registrado</strong>: {{data}}</p>
+      <p><strong>Bienvenido</strong>: {{data}}</p>
     </ion-grid>  
 
 
@@ -25,6 +25,8 @@
           <ion-card-title>{{ mascota.nombre | uppercase }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>{{ mascota.descripcion }}</ion-card-content>
+        <ion-icon style="float: right;" name="paw" (click)="match(mascota)">
+        </ion-icon>
       </ion-card>
     </ion-list>
     

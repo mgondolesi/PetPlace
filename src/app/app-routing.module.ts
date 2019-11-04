@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'edit-pet', loadChildren: './pages/edit-pet/edit-pet.module#EditPetPageModule' },
   { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
   { path: 'chat', loadChildren: './pages/chat/chat.module#ChatPageModule' },
+  { path: 'match', loadChildren: './pages/match/match.module#MatchPageModule' },
 
 
 

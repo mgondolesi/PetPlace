@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>match</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let match of matchs">
+      
+      <ion-card-header>
+        <ion-card-subtitle>{{ match.emisor }}</ion-card-subtitle>
+        <ion-card-title>{{ match.estado | uppercase }}</ion-card-title>
+      </ion-card-header>
+   
+      
+    </ion-card>
+  </ion-list>
+</ion-content>
