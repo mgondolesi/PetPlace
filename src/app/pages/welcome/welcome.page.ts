@@ -61,11 +61,6 @@ export class WelcomePage implements OnInit {
           icon: "paw"
         },
         {
-          title: "Logout",
-          url: "/logout",
-          icon: "log-out",
-        },
-        {
           title: "Chat",
           url: "/chat",
           icon: "chatbubbles",
@@ -74,6 +69,11 @@ export class WelcomePage implements OnInit {
           title: "Matchs",
           url: "/match",
           icon: "contacts",
+        },
+        {
+          title: "Logout",
+          url: "/logout",
+          icon: "log-out",
         },
       ]
   }
