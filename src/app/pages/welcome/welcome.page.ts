@@ -66,7 +66,7 @@ export class WelcomePage implements OnInit {
           icon: "chatbubbles",
         },
         {
-          title: "Matchs",
+          title: "Matches",
           url: "/match",
           icon: "contacts",
         },
