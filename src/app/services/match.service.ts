@@ -25,8 +25,12 @@ export class MatchService {
     return this.http.post(URL+"rechazarMatch", datos,{headers: this.httpOptions.headers});               
   }
 
-  misMatchs() : Observable<any>{                    
+  misMatches() : Observable<any>{                    
     return this.http.get(URL+"misMatch",{headers: this.httpOptions.headers});               
+  }
+
+  pendientes() : Observable<any>{                    
+    return this.http.get(URL+"solicitudes",{headers: this.httpOptions.headers});               
   }
 
 }

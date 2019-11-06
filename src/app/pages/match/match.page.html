@@ -6,14 +6,23 @@
 
 <ion-content>
   <ion-list>
-    <ion-card *ngFor="let match of matchs">
+    <ion-card *ngFor="let match of matches">
       
       <ion-card-header>
         <ion-card-subtitle>{{ match.emisor }}</ion-card-subtitle>
         <ion-card-title>{{ match.estado | uppercase }}</ion-card-title>
       </ion-card-header>
    
+    </ion-card>
+    <ion-card *ngFor="let pendiente of pendientes">
       
+      <ion-card-header>
+        <ion-card-subtitle>{{ pendiente.emisor }}</ion-card-subtitle>
+        <ion-card-title>{{ pendiente.estado | uppercase }}</ion-card-title>
+        <ion-icon name="checkmark-circle" style="float: left;" (click)="aceptar(pendiente)"></ion-icon>
+        <ion-icon name="close-circle" style="float: right;" (click)="rechazar(pendiente)"></ion-icon>
+      </ion-card-header>
+   
     </ion-card>
   </ion-list>
 </ion-content>
