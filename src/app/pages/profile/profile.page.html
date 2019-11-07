@@ -107,4 +107,12 @@
 
 
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="mascota.amo!=userId">
+    <ion-fab-button>
+        <ion-select interface="popover" (ionChange)="match(mascota, $event)">
+            <ion-select-option *ngFor="let miMascota of misMascotas">{{ miMascota._id}}</ion-select-option>
+          </ion-select >
+      <ion-icon name="paw"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

@@ -18,18 +18,26 @@
 
 
     <ion-list>
-      <ion-card *ngFor="let mascota of mascotas" (click)="goToView(mascota)">
-          <img src= "{{ mascota.foto }}">
+      <ion-card *ngFor="let mascota of mascotas" >
+          <img src= "{{ mascota.foto }}" (click)="goToView(mascota)">
         <ion-card-header>
           <ion-card-subtitle>{{ mascota.raza }}</ion-card-subtitle>
           <ion-card-title>{{ mascota.nombre | uppercase }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>{{ mascota.descripcion }}</ion-card-content>
-        <ion-icon style="float: right;" name="paw" (click)="match(mascota)">
-        </ion-icon>
+        <ion-label >
+       
+      </ion-label>
+        <ion-item  *ngIf="mascota.amo!=userId">
+           
+          <ion-select interface="popover" (ionChange)="match(mascota, $event)">
+            <ion-select-option *ngFor="let miMascota of misMascotas">{{ miMascota._id}}</ion-select-option>
+          </ion-select >
+        </ion-item>
       </ion-card>
     </ion-list>
     
+   
     
 
   

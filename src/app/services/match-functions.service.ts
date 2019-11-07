@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { MatchService } from './match.service';
+import { resolve } from 'url';
+import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,7 @@ export class MatchFunctionsService {
 
   userId: any;
   data: any;
+  myMascota: any;
 
   constructor(private storage: Storage,
               private matchService: MatchService,
@@ -23,14 +26,27 @@ export class MatchFunctionsService {
                   });
                 }
 
+  
+  async selectMascota(mascota){                      //este metodo necesita recibir una mascota y guarda el id de la misma                                            //match() 
+    return new Promise((resolve, reject)=>{
+      console.log("estoy en services: "+mascota)
+      this.myMascota = mascota;
+       resolve(this.myMascota);           //para despues usartlo en match(). asi que lo llamamos en welcome.page y lo almacenamos desde el html    
+  });
+}
 
-  match(mascota){              //aca creamos el match
-    let datos ={ receptor: mascota.amo,
-                  emisor: this.userId};
-    this.matchService.matchear(datos)
+  async match(mascota, miMascota){                               //hace el match en node js enviando todos los daots
+    console.log('la del match:'+mascota, 'la mia: '+miMascota)
+    await this.selectMascota(miMascota) 
+             //aca creamos el match
+    let datoss ={  receptor: mascota.amo,
+                  emisor: this.userId,
+                  mascotaEmi: this.myMascota,
+                  mascotaRece: mascota._id};
+    this.matchService.matchear(datoss)
       .subscribe(
         (datos) => { // Success
-          console.log("match creado");
+          console.log("match creado",datoss);
         },
         (error) => {
           console.error(error);

@@ -9,6 +9,8 @@ import { MascotaService } from 'src/app/services/mascota.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { DataService } from 'src/app/services/data.service';
 import { MatchFunctionsService } from 'src/app/services/match-functions.service'
+import { promise } from 'protractor';
+import { resolve } from 'url';
 
 @Component({
   selector: 'app-welcome',
@@ -24,13 +26,13 @@ export class WelcomePage implements OnInit {
   mascotas: any[] = [];
   data2: any;
   userId: any;
+  misMascotas: any[] = [];
 
   constructor(private storage: Storage,
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    private authService: UsuarioService,
     public toastController: ToastController,
     public loading: LoadingService,
     public mascotaService: MascotaService,
@@ -86,11 +88,22 @@ export class WelcomePage implements OnInit {
       console.log('get error for ', error);
     });
 
-    this.mascotaService.getAllMascotas()
+    this.mascotaService.getAllMascotas()  //todas las mascotas del feed
       .subscribe(
         (data2) => { // Success
           this.mascotas = data2['mascota'];
           console.log(data2);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
+
+      this.mascotaService.getMascotas()     //mis mascotas
+      .subscribe(
+        (data) => { // Success
+          this.misMascotas = data['mascota'];
+          console.log(data);
         },
         (error) => {
           console.error(error);
@@ -107,15 +120,17 @@ export class WelcomePage implements OnInit {
     }, 2000);
   }
 
-  goToView(mascota) {
+  goToView(mascota) {                           //manda la data para cambiar de pantalla 
     this.storage.set("mascota", mascota)
     this.dataService.setData(mascota);
     this.router.navigate(['/profile'], mascota._id)
     console.log(mascota);
   }
-  match(mascota){              //aca creamos el match llamando al service
-    
-    this.matchService.match(mascota);     
+
+
+  async match(mascota, miMascota){ 
+    console.log("datos: "+mascota._id, "mas datos: "+miMascota.detail.value)             //aca creamos el match llamando al service 
+    this.matchService.match(mascota, miMascota.detail.value);                         
  }
 
 }
