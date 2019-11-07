@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchService } from 'src/app/services/match.service';
+import { MatchFunctionsService } from 'src/app/services/match-functions.service'
 
 @Component({
   selector: 'app-match',
@@ -11,7 +12,8 @@ export class MatchPage implements OnInit {
   matches: any[] = [];
   pendientes: any[] = [];
 
-  constructor(private matchService: MatchService,) { }
+  constructor(private matchService: MatchService,
+              private matchServiceFunctions: MatchFunctionsService,) { }
 
   ngOnInit() {
   
@@ -40,29 +42,13 @@ export class MatchPage implements OnInit {
  
   aceptar(match){
         
-    this.matchService.aceptar(match)  //aceptar el match
-    .subscribe(
-      (data) => { // Success
-        console.log(data);
-      },
-      (error) => {
-        console.error(error);
-      }
-    )
-  
+    this.matchServiceFunctions.aceptar(match);  //aceptar el match
+    
   }
 
   rechazar(match){
         
-    this.matchService.rechazar(match)  //rechaza el match
-    .subscribe(
-      (data) => { // Success
-        console.log(data);
-      },
-      (error) => {
-        console.error(error);
-      }
-    )
+    this.matchServiceFunctions.rechazar(match);  //rechaza el match
   
   }
   

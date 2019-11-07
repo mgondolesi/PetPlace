@@ -8,7 +8,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 import { MascotaService } from 'src/app/services/mascota.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { DataService } from 'src/app/services/data.service';
-import { MatchService } from 'src/app/services/match.service'
+import { MatchFunctionsService } from 'src/app/services/match-functions.service'
 
 @Component({
   selector: 'app-welcome',
@@ -35,7 +35,7 @@ export class WelcomePage implements OnInit {
     public loading: LoadingService,
     public mascotaService: MascotaService,
     public dataService: DataService,
-    private matchService: MatchService,
+    private matchService: MatchFunctionsService,
   ) {
     this.sideMenu();        //metodos para el menu del costado.
     this.initializeApp();
@@ -79,7 +79,7 @@ export class WelcomePage implements OnInit {
   }
   ngOnInit() {                  //ngOnInit es una instancia de la app (un estado)
 
-    this.storage.get('usuario').then((val) => {                           //como en el login guarde los datos de usuario, obtengo el "username"
+    this.storage.get('usuario').then((val) => {                    //como en el login guarde los datos de usuario, obtengo el "username"
       this.data = val.username;
       this.userId = val._id;
     }).catch((error) => {
@@ -113,17 +113,9 @@ export class WelcomePage implements OnInit {
     this.router.navigate(['/profile'], mascota._id)
     console.log(mascota);
   }
-  match(mascota){
-    let datos ={ receptor: mascota.amo,
-                  emisor: this.userId};
-    this.matchService.matchear(datos)
-      .subscribe(
-        (datos) => { // Success
-          console.log("match creado");
-        },
-        (error) => {
-          console.error(error);
-        }
-      )
-  }
+  match(mascota){              //aca creamos el match llamando al service
+    
+    this.matchService.match(mascota);     
+ }
+
 }
