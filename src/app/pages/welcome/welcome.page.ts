@@ -6,11 +6,9 @@ import { Platform, ToastController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { LoadingService } from 'src/app/services/loading.service';
 import { MascotaService } from 'src/app/services/mascota.service';
-import { UsuarioService } from 'src/app/services/usuario.service';
 import { DataService } from 'src/app/services/data.service';
 import { MatchFunctionsService } from 'src/app/services/match-functions.service'
-import { promise } from 'protractor';
-import { resolve } from 'url';
+import { MatchService } from 'src/app/services/match.service';
 
 @Component({
   selector: 'app-welcome',
@@ -27,6 +25,7 @@ export class WelcomePage implements OnInit {
   data2: any;
   userId: any;
   misMascotas: any[] = [];
+  matches: any[] = [];
 
   constructor(private storage: Storage,
     private platform: Platform,
@@ -38,6 +37,7 @@ export class WelcomePage implements OnInit {
     public mascotaService: MascotaService,
     public dataService: DataService,
     private matchService: MatchFunctionsService,
+    private matchServiceApi: MatchService,
   ) {
     this.sideMenu();        //metodos para el menu del costado.
     this.initializeApp();
@@ -88,10 +88,21 @@ export class WelcomePage implements OnInit {
       console.log('get error for ', error);
     });
 
-    this.mascotaService.getAllMascotas()  //todas las mascotas del feed
+    this.matchServiceApi.misMatches()  //los aceptados
+    .subscribe(
+      (data) => { // Success
+        this.matches = data['match'];
+        console.log(data);
+      },
+      (error) => {
+        console.error(error);
+      }
+    )
+
+    this.mascotaService.getMascotasCustom()  //todas las mascotas del feed
       .subscribe(
         (data2) => { // Success
-          this.mascotas = data2['mascota'];
+          this.mascotas = data2['result'];
           console.log(data2);
         },
         (error) => {

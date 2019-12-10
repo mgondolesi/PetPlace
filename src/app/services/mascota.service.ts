@@ -42,5 +42,9 @@ export class MascotaService {
   getMascotaByID(idMascota): Observable<Mascota>{
     return this.http.post<Mascota>(URL+"getMascotaByID",idMascota,{headers: this.httpOptions.headers});
   }
+
+  getMascotasCustom() {                                                           //Me devuleve todas las mascotas y si el usuario hizo masch con alguna mascota 
+  return this.http.get(URL+"custom",{headers: this.httpOptions.headers}); //me agrega un campo matchInfo que contiene la informacion del match           
+  }
     
 }

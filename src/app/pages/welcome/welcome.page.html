@@ -26,10 +26,15 @@
         </ion-card-header>
         <ion-card-content>{{ mascota.descripcion }}</ion-card-content>
         <ion-label >
-       
+       {{mascota.matchInfo.estado}}
       </ion-label>
         <ion-item  *ngIf="mascota.amo!=userId">
-           
+            <ion-fab-button>
+                <ion-select interface="popover" (ionChange)="match(mascota, $event)">
+                    <ion-select-option *ngFor="let miMascota of misMascotas">{{ miMascota._id}}</ion-select-option>
+                  </ion-select >
+              <ion-icon name="paw"></ion-icon>
+            </ion-fab-button>
           <ion-select interface="popover" (ionChange)="match(mascota, $event)">
             <ion-select-option *ngFor="let miMascota of misMascotas">{{ miMascota._id}}</ion-select-option>
           </ion-select >
