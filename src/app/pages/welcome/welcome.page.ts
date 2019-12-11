@@ -147,6 +147,7 @@ export class WelcomePage implements OnInit {
 
 
   async match(mascota, miMascota){ 
+    console.log(miMascota)
     console.log("datos: "+mascota._id, "mas datos: "+miMascota.detail.value)             //aca creamos el match llamando al service 
     this.matchService.match(mascota, miMascota.detail.value);                         
  }

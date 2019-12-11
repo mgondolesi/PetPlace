@@ -25,18 +25,29 @@
           <ion-card-title>{{ mascota.nombre | uppercase }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>{{ mascota.descripcion }}</ion-card-content>
-        <ion-item  *ngIf="mascota.amo!=userId && mascota.matchInfo.estado!='aceptado'">
+        <ion-item  *ngIf="(mascota.info) && (mascota.amo!=userId) && (mascota.matchInfo.estado!='aceptado')">
         
-            <ion-fab-button class="match-button" color="red" >
+            <ion-fab-button class="match-button" color="red" [disabled]="mascota.matchInfo.estado=='pendiente'">
                 <ion-icon *ngIf="mascota.matchInfo.estado=='pendiente'" class = paw-icon-pendiente name="paw"></ion-icon>
                 <ion-icon *ngIf="mascota.matchInfo.estado == 'null'" class = paw-icon-null name="paw"></ion-icon>
                 <ion-select class="ion-select" interface="popover" (ionChange)="match(mascota, $event)">
-                    <ion-select-option *ngFor="let miMascota of misMascotas">{{ miMascota._id}}</ion-select-option>
+                    <ion-select-option *ngFor="let miMascota of misMascotas"  >{{ miMascota._id}}</ion-select-option>
                   </ion-select >
                 
             </ion-fab-button>
           
         </ion-item>
+        <ion-item  *ngIf="!mascota.matchInfo">
+        
+          <ion-fab-button class="match-button" color="red">
+              <ion-icon  class = paw-icon-null name="paw"></ion-icon>
+              <ion-select class="ion-select" interface="popover" (ionChange)="match(mascota, $event)">
+                  <ion-select-option *ngFor="let miMascota of misMascotas"  >{{ miMascota._id}}</ion-select-option>
+                </ion-select >
+              
+          </ion-fab-button>
+        
+      </ion-item>
       </ion-card>
     </ion-list>
     
