@@ -9,6 +9,8 @@ import { MascotaService } from 'src/app/services/mascota.service';
 import { DataService } from 'src/app/services/data.service';
 import { MatchFunctionsService } from 'src/app/services/match-functions.service'
 import { MatchService } from 'src/app/services/match.service';
+import { conditionallyCreateMapObjectLiteral } from '@angular/compiler/src/render3/view/util';
+import { reduce } from 'rxjs/operators';
 
 @Component({
   selector: 'app-welcome',
@@ -79,7 +81,12 @@ export class WelcomePage implements OnInit {
         },
       ]
   }
+
+
   ngOnInit() {                  //ngOnInit es una instancia de la app (un estado)
+
+
+    
 
     this.storage.get('usuario').then((val) => {                    //como en el login guarde los datos de usuario, obtengo el "username"
       this.data = val.username;
