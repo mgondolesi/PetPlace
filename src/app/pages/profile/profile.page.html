@@ -1,3 +1,6 @@
+
+
+
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
@@ -110,11 +113,11 @@
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="mascota.amo!=userId" ></ion-fab>
       
-      <ion-item *ngIf="(mascota.matchInfo) && (mascota.amo!=userId) && (mascota.matchInfo.estado!='aceptado')">
+      <ion-item *ngIf="(matchInfo) && (mascota.amo!= userId) && (matchInfo!='aceptado')">
         
-          <ion-fab-button class="match-button" color="red" [disabled]="mascota.matchInfo.estado=='pendiente'">
-              <ion-icon *ngIf="mascota.matchInfo.estado=='pendiente'" class = paw-icon-pendiente name="paw"></ion-icon>
-              <ion-icon *ngIf="mascota.matchInfo.estado == 'null'" class = paw-icon-null name="paw"></ion-icon>
+          <ion-fab-button class="match-button" color="red" [disabled]="matchInfo =='pendiente'">
+              <ion-icon *ngIf="matchInfo =='pendiente'" class = paw-icon-pendiente name="paw"></ion-icon>
+              <ion-icon *ngIf="matchInfo == 'null'" class = paw-icon-null name="paw"></ion-icon>
               <ion-select class="ion-select" interface="popover" (ionChange)="match(mascota, $event)">
                 <ion-select-option  *ngFor="let miMascota of misMascotas" value={{miMascota._id}} >{{ miMascota.nombre}}</ion-select-option>
                 </ion-select >
@@ -122,7 +125,7 @@
           </ion-fab-button>
       
       </ion-item>
-      <ion-item  *ngIf="!mascota.matchInfo">
+      <ion-item  *ngIf="!matchInfo && (mascota.amo!= userId)" >
       
         <ion-fab-button class="match-button" color="red">
             <ion-icon  class = paw-icon-null name="paw"></ion-icon>
@@ -134,5 +137,5 @@
         </ion-fab-button>
       
     </ion-item>
-  </ion-fab>
+  
 </ion-content>

@@ -17,6 +17,8 @@ export class ProfilePage implements OnInit {
   misMascotas: any[] = [];
   data:any;
   show: boolean;
+  mascota2: any;
+  matchInfo: any;
   date: String;
   sex: boolean;
   months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
@@ -50,21 +52,25 @@ export class ProfilePage implements OnInit {
           console.error(error);
         }
       )
+      
   
    this.storage.get('mascota').then((val) => {
-    const _id =val;
+    const _id = val;
+    this.mascota2=val;
     this.mascotaServices.getMascotaByID(_id).subscribe((unaMascota)=>{
-     this.data=JSON.stringify(unaMascota); 
-				let obj=JSON.parse(this.data); 
-				let obj2=obj[Object.keys(obj)[0]];
+     this.data = JSON.stringify(unaMascota); 
+				let obj = JSON.parse(this.data); 
+				let obj2 = obj[Object.keys(obj)[0]];
         this.mascota = unaMascota['mascota'];
         console.log(obj2.nombre);
-        this.show= obj2.pedigree;
+        this.show = obj2.pedigree;
         var d = new Date(obj2.fNacimiento)
         let anio = d.getFullYear().toString()
         let mes = d.getMonth().toString()
         this.date = this.months[mes] + " " + anio
-        this.sex = obj2.sexo=="Hembra";
+        this.sex = obj2.sexo == "Hembra";
+        this.matchInfo = val.matchInfo.estado;
+        console.log("algo aca: "+this.matchInfo)
     });
     });
       }
@@ -75,3 +81,5 @@ export class ProfilePage implements OnInit {
   }
       
 }
+
+

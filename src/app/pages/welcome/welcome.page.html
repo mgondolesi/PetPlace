@@ -21,6 +21,11 @@
       <ion-card  *ngIf = "mascota.amo!=userId">
           <img src= "{{ mascota.foto }}" (click)="goToView(mascota)">
         <ion-card-header>
+            <ion-item [hidden]=!mascota.pedigree>
+                <ion-label>
+                  <ion-icon src="../assets/icon/certificate-icon.svg" slot="end"></ion-icon>
+                </ion-label>
+              </ion-item>
           <ion-card-subtitle>{{ mascota.raza }}</ion-card-subtitle>
           <ion-card-title>{{ mascota.nombre | uppercase }}</ion-card-title>
         </ion-card-header>
