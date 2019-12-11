@@ -18,7 +18,7 @@
 
 
     <ion-list *ngFor="let mascota of mascotas">
-      <ion-card  *ngIf = "mascota.amo!=userId">
+      <ion-card  *ngIf = "mascota.amo!=userId" >
           <img src= "{{ mascota.foto }}" (click)="goToView(mascota)">
         <ion-card-header>
             <ion-item [hidden]=!mascota.pedigree>

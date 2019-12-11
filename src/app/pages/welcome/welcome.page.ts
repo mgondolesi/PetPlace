@@ -55,12 +55,12 @@ export class WelcomePage implements OnInit {
     this.navigate =                   //defino los items del menu del constado
       [
         {
-          title: "Home",           //nombre visible en el menu
+          title: "PetPlace",           //nombre visible en el menu
           url: "/welcome",          //a donde te manda
           icon: "home"            //el icono que se muestra
         },
         {
-          title: "My Pets",
+          title: "Mis Mascotas",
           url: "/my-pets",
           icon: "paw"
         },
@@ -75,7 +75,7 @@ export class WelcomePage implements OnInit {
           icon: "contacts",
         },
         {
-          title: "Logout",
+          title: "Salir",
           url: "/logout",
           icon: "log-out",
         },

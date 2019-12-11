@@ -6,19 +6,18 @@
     <h1 class="welcomeHeader">PetPlace</h1>
     <form  #form="ngForm" (ngSubmit)="signin(form)">
       <ion-item>
-        <ion-input  name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+        <ion-input  name="email" type="email" placeholder="Email" ngModel required></ion-input>
       </ion-item>
       <ion-item>
-          <ion-input  name="password" type="password" minlength="6" maxlength="20"  placeholder="password" ngModel required></ion-input>
+          <ion-input  name="password" type="password" minlength="6" maxlength="20"  placeholder="Contraseña" ngModel required></ion-input>
         </ion-item>
         <ion-grid>  
-        <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block">signin</ion-button>
+        <ion-button  size="large" type="submit" [disabled]="form.invalid" expand="block" class="placeholder-buton">Iniciar sesión</ion-button>
         </ion-grid>
       </form>
     <ion-grid>  
-  
-      <ion-button expand="block" (click)="regis()">SignUp</ion-button>
-      <ion-button expand="block" color="danger" (click)="login_google()">Google</ion-button>      
+      <ion-button expand="block" color="danger" (click)="login_google()" class="placeholder-buton">Iniciar sesion con Google</ion-button>
+      <ion-button expand="block" (click)="regis()" class="placeholder-buton">Registrase</ion-button>      
     </ion-grid>
   </div>
 </ion-content>
