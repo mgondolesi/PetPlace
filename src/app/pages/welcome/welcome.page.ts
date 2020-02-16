@@ -111,14 +111,14 @@ export class WelcomePage implements OnInit {
     this.mascotaService.getAllMascotas()  //todas las mascotas del feed
       .subscribe(
         (data2) => { // Success
-          this.mascotas = data2['result'];
-          this.mascotas = this.mascotas.filter(elem => elem._id==this.userId);
+          this.mascotas = data2['mascota'];
+          this.mascotas = this.mascotas.filter(elem => elem.amo!=this.userId);
           console.log(this.mascotas);
           this.matchServiceApi.todosMisMatches()
             .subscribe(
               (data3) => {
                 this.allMatches = data3['match']
-                console.log(this.allMatches);
+                console.log(data3);
               }
             );
               
