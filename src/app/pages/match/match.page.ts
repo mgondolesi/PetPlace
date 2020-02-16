@@ -56,8 +56,9 @@ export class MatchPage implements OnInit {
       this.matchService.todosMisMatches().subscribe((res)=>{
         console.log(res)
         this.matches = res['match'];
+        
         this.matches.forEach((elem)=>{
-          let mascotaEmi = new Mascota;
+          let mascotaEmi = new Mascota(res.mascotaEmi);
           let mascotaRece = new Mascota(res.mascotaRece);
           console.log(elem.mascotaEmi,elem.mascotaRece)
           this.mascotaService.getMascotaByID(mascotaRece).subscribe((res)=>{
