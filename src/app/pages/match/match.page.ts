@@ -16,6 +16,8 @@ export class MatchPage implements OnInit {
   pendientes: any[] = [];
   userId:string;
   mascotas : Mascota[] =[];
+  allMascotas: any[] = [];
+
 
   constructor(private matchService: MatchService,
               private matchServiceFunctions: MatchFunctionsService,
@@ -30,6 +32,7 @@ export class MatchPage implements OnInit {
       console.log('get error for ', error);
     });
 
+    
   
     this.matchService.misMatches()  //los aceptados
       .subscribe(
@@ -53,22 +56,22 @@ export class MatchPage implements OnInit {
         }
       )
 
-      this.matchService.todosMisMatches().subscribe((res)=>{
+/*      this.matchService.todosMisMatches().subscribe((res)=>{
         console.log(res)
         this.matches = res['match'];
         
         this.matches.forEach((elem)=>{
-          let mascotaEmi = new Mascota(res.mascotaEmi);
-          let mascotaRece = new Mascota(res.mascotaRece);
+//          let mascotaEmi = new Mascota(res.mascotaEmi);
+  //        let mascotaRece = new Mascota(res.mascotaRece);
           console.log(elem.mascotaEmi,elem.mascotaRece)
-          this.mascotaService.getMascotaByID(mascotaRece).subscribe((res)=>{
+          this.mascotaService.getMascotaByIDAux(elem.mascotaRece).subscribe((res)=>{
           
             console.log(res)
             Object.assign(elem,{nombreReceptor:res.nombre});
           },(err)=>{
             console.log(err)
           })
-          this.mascotaService.getMascotaByID(mascotaEmi).subscribe((res)=>{
+          this.mascotaService.getMascotaByIDAux(elem.mascotaEmi).subscribe((res)=>{
             Object.assign(elem,{nombreEmisor:res.nombre});
           },(err)=>{
             console.log(err)
@@ -78,7 +81,32 @@ export class MatchPage implements OnInit {
       },(err)=>{
         console.log(err)
       }
-      )
+      )*/
+      this.matchService.todosMisMatches().subscribe((res)=>{
+        console.log(res);
+        this.matches = res['match'];
+        this.mascotaService.getAllMascotas().subscribe((data)=>{
+          console.log(data)
+          this.allMascotas = data['mascota'];
+                  
+        })
+        this.matches.forEach((match)=>{
+          let mascotaEmi = this.allMascotas.filter(elem=> elem._id == match.mascotaEmi)
+          let mascotaRece = this.allMascotas.filter(elem=> elem._id == match.mascotaRece)
+          console.log(mascotaEmi,mascotaRece);
+          if(match.emisor==this.userId) {
+            Object.assign(match,{esEmisor: true});
+          } else {
+            Object.assign(match,{esEmisor: false});
+          }
+          Object.assign(match,{nombreEmisor:mascotaEmi[0].nombre});
+          Object.assign(match,{nombreReceptor:mascotaRece[0].nombre});
+        })
+  
+      },(err)=>{
+        console.log(err)
+      })
+      
   }
  
   aceptar(match){
@@ -87,7 +115,9 @@ export class MatchPage implements OnInit {
     
   }
 
-  
+  funcion(){
+    
+  }
 
   rechazar(match){
         
