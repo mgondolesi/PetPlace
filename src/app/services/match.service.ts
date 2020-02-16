@@ -33,4 +33,8 @@ export class MatchService {
     return this.http.get(URL+"solicitudes",{headers: this.httpOptions.headers});               
   }
 
+  todosMisMatches() : Observable<any>{                    
+    return this.http.get(URL+"todosMisMatch",{headers: this.httpOptions.headers});               
+  }
+
 }

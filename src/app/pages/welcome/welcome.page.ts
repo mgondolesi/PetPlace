@@ -28,6 +28,7 @@ export class WelcomePage implements OnInit {
   userId: any;
   misMascotas: any[] = [];
   matches: any[] = [];
+  allMatches: any[] = [];
 
   constructor(private storage: Storage,
     private platform: Platform,
@@ -106,11 +107,21 @@ export class WelcomePage implements OnInit {
       }
     )
 
-    this.mascotaService.getMascotasCustom()  //todas las mascotas del feed
+
+    this.mascotaService.getAllMascotas()  //todas las mascotas del feed
       .subscribe(
         (data2) => { // Success
           this.mascotas = data2['result'];
-          console.log(data2);
+          this.mascotas = this.mascotas.filter(elem => elem._id==this.userId);
+          console.log(this.mascotas);
+          this.matchServiceApi.todosMisMatches()
+            .subscribe(
+              (data3) => {
+                this.allMatches = data3['match']
+                console.log(this.allMatches);
+              }
+            );
+              
         },
         (error) => {
           console.error(error);
