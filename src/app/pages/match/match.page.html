@@ -12,15 +12,16 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list>
+
     <ion-card *ngFor="let match of matches">
       
       <ion-card-header>
-        <ion-card-subtitle>{{ match.mascotaEmi.nombre }}</ion-card-subtitle>
+        <ion-card-subtitle>{{match.nombreEmisor }}</ion-card-subtitle>
         <ion-card-title>{{ match.estado | uppercase }}</ion-card-title>
       </ion-card-header>
    
     </ion-card>
-    <ion-card *ngFor="let pendiente of pendientes">
+    <!-- <ion-card *ngFor="let pendiente of pendientes">
       
       <ion-card-header>
         <ion-card-subtitle>{{ pendiente.emisor }}</ion-card-subtitle>
@@ -38,6 +39,6 @@
     
       </ion-card-header>
    
-    </ion-card>
+    </ion-card> -->
   </ion-list>
 </ion-content>
