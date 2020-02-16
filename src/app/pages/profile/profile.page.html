@@ -1,6 +1,3 @@
-
-
-
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
@@ -11,109 +8,139 @@
 </ion-header>
 
 <ion-content>
-  <div class="user-photo" >
+  <div class="user-photo">
 
-      <img src={{mascota.foto}}>
- 
+    <img src={{mascota.foto}}>
+
   </div>
 
-  <ion-list >
-      <ion-grid>
-          <ion-row>
-            <ion-col>
+  <ion-list>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
 
-                <ion-item text-center>
-                <ion-label>
-                  <h3 text-capitalize>{{mascota.nombre}}</h3>
-                </ion-label>
-              </ion-item>
+          <ion-item text-center>
+            <ion-label>
+              <h3 text-capitalize>{{mascota.nombre}}</h3>
+            </ion-label>
+          </ion-item>
 
-            </ion-col>
-          </ion-row>
-          <ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
 
-            <ion-col>
-              <ion-item>
-                <ion-label>
-                  <p>Raza</p>
-                  <h2>{{mascota.raza}}</h2>
-                </ion-label>
-              </ion-item>
-            </ion-col>              
+        <ion-col>
+          <ion-item>
+            <ion-label>
+              <p>Raza</p>
+              <h2>{{mascota.raza}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-col>
 
-          
-            <ion-col>
-              <ion-item>
-                <ion-label>
-                  <p>Sexo</p>
-                  <h2>{{mascota.sexo}}</h2>
-                </ion-label>
-              </ion-item>
-            </ion-col>
 
-            <ion-col>
-              <ion-item>
-                <ion-label>
-                  <p>Fecha de nacimiento</p>
-                  <h2>{{date}}</h2>
-                </ion-label>
-              </ion-item>
-            </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>
+              <p>Sexo</p>
+              <h2>{{mascota.sexo}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-col>
 
-          </ion-row>
-          <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>
+              <p>Fecha de nacimiento</p>
+              <h2>{{date}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-col>
 
-            <ion-col>
-              <ion-item>
-                <ion-label>
-                  <p>Ubicacion</p>
-                  <h2>{{mascota.ubicacion}}</h2>
-                 </ion-label>
-               </ion-item>
-            </ion-col>
+      </ion-row>
+      <ion-row>
 
-            <ion-col *ngIf="sex">
-              <ion-item >
-                <ion-label>
-                  <p>Pariciones</p>
-                  <h2>{{mascota.nroPariciones}}</h2>
-                </ion-label>
-              </ion-item>
-            </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>
+              <p>Ubicacion</p>
+              <h2>{{mascota.ubicacion}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-col>
 
-            <ion-col>
-              <ion-item [hidden]=!show>
-                <ion-label>
-                  <p>Pedigree</p>
-                  <ion-icon src="../assets/icon/certificate-icon.svg" slot="start"></ion-icon>
-                </ion-label>
-              </ion-item>
-            </ion-col>
+        <ion-col *ngIf="sex">
+          <ion-item>
+            <ion-label>
+              <p>Pariciones</p>
+              <h2>{{mascota.nroPariciones}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-col>
 
-            
+        <ion-col>
+          <ion-item [hidden]=!show>
+            <ion-label>
+              <p>Pedigree</p>
+              <ion-icon src="../assets/icon/certificate-icon.svg" slot="start"></ion-icon>
+            </ion-label>
+          </ion-item>
+        </ion-col>
 
-          </ion-row>
-          <ion-row>
 
-            <ion-col>
-              <ion-item>
-                <ion-icon src="../assets/icon/sobre-mi.svg" slot="start"></ion-icon>
-                  <ion-label>
-                    <p>Sobre Mi</p>
-                    <h2>{{mascota.descripcion}}</h2>
-                  </ion-label>
-                </ion-item>
-              </ion-col>
 
-            </ion-row>
-      </ion-grid>
+      </ion-row>
+      <ion-row>
+
+        <ion-col>
+          <ion-item>
+            <ion-icon src="../assets/icon/sobre-mi.svg" slot="start"></ion-icon>
+            <ion-label>
+              <p>Sobre Mi</p>
+              <h2>{{mascota.descripcion}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
 
 
   </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="mascota.amo!=userId" ></ion-fab>
-      
-      <ion-item *ngIf="(matchInfo) && (mascota.amo!= userId) && (matchInfo!='aceptado')">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="mascota.amo!=userId"></ion-fab>
+
+  <ion-item *ngIf="(mascota.amo!=userId && !!matchInfo)">
+
+
+    <ion-fab-button class="match-button" color="red" disabled="true">
+      <ion-icon *ngIf="matchInfo == 'aceptado' " class=paw-icon-aceptado name="paw"></ion-icon>
+      <ion-icon *ngIf="matchInfo == 'null' " class=paw-icon-null name="paw"></ion-icon>
+      <ion-icon *ngIf="matchInfo == 'pendiente' " class=paw-icon-pendiente name="paw"></ion-icon>
+      <ion-select class="ion-select" interface="popover" (ionChange)="match(mascota, $event)">
+        <ion-select-option *ngFor="let miMascota of misMascotas" value={{miMascota._id}}>{{ miMascota.nombre}}
+        </ion-select-option>
+      </ion-select>
+
+    </ion-fab-button>
+
+
+  </ion-item>
+  <ion-item *ngIf="!matchInfo">
+
+    <ion-fab-button class="match-button" color="red">
+      <ion-icon class=paw-icon-null name="paw"></ion-icon>
+      <ion-select class="ion-select" interface="popover" (ionChange)="match(mascota, $event)">
+
+        <ion-select-option *ngFor="let miMascota of misMascotas" value={{miMascota._id}}>{{ miMascota.nombre}}
+        </ion-select-option>
+      </ion-select>
+
+    </ion-fab-button>
+
+  </ion-item>
+
+  <!-- <ion-item *ngIf="(matchInfo) && (mascota.amo!= userId) && (matchInfo!='aceptado')">
         
           <ion-fab-button class="match-button" color="red" [disabled]="matchInfo =='pendiente'">
               <ion-icon *ngIf="matchInfo =='pendiente'" class = paw-icon-pendiente name="paw"></ion-icon>
@@ -136,6 +163,6 @@
             
         </ion-fab-button>
       
-    </ion-item>
-  
+    </ion-item> -->
+
 </ion-content>
