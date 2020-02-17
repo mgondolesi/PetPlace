@@ -12,7 +12,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list>
-    <ion-item>Sent:</ion-item>
+    <ion-item>Enviados:</ion-item>
     <ion-card *ngFor="let match of matches">
       
       <ion-card-header *ngIf= "match.esEmisor == true "> 
@@ -21,7 +21,7 @@
       </ion-card-header>
    
     </ion-card>
-    <ion-item>Received:</ion-item>
+    <ion-item>Recibidos:</ion-item>
     <ion-card *ngFor="let match of matches">
       
       <ion-card-header *ngIf= "match.esEmisor == false " > 
