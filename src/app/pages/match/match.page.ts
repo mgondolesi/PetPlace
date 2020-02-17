@@ -4,6 +4,7 @@ import { MatchFunctionsService } from 'src/app/services/match-functions.service'
 import { MascotaService } from 'src/app/services/mascota.service';
 import { Storage } from '@ionic/storage';
 import { Mascota } from 'src/model/mascota.model';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-match',
@@ -17,12 +18,14 @@ export class MatchPage implements OnInit {
   userId:string;
   mascotas : Mascota[] =[];
   allMascotas: any[] = [];
+  loading: boolean = true;
 
 
   constructor(private matchService: MatchService,
               private matchServiceFunctions: MatchFunctionsService,
               private storage: Storage,
-              private mascotaService: MascotaService) { }
+              private mascotaService: MascotaService,
+              private loadingService: LoadingService) { }
 
   ngOnInit() {
 
@@ -83,6 +86,8 @@ export class MatchPage implements OnInit {
       }
       )*/
       this.matchService.todosMisMatches().subscribe((res)=>{
+        this.loadingService.present;
+        
         console.log(res);
         this.matches = res['match'];
         this.mascotaService.getAllMascotas().subscribe((data)=>{
@@ -101,10 +106,13 @@ export class MatchPage implements OnInit {
           }
           Object.assign(match,{nombreEmisor:mascotaEmi[0].nombre});
           Object.assign(match,{nombreReceptor:mascotaRece[0].nombre});
+          console.log(mascotaEmi[0],mascotaRece[0])
+          this.loadingService.dismiss;
         })
   
       },(err)=>{
         console.log(err)
+        
       })
       
   }

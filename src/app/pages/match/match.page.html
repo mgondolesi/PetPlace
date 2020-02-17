@@ -16,26 +16,24 @@
     <ion-card *ngFor="let match of matches">
       
       <ion-card-header *ngIf= "match.esEmisor == true "> 
-        <ion-card-subtitle>{{match.nombreEmisor }} -> {{match.nombreReceptor }}</ion-card-subtitle>
-        <ion-card-title>{{ match.estado | uppercase }}</ion-card-title>
+        <ion-card-subtitle class="ion-text-capitalize">{{match.nombreEmisor }} → {{match.nombreReceptor }}</ion-card-subtitle>
+        <ion-card-title  class="ion-text-capitalize">{{ match.estado }}</ion-card-title>
       </ion-card-header>
    
     </ion-card>
     <ion-item>Received:</ion-item>
     <ion-card *ngFor="let match of matches">
       
-      <ion-card-header *ngIf= "match.esEmisor == false "> 
-        <ion-card-subtitle>{{match.nombreEmisor }} -> {{match.nombreReceptor }}</ion-card-subtitle>
-        <ion-card-title>{{ match.estado | uppercase }}</ion-card-title>
+      <ion-card-header *ngIf= "match.esEmisor == false " > 
+        <ion-card-subtitle class="ion-text-capitalize">{{match.nombreEmisor}} → {{match.nombreReceptor }}</ion-card-subtitle>
+        <ion-card-title class="ion-text-capitalize">{{ match.estado }}</ion-card-title>
         
-        
-        
-        <ion-fab-button size="small" style="float: right;" class="coso-red">
-        <ion-icon name="close-circle"  (click)="rechazar(match)"></ion-icon>
+        <ion-fab-button *ngIf= "match.estado == 'pendiente' " color="danger" size="small" style="float: right;">
+        <ion-icon name="close-outline"  (click)="rechazar(match)" ></ion-icon>
         </ion-fab-button>
     
-        <ion-fab-button size="small" style="float: right;" class="coso-green">
-        <ion-icon name="checkmark-circle" style="float: left;" (click)="aceptar(match)"></ion-icon>
+        <ion-fab-button *ngIf= "match.estado == 'pendiente' " color="success" size="small" style="float: right;">
+        <ion-icon name="checkmark-outline" style="float: left;" (click)="aceptar(match)" ></ion-icon>
         </ion-fab-button>
     
       </ion-card-header>
