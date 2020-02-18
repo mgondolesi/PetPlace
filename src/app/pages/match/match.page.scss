@@ -7,3 +7,12 @@
 .coso-white{
     color: white;
 }
+ion-card.rechazado {
+    border-right: 5px solid red;
+}
+ion-card.aceptado {
+    border-right: 5px solid rgb(0, 255, 0);
+}
+ion-card.pendiente {
+    border-right: 5px solid rgb(138, 136, 136);
+}

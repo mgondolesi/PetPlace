@@ -93,22 +93,22 @@ export class MatchPage implements OnInit {
         this.mascotaService.getAllMascotas().subscribe((data)=>{
           console.log(data)
           this.allMascotas = data['mascota'];
-                  
+          this.matches.forEach((match)=>{
+            let mascotaEmi = this.allMascotas.filter(elem=> elem._id == match.mascotaEmi)
+            let mascotaRece = this.allMascotas.filter(elem=> elem._id == match.mascotaRece)
+            console.log(mascotaEmi,mascotaRece);
+            if(match.emisor==this.userId) {
+              Object.assign(match,{esEmisor: true});
+            } else {
+              Object.assign(match,{esEmisor: false});
+            }
+            Object.assign(match,{nombreEmisor:mascotaEmi[0].nombre.charAt(0).toUpperCase()+mascotaEmi[0].nombre.slice(1)});
+            Object.assign(match,{nombreReceptor:mascotaRece[0].nombre.charAt(0).toUpperCase()+mascotaRece[0].nombre.slice(1)});
+            console.log(mascotaEmi[0],mascotaRece[0])
+            this.loadingService.dismiss;
+          })          
         })
-        this.matches.forEach((match)=>{
-          let mascotaEmi = this.allMascotas.filter(elem=> elem._id == match.mascotaEmi)
-          let mascotaRece = this.allMascotas.filter(elem=> elem._id == match.mascotaRece)
-          console.log(mascotaEmi,mascotaRece);
-          if(match.emisor==this.userId) {
-            Object.assign(match,{esEmisor: true});
-          } else {
-            Object.assign(match,{esEmisor: false});
-          }
-          Object.assign(match,{nombreEmisor:mascotaEmi[0].nombre});
-          Object.assign(match,{nombreReceptor:mascotaRece[0].nombre});
-          console.log(mascotaEmi[0],mascotaRece[0])
-          this.loadingService.dismiss;
-        })
+        
   
       },(err)=>{
         console.log(err)

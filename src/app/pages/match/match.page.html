@@ -13,20 +13,24 @@
   </ion-refresher>
   <ion-list>
     <ion-item>Enviados:</ion-item>
-    <ion-card *ngFor="let match of matches">
+    <ion-card *ngFor="let match of matches" [class.aceptado]="match.estado==='aceptado'" [class.rechazado]="match.estado==='rechazado'" [class.pendiente]="match.estado==='pendiente'">
       
       <ion-card-header *ngIf= "match.esEmisor == true "> 
-        <ion-card-subtitle class="ion-text-capitalize">{{match.nombreEmisor }} → {{match.nombreReceptor }}</ion-card-subtitle>
-        <ion-card-title  class="ion-text-capitalize">{{ match.estado }}</ion-card-title>
+        <ion-card-subtitle class="ion-text-capitalize">{{ match.estado }}</ion-card-subtitle>
+        <ion-card-title  style="font-size: initial" *ngIf= "match.estado == 'aceptado'" >{{match.nombreReceptor}} ha aceptado conocer a tu mascota {{match.nombreEmisor }}</ion-card-title>
+        <ion-card-title  style="font-size: initial" *ngIf= "match.estado == 'pendiente'" >Haz solicitado que {{match.nombreReceptor}} conozca a tu mascota {{match.nombreEmisor }}</ion-card-title>
+        <ion-card-title  style="font-size: initial" *ngIf= "match.estado == 'rechazado'" >{{match.nombreReceptor}} ha rechazado conocer a tu mascota {{match.nombreEmisor }}</ion-card-title>
       </ion-card-header>
    
     </ion-card>
     <ion-item>Recibidos:</ion-item>
-    <ion-card *ngFor="let match of matches">
+    <ion-card *ngFor="let match of matches" [class.aceptado]="match.estado==='aceptado'" [class.rechazado]="match.estado==='rechazado'" [class.pendiente]="match.estado==='pendiente'">
       
       <ion-card-header *ngIf= "match.esEmisor == false " > 
-        <ion-card-subtitle class="ion-text-capitalize">{{match.nombreEmisor}} → {{match.nombreReceptor }}</ion-card-subtitle>
-        <ion-card-title class="ion-text-capitalize">{{ match.estado }}</ion-card-title>
+        <ion-card-subtitle class="ion-text-capitalize">{{ match.estado }}</ion-card-subtitle>
+        <ion-card-title style="font-size: initial" *ngIf= "match.estado == 'pendiente'" >{{match.nombreEmisor}} quiere conocer a tu mascota {{match.nombreReceptor }}</ion-card-title>
+        <ion-card-title style="font-size: initial" *ngIf= "match.estado == 'aceptado'" >Haz aceptado que {{match.nombreEmisor}} conozca a tu mascota {{match.nombreReceptor }}</ion-card-title>
+        <ion-card-title style="font-size: initial" *ngIf= "match.estado == 'rechazado'" >Haz rechazado que {{match.nombreEmisor}} conozca a tu mascota {{match.nombreReceptor }}</ion-card-title>
         
         <ion-fab-button *ngIf= "match.estado == 'pendiente' " color="danger" size="small" style="float: right;">
         <ion-icon name="close"  (click)="rechazar(match)" ></ion-icon>
