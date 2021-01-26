@@ -5,6 +5,7 @@ import { MascotaService } from 'src/app/services/mascota.service';
 import { Storage } from '@ionic/storage';
 import { Mascota } from 'src/model/mascota.model';
 import { LoadingService } from 'src/app/services/loading.service';
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-match',
@@ -25,7 +26,8 @@ export class MatchPage implements OnInit {
               private matchServiceFunctions: MatchFunctionsService,
               private storage: Storage,
               private mascotaService: MascotaService,
-              private loadingService: LoadingService) { }
+              private loadingService: LoadingService,
+              public navCtrl: NavController) { }
 
   ngOnInit() {
 
@@ -118,9 +120,25 @@ export class MatchPage implements OnInit {
   }
  
   aceptar(match){
-        
-    this.matchServiceFunctions.aceptar(match);  //aceptar el match
-    
+    this.loadingService.present()
+
+    this.matchService.aceptar(match)  //aceptar el match
+        .subscribe(
+            (data) => { // Success
+              console.log(data);
+              this.loadingService.dismiss()
+              this.ngOnInit()
+
+            },
+            (error) => {
+              console.error(error);
+              this.loadingService.dismiss()
+              this.ngOnInit()
+
+            }
+        )
+    //this.matchServiceFunctions.aceptar(match);//aceptar el match
+
   }
 
   funcion(){
@@ -128,8 +146,21 @@ export class MatchPage implements OnInit {
   }
 
   rechazar(match){
-        
-    this.matchServiceFunctions.rechazar(match);  //rechaza el match
+    this.loadingService.present()
+    this.matchService.rechazar(match)  //rechaza el match
+        .subscribe(
+            (data) => { // Success
+              this.loadingService.dismiss()
+              console.log(data);
+              this.ngOnInit()
+            },
+            (error) => {
+              this.loadingService.dismiss()
+              console.error(error);
+              this.ngOnInit()
+            }
+        )
+   // this.matchServiceFunctions.rechazar(match);  //rechaza el match
   
   }
   
