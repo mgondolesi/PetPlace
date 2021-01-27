@@ -50,6 +50,7 @@ export class CreatePetPage implements OnInit {
     private fileChooser: FileChooser,
     private file: File,
 
+
   ) { 
     this.uploadText= "";
    }
@@ -94,9 +95,31 @@ export class CreatePetPage implements OnInit {
     console.log(this.file2);
   }
 
+    // getFileSize(fileUri) {
+    //     return new Promise(function(resolve, reject) {
+    //         window.resolveLocalFileSystemURL(fileUri, function(fileEntry) {
+    //                 fileEntry.file(function(fileObj) {
+    //                         resolve(fileObj.size);
+    //                     },
+    //                     function(err){
+    //                         reject(err);
+    //                     });
+    //             },
+    //             function(err){
+    //                 reject(err);
+    //             });
+    //     });
+    // }
+
+
+
   selectFile() {
     this.fileChooser.open().then((uri)=>{
         this.filePath.resolveNativePath(uri).then((navigatepath)=>{
+            this.file.checkDir(this.file.dataDirectory, uri)
+                .then(res => console.log(res))
+                .catch(err =>console.log('Directory doesnt exist'));
+
           this.fileTransfer = this.transfer.create();
           this.path= navigatepath;
           console.log("path: "+this.path);
@@ -135,8 +158,10 @@ export class CreatePetPage implements OnInit {
     return new Promise<any>((resolve)=>{ this.uploadFile().then((data)=>{
   
     console.log("la papa"+JSON.stringify(eval(data.response)).replace("\\", ""))
-    
-    var x = {
+
+
+
+        var x = {
       url: (JSON.stringify(eval(data.response)).replace("\\", ""))
       }
       console.log("la var: "+x.url);
