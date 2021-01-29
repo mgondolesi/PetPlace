@@ -1,40 +1,51 @@
 :host {
-    .user-photo ion-avatar {
-      margin: 0 auto;
-      width: 160px;
-      height: 160px;
+  .user-photo ion-avatar {
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+  }
+
+  ion-list {
+    margin-top: 24px;
+
+    p {
+      font-size: 12px;
+      font-weight: 400;
+      padding-bottom: 4px;
     }
-  
-    ion-list {
-      margin-top: 24px;
-      p {
-        font-size: 12px;
-        font-weight: 400;
-        padding-bottom: 4px;
-      };
-      h2 {
-        font-weight: 400;
-        opacity: .5;
-      };
-      h3 {
-        font-size: 20px;
-      }
+  ;
+
+    h2 {
+      font-weight: 400;
+      opacity: .5;
+    }
+  ;
+
+    h3 {
+      font-size: 20px;
     }
   }
-  .ion-select{
-    width: 0px;
-    height: 21px;
-    padding-left: 0px;
-    
 }
-.match-button{
-    margin-bottom: 10px;
-    
-   
+
+.ion-select {
+  width: 0px;
+  height: 21px;
+  padding-left: 0px;
+
 }
-.paw-icon-null{
-    color: #E37832 ;
+
+.match-button {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+
+
 }
-.paw-icon-pendiente{
-    color:#a2a4ab ;
+
+.paw-icon-null {
+  color: #E37832;
+}
+
+.paw-icon-pendiente {
+  color: #a2a4ab;
 }
